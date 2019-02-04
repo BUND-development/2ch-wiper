@@ -1,0 +1,187 @@
+/*
+@font-face {
+	font-family: Anime;
+	src: url(gui/fonts/Anime Ace v05.ttf);
+}
+*/
+
+/* ГУИ */
+QWidget {
+	color: black;
+	font-family: sans-serif;
+	font-size: 14px !important; /* размер шрифта */
+}
+GUI {
+	background: #363C42;
+}
+QLabel {
+	color: #C3C7C8;
+}
+
+
+/* Панель */
+#topBanner {
+	font-size: 20px !important;
+	padding: 10px;
+	qproperty-alignment: AlignTop;
+	background: #23272B;
+}
+
+.tool-button {
+	font-size: 16px !important;
+	color: #C3C7C8;
+	background-repeat: no-repeat;
+}
+.tool-button:hover {
+	font-weight: bold;
+}
+.tool-button:pressed {
+	color: white;
+}
+.tool-button:checked {
+	border-color: red;
+}
+.peedor-button {
+	font-size: 20px;
+	font-weight: bold;
+	background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #FD8585, stop:1 #FA5D5D);
+	border-radius: 3px;
+}
+.peedor-button:hover {
+	color: white;
+}
+#helpButton:hover, #musicButton:hover {
+	background-color: #C3C7C8;
+	border-radius: 12px;
+}
+#helpButton {
+	background-image: url(gui/images/chan_button.png);
+}
+#musicButton {
+	background-image: url(gui/images/sound-off.png);
+}
+#musicButton:checked {
+	background-image: url(gui/images/sound-on.png);
+}
+
+
+/* Вайп-тян */
+#backBanner {
+	background: url(gui/logo.png);
+	margin-top: -50px;
+}
+#chan {
+	background: url(gui/Wipe-chan/image.png);
+	background-repeat: no-repeat;
+	margin: -0px -120px;
+}
+#blockquote {
+	color: #C3C7C8;
+	font-family: "Anime Ace v05";
+	font-size: 12px !important;
+	padding: 3px 5px;
+	background: #363C42;
+	border: 5px solid #588E9B;
+	border-radius: 10px;
+}
+
+
+/* Кнопка старта */
+#startButton {
+	color: #363C42;
+	font-size: 35px !important;
+	font-weight: bold;
+	background: #23272B;
+}
+#startButton:hover {
+	color: #6A9ACD;
+}
+#startButton:pressed {
+	background: gray;
+}
+
+
+/* Формы */
+.gui-frame {
+	background: #23272B;
+}
+.gui-frame-header {
+	color: #C8C8C8;
+	font-size: 20px;
+	text-transform: uppercase;
+}
+#mainBox, #shrapnelBox {
+	border-top: 1px solid #363C42;
+}
+#textBox, #triggerBox, #chaosBox {
+	border-bottom: 1px solid #363C42;
+}
+#triggerBox {
+	border-left: 1px solid #363C42;
+}
+#shackalBox {
+	border: none;
+	background: #363C42;
+}
+
+#triggerLabel, #chaining, #randTrigger, #shashlik, #oppost, #notrigger {
+	padding-left: 20px;
+}
+
+
+/* Элементы форм */
+QRadioButton, QCheckBox {
+	color: #C3C7C8;
+}
+QRadioButton::indicator {
+	image: url(gui/styles/metro/radio.png);
+}
+QRadioButton::indicator:hover {
+	image: url(gui/styles/metro/radio-hover.png);
+}
+QRadioButton::indicator:pressed {
+	image: url(gui/styles/metro/radio-pressed.png);
+}
+QRadioButton::indicator:checked {
+	image: url(gui/styles/metro/radio-checked.png);
+}
+QRadioButton::indicator:checked:hover {
+	image: url(gui/styles/metro/radio-checked-hover.png);
+}
+QRadioButton::indicator:checked:pressed {
+	image: url(gui/styles/metro/radio-pressed.png);
+}
+
+QCheckBox::indicator {
+	image: url(gui/styles/metro/checkbox.png);
+}
+QCheckBox::indicator:hover {
+	image: url(gui/styles/metro/checkbox-hover.png);
+}
+QCheckBox::indicator:pressed {
+	image: url(gui/styles/metro/checkbox-pressed.png);
+}
+QCheckBox::indicator:checked {
+	image: url(gui/styles/metro/checkbox-checked.png);
+}
+QCheckBox::indicator:checked:hover {
+	image: url(gui/styles/metro/checkbox-checked-hover.png);
+}
+QCheckBox::indicator:checked:pressed {
+	image: url(gui/styles/metro/checkbox-pressed.png);
+}
+
+QRadioButton:disabled, QCheckBox:disabled {
+	color: gray;
+}
+
+QLineEdit, QComboBox, QSpinBox, QMenu, QComboBox *, QSpinBox * {
+	color: #C8C8C8;
+	background: #293038;
+}
+QLineEdit:focus, QComboBox:focus {
+	border: 1px ridge #588E9B;
+}
+QLineEdit:disabled, QComboBox:disabled, QSpinBox:disabled {
+	background: #363C42;
+}

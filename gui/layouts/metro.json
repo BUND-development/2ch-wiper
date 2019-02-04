@@ -1,0 +1,900 @@
+{
+
+"GUI": {
+	"width": 1400,
+	"height": 750
+},
+
+
+"top_banner": {
+	"x": 1185,
+	"y": 15,
+	"width": 200,
+	"height": 310,
+	"text": "<html><head/><body><p>INFO<br><sub>GUI ver: 2.5</sub></p></body></html>"
+},
+"help_button": {
+	"x": 1360,
+	"y": 275,
+	"width": 25,
+	"height": 25
+},
+"peedor_bar_button": {
+	"x": 0,
+	"y": 0,
+	"width": 0,
+	"height": 0
+},
+"music_button": {
+	"x": 1360,
+	"y": 300,
+	"width": 25,
+	"height": 25
+},
+"open_config_button": {
+	"x": 1185,
+	"y": 275,
+	"width": 170,
+	"height": 25,
+	"text": "Open config...     "
+},
+"save_config_button": {
+	"x": 1184,
+	"y": 300,
+	"width": 170,
+	"height": 25,
+	"text": "Save config...     "
+},
+"username_label": {
+	"x": 1205,
+	"y": 115,
+	"width": 160,
+	"height": 20,
+	"text": "Username:"
+},
+"username": {
+	"x": 1205,
+	"y": 135,
+	"width": 160,
+	"height": 30
+},
+"password_label": {
+	"x": 1205,
+	"y": 175,
+	"width": 160,
+	"height": 20,
+	"text": "password"
+},
+"password": {
+	"x": 1205,
+	"y": 195,
+	"width": 160,
+	"height": 30
+},
+"roll_up_button": {
+	"x": 1139,
+	"y": 0,
+	"width": 0,
+	"height": 0,
+	"text": "-"
+},
+"close_button": {
+	"x": 1220,
+	"y": 0,
+	"width": 0,
+	"height": 0,
+	"text": "X"
+},
+
+
+"main_set": {
+	"x": 15,
+	"y": 15,
+	"width": 380,
+	"height": 250
+},
+"main_set_header": {
+	"x": 35,
+	"y": 35,
+	"width": 340,
+	"height": 20,
+	"text": "Main settings"
+},
+
+"mode_box": {
+	"x": 20,
+	"y": 50,
+	"width": 340,
+	"height": 40
+},
+"mode_label": {
+	"x": 0,
+	"y": 0,
+	"width": 0,
+	"height": 0
+},
+"main_mode": {
+	"x": 0,
+	"y": 10,
+	"width": 170,
+	"height": 20,
+	"text": "Main mode"
+},
+"shrapnel_mode": {
+	"x": 170,
+	"y": 10,
+	"width": 170,
+	"height": 20,
+	"text": "Shrapnel mode"
+},
+
+"main_box": {
+	"x": 40,
+	"y": 90,
+	"width": 300,
+	"height": 110,
+	"disable": true,
+	"disabled": true,
+	"hiding": true,
+	"hidden": false
+},
+"board_label": {
+	"x": 10,
+	"y": 10,
+	"width": 140,
+	"height": 25,
+	"text": "Board index:"
+},
+"board": {
+	"x": 150,
+	"y": 10,
+	"width": 140,
+	"height": 25,
+	"text": "b"
+},
+"thread_label": {
+	"x": 10,
+	"y": 40,
+	"width": 140,
+	"height": 25,
+	"text": "Thread №:"
+},
+"thread": {
+	"x": 150,
+	"y": 40,
+	"width": 140,
+	"height": 25,
+	"text": "0"
+},
+"fibers_label": {
+	"x": 10,
+	"y": 70,
+	"width": 140,
+	"height": 25,
+	"text": "Fibers:"
+},
+"fibers": {
+	"x": 150,
+	"y": 70,
+	"width": 140,
+	"height": 25,
+	"text": "0"
+},
+
+"shrapnel_box": {
+	"x": 40,
+	"y": 90,
+	"width": 300,
+	"height": 140,
+	"disable": true,
+	"disabled": true,
+	"hiding": true,
+	"hidden": true
+},
+"shrapnel_board_label": {
+	"x": 10,
+	"y": 10,
+	"width": 140,
+	"height": 25,
+	"text": "Board index:"
+},
+"shrapnel_board": {
+	"x": 150,
+	"y": 10,
+	"width": 140,
+	"height": 25,
+	"text": "b"
+},
+"threads_label": {
+	"x": 10,
+	"y": 40,
+	"width": 140,
+	"height": 25,
+	"text": "Threads:"
+},
+"threads": {
+	"x": 150,
+	"y": 40,
+	"width": 140,
+	"height": 25
+},
+"min_posts_label": {
+	"x": 10,
+	"y": 70,
+	"width": 140,
+	"height": 25,
+	"text": "Posts count >"
+},
+"min_posts": {
+	"x": 150,
+	"y": 70,
+	"width": 140,
+	"height": 25,
+	"text": "0"
+},
+"shrapnel_fibers_label": {
+	"x": 10,
+	"y": 100,
+	"width": 140,
+	"height": 25,
+	"text": "Fibers:"
+},
+"shrapnel_fibers": {
+	"x": 150,
+	"y": 100,
+	"width": 140,
+	"height": 25,
+	"text": "0"
+},
+
+
+"solver_set": {
+	"x": 405,
+	"y": 15,
+	"width": 380,
+	"height": 250
+},
+"solver_set_header": {
+	"x": 425,
+	"y": 35,
+	"width": 340,
+	"height": 20,
+	"text": "Captcha solver"
+},
+
+"solver_box": {
+	"x": 20,
+	"y": 50,
+	"width": 340,
+	"height": 70
+},
+"solver_label": {
+	"x": 0,
+	"y": 0,
+	"width": 0,
+	"height": 0,
+	"text": "Solver:"
+},
+"anticaptcha": {
+	"x": 0,
+	"y": 10,
+	"width": 180,
+	"height": 20,
+	"text": "Anticaptcha"
+},
+"guro-captcha": {
+	"x": 0,
+	"y": 40,
+	"width": 180,
+	"height": 20,
+	"text": "Guro-captcha"
+},
+"x-captcha": {
+	"x": 180,
+	"y": 10,
+	"width": 180,
+	"height": 20,
+	"text": "X-captcha"
+},
+"reserved": {
+	"x": 180,
+	"y": 40,
+	"width": 180,
+	"height": 20,
+	"text": "(reserved)",
+	"disable": true
+},
+
+"key_box": {
+	"x": 26,
+	"y": 150,
+	"width": 328,
+	"height": 70
+},
+"key_label": {
+	"x": 20,
+	"y": 130,
+	"width": 340,
+	"height": 25,
+	"text": " Solver key:"
+},
+"key": {
+	"x": 0,
+	"y": 10,
+	"width": 328,
+	"height": 25,
+	"disable": true,
+	"disabled": true,
+	"hiding": false,
+	"hidden": false
+},
+"server_key": {
+	"x": 0,
+	"y": 40,
+	"width": 328,
+	"height": 25,
+	"text": "Get key from bund-server",
+	"checked": true
+},
+
+
+"post_set": {
+	"x": 15,
+	"y": 275,
+	"width": 380,
+	"height": 460
+},
+"post_set_header": {
+	"x": 35,
+	"y": 295,
+	"width": 340,
+	"height": 20,
+	"text": "Post settings"
+},
+
+"repeats_label": {
+	"x": 20,
+	"y": 50,
+	"width": 160,
+	"height": 25,
+	"text": "Proxy list loops:"
+},
+"repeats": {
+	"x": 170,
+	"y": 50,
+	"width": 50,
+	"height": 25,
+	"value": 100
+},
+
+"text_box": {
+	"x": 20,
+	"y": 100,
+	"width": 170,
+	"height": 170
+},
+"text_label": {
+	"x": 20,
+	"y": 80,
+	"width": 170,
+	"height": 25,
+	"text": "Content:"
+},
+"no_text": {
+	"x": 0,
+	"y": 10,
+	"width": 170,
+	"height": 25,
+	"text": "No text"
+},
+"quoting": {
+	"x": 0,
+	"y": 40,
+	"width": 170,
+	"height": 25,
+	"text": "Quoting posts"
+},
+"copying": {
+	"x": 0,
+	"y": 70,
+	"width": 170,
+	"height": 25,
+	"text": "Copyint posts"
+},
+"overload": {
+	"x": 0,
+	"y": 0,
+	"width": 0,
+	"height": 0,
+	"text": "Browser overload"
+},
+"pastes": {
+	"x": 0,
+	"y": 100,
+	"width": 170,
+	"height": 25,
+	"text": "Text from file"
+},
+"complain": {
+	"x": 0,
+	"y": 0,
+	"width": 0,
+	"height": 0,
+	"text": "Complain o' wipe"
+},
+"random": {
+	"x": 0,
+	"y": 130,
+	"width": 170,
+	"height": 25,
+	"text": "Random text"
+},
+
+"trigger_box": {
+	"x": 190,
+	"y": 110,
+	"width": 170,
+	"height": 160,
+	"disable": false,
+	"disabled": false,
+	"hiding": false,
+	"hidden": false
+},
+"trigger_label": {
+	"x": 190,
+	"y": 80,
+	"width": 170,
+	"height": 25,
+	"text": "Trigger mode:",
+	"hiding": false,
+	"hidden": false
+},
+"chaining": {
+	"x": 0,
+	"y": 0,
+	"width": 170,
+	"height": 25,
+	"text": "Chaining posts"
+},
+"random_trigger": {
+	"x": 0,
+	"y": 30,
+	"width": 170,
+	"height": 25,
+	"text": "Random"
+},
+"shashlik": {
+	"x": 0,
+	"y": 60,
+	"width": 170,
+	"height": 25,
+	"text": "Multiple post"
+},
+"op-post_trigger": {
+	"x": 0,
+	"y": 90,
+	"width": 170,
+	"height": 25,
+	"text": "OP-post answer"
+},
+"no_trigger": {
+	"x": 0,
+	"y": 120,
+	"width": 170,
+	"height": 25,
+	"text": "No trigger"
+},
+
+"complain_box": {
+	"x": 170,
+	"y": 110,
+	"width": 160,
+	"height": 110,
+	"disable": true,
+	"disabled": true,
+	"hiding": true,
+	"hidden": true
+},
+"complain_label": {
+	"x": 180,
+	"y": 80,
+	"width": 140,
+	"height": 25,
+	"text": "Complain settings:",
+	"hiding": true,
+	"hidden": true
+},
+"complain_board_label": {
+	"x": 10,
+	"y": 0,
+	"width": 140,
+	"height": 25,
+	"text": "Board index:"
+},
+"complain_board": {
+	"x": 10,
+	"y": 20,
+	"width": 140,
+	"height": 25,
+	"text": "b"
+},
+"links_count_label": {
+	"x": 10,
+	"y": 50,
+	"width": 100,
+	"height": 25,
+	"text": "Links count:"
+},
+"links_count": {
+	"x": 110,
+	"y": 50,
+	"width": 40,
+	"height": 25,
+	"text": "10"
+},
+"with_posts": {
+	"x": 10,
+	"y": 80,
+	"width": 140,
+	"height": 20,
+	"text": "With posts"
+},
+
+"chaos_box": {
+	"x": 20,
+	"y": 270,
+	"width": 340,
+	"height": 80
+},
+"chaos_label": {
+	"x": 0,
+	"y": 0,
+	"width": 0,
+	"height": 0
+},
+"chaos": {
+	"x": 6,
+	"y": 10,
+	"width": 170,
+	"height": 25,
+	"text": " Chaos mode"
+},
+"random_chaos": {
+	"x": 176,
+	"y": 10,
+	"width": 170,
+	"height": 25,
+	"text": " Random chaos",
+	"disable": true,
+	"disabled": true
+},
+"target_label": {
+	"x": 0,
+	"y": 40,
+	"width": 176,
+	"height": 25,
+	"text": "Destination thread №:",
+	"disable": true,
+	"disabled": true
+},
+"target": {
+	"x": 176,
+	"y": 40,
+	"width": 145,
+	"height": 25,
+	"disable": true,
+	"disabled": true
+},
+
+"sage": {
+	"x": 26,
+	"y": 360,
+	"width": 300,
+	"height": 20,
+	"text": "Use SAGE"
+},
+"sage_box": {
+	"x": 20,
+	"y": 380,
+	"width": 340,
+	"height": 40,
+	"disable": true,
+	"disabled": true,
+	"hiding": false,
+	"hidden": false
+},
+"sage_always": {
+	"x": 20,
+	"y": 10,
+	"width": 150,
+	"height": 25,
+	"text": "Always"
+},
+"sage_from_posts": {
+	"x": 170,
+	"y": 10,
+	"width": 150,
+	"height": 25,
+	"text": "From posts"
+},
+
+
+"media_set": {
+	"x": 405,
+	"y": 275,
+	"width": 380,
+	"height": 460
+},
+"media_set_header": {
+	"x": 425,
+	"y": 295,
+	"width": 340,
+	"height": 20,
+	"text": "Media"
+},
+
+"media_box": {
+	"x": 20,
+	"y": 50,
+	"width": 340,
+	"height": 370
+},
+"media_label": {
+	"x": 0,
+	"y": 0,
+	"width": 0,
+	"height": 0
+},
+"images": {
+	"x": 0,
+	"y": 0,
+	"width": 170,
+	"height": 25,
+	"text": "Images"
+},
+"images_count_label": {
+	"x": 170,
+	"y": 0,
+	"width": 130,
+	"height": 25,
+	"text": "Per post:",
+	"disable": true,
+	"disabled": true
+},
+"images_count": {
+	"x": 300,
+	"y": 0,
+	"width": 40,
+	"height": 25,
+	"value": 1,
+	"disable": true,
+	"disabled": true
+},
+"images_folder_label": {
+	"x": 30,
+	"y": 30,
+	"width": 140,
+	"height": 25,
+	"text": "From subfolder:",
+	"disable": true,
+	"disabled": true
+},
+"images_folder": {
+	"x": 170,
+	"y": 30,
+	"width": 170,
+	"height": 25,
+	"disable": true,
+	"disabled": true
+},
+"videos": {
+	"x": 0,
+	"y": 60,
+	"width": 120,
+	"height": 25,
+	"text": "Videos"
+},
+"videos_count_label": {
+	"x": 170,
+	"y": 60,
+	"width": 130,
+	"height": 25,
+	"text": "Per post:",
+	"disable": true,
+	"disabled": true
+},
+"videos_count": {
+	"x": 300,
+	"y": 60,
+	"width": 40,
+	"height": 25,
+	"value": 1,
+	"disable": true,
+	"disabled": true
+},
+"videos_folder_label": {
+	"x": 30,
+	"y": 90,
+	"width": 140,
+	"height": 25,
+	"text": "From subfolder:",
+	"disable": true,
+	"disabled": true
+},
+"videos_folder": {
+	"x": 170,
+	"y": 90,
+	"width": 170,
+	"height": 25,
+	"disable": true,
+	"disabled": true
+},
+"medias_from_posts": {
+	"x": 0,
+	"y": 120,
+	"width": 240,
+	"height": 25,
+	"text": "Media from posts"
+},
+"no_media": {
+	"x": 0,
+	"y": 340,
+	"width": 240,
+	"height": 25,
+	"text": "Nothing"
+},
+
+"shackal_box": {
+	"x": 20,
+	"y": 220,
+	"width": 340,
+	"height": 150,
+	"disable": true,
+	"disabled": true,
+	"hiding": false,
+	"hidden": false
+},
+"shackal_degree_label": {
+	"x": 30,
+	"y": 20,
+	"width": 280,
+	"height": 25,
+	"text": "Image distortion degree:"
+},
+"shackal_degree": {
+	"x": 30,
+	"y": 45,
+	"width": 280,
+	"height": 20
+},
+"colorization": {
+	"x": 30,
+	"y": 70,
+	"width": 280,
+	"height": 20,
+	"text": "Colorization"
+},
+"affine": {
+	"x": 30,
+	"y": 90,
+	"width": 280,
+	"height": 20,
+	"text": "Affine transformation"
+},
+"to_PNG": {
+	"x": 30,
+	"y": 110,
+	"width": 280,
+	"height": 20,
+	"text": "Convert to PNG"
+},
+
+
+"stats": {
+	"x": 795,
+	"y": 15,
+	"width": 380,
+	"height": 250
+},
+"stats_header": {
+	"x": 815,
+	"y": 35,
+	"width": 340,
+	"height": 20,
+	"text": "Statistics"
+},
+"total_posts_label": {
+	"x": 25,
+	"y": 50,
+	"width": 140,
+	"height": 30,
+	"text": "Total posts:"
+},
+"total_posts": {
+	"x": 170,
+	"y": 50,
+	"width": 100,
+	"height": 30,
+	"digits_count": 6
+},
+"total_posts_LCD": {},
+"total_bans_label": {
+	"x": 25,
+	"y": 80,
+	"width": 140,
+	"height": 30,
+	"text": "Total bans:"
+},
+"total_bans": {
+	"x": 170,
+	"y": 80,
+	"width": 100,
+	"height": 30,
+	"digits_count": 6
+},
+"total_bans_LCD": {},
+"posts_label": {
+	"x": 25,
+	"y": 110,
+	"width": 140,
+	"height": 30,
+	"text": "Last posts:"
+},
+"posts": {
+	"x": 170,
+	"y": 110,
+	"width": 100,
+	"height": 30,
+	"digits_count": 6
+},
+"posts_LCD": {},
+"proxies_label": {
+	"x": 25,
+	"y": 140,
+	"width": 140,
+	"height": 30,
+	"text": "Proxies:"
+},
+"proxies": {
+	"x": 170,
+	"y": 140,
+	"width": 100,
+	"height": 30,
+	"digits_count": 6
+},
+"proxies_LCD": {},
+
+
+"back_banner": {
+	"x": 1045,
+	"y": 585,
+	"width": 340,
+	"height": 150
+},
+"anima": {
+	"x": 795,
+	"y": 335,
+	"width": 470,
+	"height": 240
+},
+"Wipe-chan": {
+	"x": 795,
+	"y": 335,
+	"width": 590,
+	"height": 415
+},
+"blockquote": {
+	"x": 250,
+	"y": 10,
+	"width": 340,
+	"height": 30
+},
+"start_button": {
+	"x": 795,
+	"y": 275,
+	"width": 380,
+	"height": 50,
+	"text": "START"
+}
+
+}

@@ -1,0 +1,3976 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GUI</class>
+ <widget class="QMainWindow" name="GUI">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1300</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1300</width>
+    <height>700</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1300</width>
+    <height>700</height>
+   </size>
+  </property>
+  <property name="mouseTracking">
+   <bool>true</bool>
+  </property>
+  <property name="windowTitle">
+   <string notr="true">GUI</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icon.qrc">
+    <normaloff>:/b.ico</normaloff>:/b.ico</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QPushButton" name="startButton">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>500</y>
+      <width>300</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>25</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="text">
+     <string>START</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="closeButton">
+    <property name="geometry">
+     <rect>
+      <x>1220</x>
+      <y>0</y>
+      <width>80</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>X</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>peedor-button</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rollUpButton">
+    <property name="geometry">
+     <rect>
+      <x>1139</x>
+      <y>0</y>
+      <width>80</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>-</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="class" stdset="0">
+     <string>peedor-button</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="topBanner">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1300</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>30</pointsize>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;BUND SCRIPT GUI &lt;span style=&quot; vertical-align:super;&quot;&gt;v2.2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>false</bool>
+    </property>
+    <property name="openExternalLinks">
+     <bool>false</bool>
+    </property>
+    <property name="class" stdset="0">
+     <string>banner</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="openButton">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>0</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Open config...</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>tool-button</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="saveButton">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>30</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Save config...</string>
+    </property>
+    <property name="class" stdset="0">
+     <string>tool-button</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="peedorBarButton">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>0</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="class" stdset="0">
+     <string>tool-button</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="musicButton">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="class" stdset="0">
+     <string>tool-button</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="anima">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>460</y>
+      <width>470</width>
+      <height>240</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="backBanner">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>560</y>
+      <width>300</width>
+      <height>130</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="class" stdset="0">
+     <string>banner</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="helpButton">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>30</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="class" stdset="0">
+     <string>tool-button</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="username">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>30</y>
+      <width>150</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="maxLength">
+     <number>64</number>
+    </property>
+    <property name="frame">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="usernameLabel">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>0</y>
+      <width>200</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Username:</string>
+    </property>
+   </widget>
+   <widget class="Wipechan" name="chan">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>310</y>
+      <width>640</width>
+      <height>390</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPlainTextEdit" name="blockquote">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>10</y>
+       <width>300</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="mainSet">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>300</width>
+      <height>240</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <property name="class" stdset="0">
+     <string>gui-frame form</string>
+    </property>
+    <widget class="QFrame" name="mainBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>280</width>
+       <height>110</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <property name="class" stdset="0">
+      <string>form-box</string>
+     </property>
+     <widget class="QLineEdit" name="fibers">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>70</y>
+        <width>120</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Число потоков</string>
+      </property>
+      <property name="placeholderText">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="thread">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>40</y>
+        <width>120</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Тред</string>
+      </property>
+      <property name="inputMask">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="fibersLabel">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>70</y>
+        <width>120</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Potocks count:</string>
+      </property>
+      <property name="buddy">
+       <cstring>fibers</cstring>
+      </property>
+     </widget>
+     <widget class="QLabel" name="threadLabel">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>40</y>
+        <width>120</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Thread №:</string>
+      </property>
+      <property name="buddy">
+       <cstring>thread</cstring>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="board">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>10</y>
+        <width>120</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Доска</string>
+      </property>
+      <property name="editable">
+       <bool>true</bool>
+      </property>
+      <property name="currentText">
+       <string>b</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>b</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>d</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>media</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>r</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>soc</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>au</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>bi</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>biz</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>bo</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>c</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>cc</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>em</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fiz</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fl</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ftb</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>hi</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>me</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>mg</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>mov</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>mu</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ne</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>o</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>psy</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>re</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>rf</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>sci</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>sf</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>sn</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>sp</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>spc</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>tv</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>un</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>w</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>wh</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>wm</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>zog</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>de</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>di</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>diy</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>mus</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>p</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>pa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>wp</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>wrk</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>news</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>po</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>gd</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>hw</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>mobi</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>pr</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ra</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>s</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>t</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>bg</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>cg</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>mmo</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>moba</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>pok</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ruvn</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>tes</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>v</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>vg</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>wr</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>a</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fd</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ja</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ma</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>vn</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>e</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fag</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fet</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fg</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fur</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ga</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>gg</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>guro</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>h</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>hc</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>sex</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>vape</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="boardLabel">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>120</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Board index:</string>
+      </property>
+      <property name="buddy">
+       <cstring>board</cstring>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="shrapnelBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>280</width>
+       <height>140</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <property name="class" stdset="0">
+      <string>form-box</string>
+     </property>
+     <widget class="QLineEdit" name="shrapnelFibers">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>100</y>
+        <width>120</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Число потоков</string>
+      </property>
+      <property name="placeholderText">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="shrapnelBoard">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>10</y>
+        <width>120</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Доска</string>
+      </property>
+      <property name="editable">
+       <bool>true</bool>
+      </property>
+      <property name="currentText">
+       <string>b</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>b</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>d</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>media</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>r</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>soc</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>au</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>bi</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>biz</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>bo</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>c</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>cc</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>em</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fiz</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fl</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ftb</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>hi</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>me</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>mg</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>mov</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>mu</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ne</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>o</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>psy</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>re</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>rf</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>sci</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>sf</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>sn</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>sp</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>spc</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>tv</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>un</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>w</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>wh</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>wm</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>zog</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>de</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>di</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>diy</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>mus</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>p</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>pa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>wp</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>wrk</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>news</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>po</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>gd</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>hw</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>mobi</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>pr</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ra</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>s</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>t</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>bg</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>cg</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>mmo</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>moba</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>pok</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ruvn</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>tes</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>v</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>vg</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>wr</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>a</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fd</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ja</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ma</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>vn</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>e</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fag</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fet</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fg</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fur</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ga</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>gg</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>guro</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>h</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>hc</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>sex</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>vape</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="shrapnelFibersLabel">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>100</y>
+        <width>120</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Potocks count:</string>
+      </property>
+      <property name="buddy">
+       <cstring>shrapnelFibers</cstring>
+      </property>
+     </widget>
+     <widget class="QLabel" name="shrapnelBoardLabel">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>120</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Board index:</string>
+      </property>
+      <property name="buddy">
+       <cstring>shrapnelBoard</cstring>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="threads">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>40</y>
+        <width>120</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Число тредов</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="minPosts">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>70</y>
+        <width>120</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Нижний порог числа постов в отбираемых тредах</string>
+      </property>
+      <property name="placeholderText">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="minPostsLabel">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>70</y>
+        <width>120</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Posts count &gt;</string>
+      </property>
+      <property name="buddy">
+       <cstring>minPosts</cstring>
+      </property>
+     </widget>
+     <widget class="QLabel" name="threadsLabel">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>40</y>
+        <width>120</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Threads count:</string>
+      </property>
+      <property name="buddy">
+       <cstring>threads</cstring>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="modeBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>280</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <property name="lineWidth">
+      <number>1</number>
+     </property>
+     <property name="midLineWidth">
+      <number>0</number>
+     </property>
+     <property name="class" stdset="0">
+      <string>form-box</string>
+     </property>
+     <widget class="QRadioButton" name="shrapnelMode">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>10</y>
+        <width>140</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Shrapnel mode</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="mainMode">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>140</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Main mode</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup</string>
+      </attribute>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="solverSet">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>70</y>
+      <width>300</width>
+      <height>240</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <property name="class" stdset="0">
+     <string>gui-frame form</string>
+    </property>
+    <widget class="QFrame" name="solverBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>280</width>
+       <height>70</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <property name="class" stdset="0">
+      <string>form-box</string>
+     </property>
+     <widget class="QRadioButton" name="gurocaptcha">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>40</y>
+        <width>140</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Guro-captcha</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_2</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="anticaptcha">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>140</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Anticaptcha</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_2</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="reserved">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>40</y>
+        <width>140</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>(reserved)</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_2</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="x_captcha">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>10</y>
+        <width>140</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>X-Captcha</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_2</string>
+      </attribute>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="keyBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>160</y>
+       <width>280</width>
+       <height>70</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <property name="class" stdset="0">
+      <string>form-box</string>
+     </property>
+     <widget class="QCheckBox" name="serverKey">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>45</y>
+        <width>280</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Parse key from bund-server</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="key">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>280</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="solverLabel">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>280</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Solver:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="keyLabel">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>140</y>
+       <width>280</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Solver key:</string>
+     </property>
+     <property name="buddy">
+      <cstring>key</cstring>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="postSet">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>70</y>
+      <width>300</width>
+      <height>420</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <property name="class" stdset="0">
+     <string>gui-frame form</string>
+    </property>
+    <widget class="QFrame" name="complainBox">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>110</y>
+       <width>140</width>
+       <height>110</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <property name="lineWidth">
+      <number>1</number>
+     </property>
+     <property name="midLineWidth">
+      <number>0</number>
+     </property>
+     <property name="class" stdset="0">
+      <string>form-box</string>
+     </property>
+     <widget class="QLabel" name="complainBoardLabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>120</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Board index:</string>
+      </property>
+      <property name="buddy">
+       <cstring>board</cstring>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="complainBoard">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>120</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Доска, на которую жаловаться</string>
+      </property>
+      <property name="editable">
+       <bool>true</bool>
+      </property>
+      <property name="currentText">
+       <string>b</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>b</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>d</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>media</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>r</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>soc</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>au</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>bi</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>biz</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>bo</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>c</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>cc</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>em</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fiz</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fl</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ftb</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>hi</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>me</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>mg</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>mov</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>mu</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ne</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>o</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>psy</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>re</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>rf</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>sci</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>sf</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>sn</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>sp</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>spc</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>tv</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>un</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>w</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>wh</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>wm</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>zog</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>de</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>di</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>diy</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>mus</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>p</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>pa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>wp</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>wrk</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>news</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>po</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>gd</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>hw</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>mobi</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>pr</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ra</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>s</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>t</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>bg</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>cg</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>mmo</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>moba</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>pok</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ruvn</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>tes</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>v</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>vg</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>wr</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>a</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fd</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ja</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ma</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>vn</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>e</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fag</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fet</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fg</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>fur</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ga</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>gg</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>guro</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>h</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>hc</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>sex</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>vape</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QSpinBox" name="linksCount">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>50</y>
+        <width>40</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>Максимальное число ссылок в жалобе</string>
+      </property>
+      <property name="suffix">
+       <string/>
+      </property>
+      <property name="prefix">
+       <string/>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>50</number>
+      </property>
+      <property name="value">
+       <number>10</number>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="withPosts">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>80</y>
+        <width>120</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Приписывать к ссылкам номера постов из тредов</string>
+      </property>
+      <property name="text">
+       <string>With posts</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="linksCountLabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>80</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Links count:</string>
+      </property>
+      <property name="buddy">
+       <cstring>board</cstring>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="repeatsLabel">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>50</y>
+       <width>110</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Proxy list loops:</string>
+     </property>
+    </widget>
+    <widget class="QFrame" name="chaosBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>260</y>
+       <width>280</width>
+       <height>70</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <property name="lineWidth">
+      <number>1</number>
+     </property>
+     <property name="class" stdset="0">
+      <string>form-box</string>
+     </property>
+     <widget class="QCheckBox" name="chaos">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>140</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string/>
+      </property>
+      <property name="text">
+       <string>Chaos mode</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="target">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>40</y>
+        <width>120</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Слить все посты в один тред</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="targetLabel">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>40</y>
+        <width>120</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Paste to thread:</string>
+      </property>
+      <property name="buddy">
+       <cstring>target</cstring>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="randChaos">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>10</y>
+        <width>140</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Перемешать треды</string>
+      </property>
+      <property name="text">
+       <string>Random chaos</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="textBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>140</width>
+       <height>220</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <property name="class" stdset="0">
+      <string>form-box</string>
+     </property>
+     <widget class="QRadioButton" name="random">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>190</y>
+        <width>140</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Рандомный текст</string>
+      </property>
+      <property name="text">
+       <string>Random text</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_3</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="copying">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>70</y>
+        <width>140</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Дублирование</string>
+      </property>
+      <property name="text">
+       <string>Copying posts</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_3</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="complain">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>160</y>
+        <width>140</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Фейковые жалобы на вайп</string>
+      </property>
+      <property name="text">
+       <string>Complain o' wipe</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_3</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="quoting">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>40</y>
+        <width>140</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Гринтекст</string>
+      </property>
+      <property name="text">
+       <string>Quoting posts</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_3</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="pastes">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>130</y>
+        <width>140</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Копипасты</string>
+      </property>
+      <property name="text">
+       <string>Post text from file</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_3</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="noText">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>140</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Без текста</string>
+      </property>
+      <property name="text">
+       <string>No text</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_3</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="overload">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>100</y>
+        <width>140</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Гуглобомба</string>
+      </property>
+      <property name="text">
+       <string>Browser overload</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_3</string>
+      </attribute>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="textLabel">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>59</width>
+       <height>14</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="triggerLabel">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>80</y>
+       <width>140</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Trigger mode:</string>
+     </property>
+    </widget>
+    <widget class="QFrame" name="triggerBox">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>110</y>
+       <width>140</width>
+       <height>150</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <property name="lineWidth">
+      <number>1</number>
+     </property>
+     <property name="midLineWidth">
+      <number>0</number>
+     </property>
+     <property name="class" stdset="0">
+      <string>form-box</string>
+     </property>
+     <widget class="QRadioButton" name="chaining">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>120</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Цепочка</string>
+      </property>
+      <property name="text">
+       <string>Chaining posts</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_5</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="randTrigger">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>120</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Ответы на рандомные посты</string>
+      </property>
+      <property name="text">
+       <string>Random</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_5</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="shashlik">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>60</y>
+        <width>120</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Батон</string>
+      </property>
+      <property name="text">
+       <string>Shashlik</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_5</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="oppost">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>90</y>
+        <width>120</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Ответ ОП-у</string>
+      </property>
+      <property name="text">
+       <string>OP-post answer</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_5</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="notrigger">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>120</y>
+        <width>120</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Без триггера</string>
+      </property>
+      <property name="text">
+       <string>No trigger</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_5</string>
+      </attribute>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="complainLabel">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>80</y>
+       <width>140</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Complain settings:</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="sage">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>340</y>
+       <width>280</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Use SAGE</string>
+     </property>
+    </widget>
+    <widget class="QFrame" name="sageBox">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>360</y>
+       <width>240</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <property name="class" stdset="0">
+      <string>form-box</string>
+     </property>
+     <widget class="QRadioButton" name="sageAlways">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>110</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Always</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_9</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="sageFromPosts">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>10</y>
+        <width>110</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>From posts</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_9</string>
+      </attribute>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="chaosLabel">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>260</y>
+       <width>59</width>
+       <height>14</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="repeats">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>50</y>
+       <width>40</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>1000</number>
+     </property>
+     <property name="value">
+      <number>100</number>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="mediaSet">
+    <property name="geometry">
+     <rect>
+      <x>970</x>
+      <y>70</y>
+      <width>300</width>
+      <height>420</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <property name="class" stdset="0">
+     <string>gui-frame form</string>
+    </property>
+    <widget class="QFrame" name="shackalBox">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>300</y>
+       <width>240</width>
+       <height>100</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <property name="class" stdset="0">
+      <string>form-box</string>
+     </property>
+     <widget class="QCheckBox" name="shackalAffine">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>110</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Аффинное преобразование пикч</string>
+      </property>
+      <property name="text">
+       <string>Affine t-on</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="shackalDegreeLabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>200</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Shackal degree:</string>
+      </property>
+      <property name="buddy">
+       <cstring>shackalDegree</cstring>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="shackalColor">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>110</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Наложение яркого цвета на пикчи</string>
+      </property>
+      <property name="text">
+       <string>Colorization</string>
+      </property>
+      <property name="tristate">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QSlider" name="shackalDegree">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>220</width>
+        <height>15</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string/>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="invertedAppearance">
+       <bool>false</bool>
+      </property>
+      <property name="invertedControls">
+       <bool>false</bool>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksBothSides</enum>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="toPNG">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>60</y>
+        <width>90</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Преобразование пикч в PNG с альфа-каналом</string>
+      </property>
+      <property name="statusTip">
+       <string/>
+      </property>
+      <property name="whatsThis">
+       <string/>
+      </property>
+      <property name="text">
+       <string>PNG</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="mediaBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>280</width>
+       <height>240</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <property name="class" stdset="0">
+      <string>form-box</string>
+     </property>
+     <widget class="QSpinBox" name="imagesCount">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>10</y>
+        <width>50</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <number>4</number>
+      </property>
+      <property name="value">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="medias">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>160</y>
+        <width>260</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Прикрепления из постов</string>
+      </property>
+      <property name="text">
+       <string>Media from posts</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_4</string>
+      </attribute>
+     </widget>
+     <widget class="QLineEdit" name="videosFolder">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>120</y>
+        <width>130</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Подпапка с видео</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="images">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>120</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Пикчи</string>
+      </property>
+      <property name="text">
+       <string>Images</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_4</string>
+      </attribute>
+     </widget>
+     <widget class="QLabel" name="videosCountLabel">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>90</y>
+        <width>80</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Per post:</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="noMedia">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>200</y>
+        <width>260</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Ничего</string>
+      </property>
+      <property name="text">
+       <string>Nothing</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_4</string>
+      </attribute>
+     </widget>
+     <widget class="QLabel" name="imagesFolderLabel">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>40</y>
+        <width>110</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>From folder:</string>
+      </property>
+      <property name="buddy">
+       <cstring>imagesFolder</cstring>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="imagesFolder">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>40</y>
+        <width>130</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Подпапка с пикчами</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="videos">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>90</y>
+        <width>110</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Видео</string>
+      </property>
+      <property name="text">
+       <string>Videos</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_4</string>
+      </attribute>
+     </widget>
+     <widget class="QSpinBox" name="videosCount">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>90</y>
+        <width>50</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <number>4</number>
+      </property>
+      <property name="value">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="imagesCountLabel">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>10</y>
+        <width>80</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Per post:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="videosFolderLabel">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>120</y>
+        <width>110</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>From folder:</string>
+      </property>
+      <property name="buddy">
+       <cstring>videosFolder</cstring>
+      </property>
+     </widget>
+     <widget class="QLabel" name="mediaLabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>59</width>
+        <height>14</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="shackalLabel">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>280</y>
+       <width>240</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <zorder>mediaBox</zorder>
+    <zorder>shackalLabel</zorder>
+    <zorder>shackalBox</zorder>
+   </widget>
+   <widget class="QFrame" name="stats">
+    <property name="geometry">
+     <rect>
+      <x>970</x>
+      <y>500</y>
+      <width>300</width>
+      <height>190</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <property name="class" stdset="0">
+     <string>gui-frame</string>
+    </property>
+    <widget class="QLabel" name="totalPostsLabel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>50</y>
+       <width>130</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Total posts:</string>
+     </property>
+     <property name="class" stdset="0">
+      <string>stats-label</string>
+     </property>
+    </widget>
+    <widget class="QLCDNumber" name="totalPostsLCD">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>50</y>
+       <width>130</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="lineWidth">
+      <number>0</number>
+     </property>
+     <property name="smallDecimalPoint">
+      <bool>false</bool>
+     </property>
+     <property name="digitCount">
+      <number>8</number>
+     </property>
+     <property name="segmentStyle">
+      <enum>QLCDNumber::Flat</enum>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
+     </property>
+     <property name="class" stdset="0">
+      <string>stats-LCD</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="totalBansLabel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>80</y>
+       <width>130</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Total Bans:</string>
+     </property>
+     <property name="class" stdset="0">
+      <string>stats-label</string>
+     </property>
+    </widget>
+    <widget class="QLCDNumber" name="totalBansLCD">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>80</y>
+       <width>130</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="lineWidth">
+      <number>0</number>
+     </property>
+     <property name="smallDecimalPoint">
+      <bool>false</bool>
+     </property>
+     <property name="digitCount">
+      <number>8</number>
+     </property>
+     <property name="segmentStyle">
+      <enum>QLCDNumber::Flat</enum>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
+     </property>
+     <property name="class" stdset="0">
+      <string>stats-LCD</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="postsLabel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>110</y>
+       <width>130</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Posts in last:</string>
+     </property>
+     <property name="class" stdset="0">
+      <string>stats-label</string>
+     </property>
+    </widget>
+    <widget class="QLCDNumber" name="postsLCD">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>110</y>
+       <width>130</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="lineWidth">
+      <number>0</number>
+     </property>
+     <property name="smallDecimalPoint">
+      <bool>false</bool>
+     </property>
+     <property name="digitCount">
+      <number>8</number>
+     </property>
+     <property name="segmentStyle">
+      <enum>QLCDNumber::Flat</enum>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
+     </property>
+     <property name="class" stdset="0">
+      <string>stats-LCD</string>
+     </property>
+    </widget>
+    <widget class="QLCDNumber" name="proxiesLCD">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>140</y>
+       <width>130</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="lineWidth">
+      <number>0</number>
+     </property>
+     <property name="smallDecimalPoint">
+      <bool>false</bool>
+     </property>
+     <property name="digitCount">
+      <number>8</number>
+     </property>
+     <property name="segmentStyle">
+      <enum>QLCDNumber::Flat</enum>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
+     </property>
+     <property name="class" stdset="0">
+      <string>stats-LCD</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="proxiesLabel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>140</y>
+       <width>130</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Proxies:</string>
+     </property>
+     <property name="class" stdset="0">
+      <string>stats-label</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="totalPosts">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>30</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="class" stdset="0">
+      <string>stats-label</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="totalBans">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>0</y>
+       <width>30</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="class" stdset="0">
+      <string>stats-label</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="posts">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>0</y>
+       <width>30</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="class" stdset="0">
+      <string>stats-label</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="proxies">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>0</y>
+       <width>30</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="class" stdset="0">
+      <string>stats-label</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="mainSetHeader">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>80</y>
+      <width>300</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Main settings</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>gui-frame-header form-header</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="solverSetHeader">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>80</y>
+      <width>300</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Captcha solver settings</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>gui-frame-header form-header</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="postSetHeader">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>80</y>
+      <width>300</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Post settings</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>gui-frame-header form-header</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="mediaSetHeader">
+    <property name="geometry">
+     <rect>
+      <x>970</x>
+      <y>80</y>
+      <width>300</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Media settings</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>gui-frame-header form-header</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="statsHeader">
+    <property name="geometry">
+     <rect>
+      <x>970</x>
+      <y>510</y>
+      <width>300</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Statistics</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+    <property name="class" stdset="0">
+     <string>gui-frame-header</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="modeLabel">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>90</y>
+      <width>59</width>
+      <height>14</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="passwordLabel">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>0</y>
+      <width>200</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Password:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="password">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>30</y>
+      <width>150</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="maxLength">
+     <number>64</number>
+    </property>
+    <property name="frame">
+     <bool>true</bool>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+   </widget>
+   <zorder>topBanner</zorder>
+   <zorder>backBanner</zorder>
+   <zorder>anima</zorder>
+   <zorder>startButton</zorder>
+   <zorder>closeButton</zorder>
+   <zorder>rollUpButton</zorder>
+   <zorder>openButton</zorder>
+   <zorder>saveButton</zorder>
+   <zorder>peedorBarButton</zorder>
+   <zorder>musicButton</zorder>
+   <zorder>helpButton</zorder>
+   <zorder>username</zorder>
+   <zorder>usernameLabel</zorder>
+   <zorder>mainSet</zorder>
+   <zorder>solverSet</zorder>
+   <zorder>postSet</zorder>
+   <zorder>mediaSet</zorder>
+   <zorder>stats</zorder>
+   <zorder>chan</zorder>
+   <zorder>mainSetHeader</zorder>
+   <zorder>solverSetHeader</zorder>
+   <zorder>postSetHeader</zorder>
+   <zorder>mediaSetHeader</zorder>
+   <zorder>statsHeader</zorder>
+   <zorder>modeLabel</zorder>
+   <zorder>passwordLabel</zorder>
+   <zorder>password</zorder>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>Wipechan</class>
+   <extends>QFrame</extends>
+   <header location="global">wipechan.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
+ <connections/>
+ <buttongroups>
+  <buttongroup name="buttonGroup_5"/>
+  <buttongroup name="buttonGroup"/>
+  <buttongroup name="buttonGroup_4"/>
+  <buttongroup name="buttonGroup_9"/>
+  <buttongroup name="buttonGroup_3"/>
+  <buttongroup name="buttonGroup_2"/>
+ </buttongroups>
+</ui>

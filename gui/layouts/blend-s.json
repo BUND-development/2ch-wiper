@@ -1,0 +1,896 @@
+{
+
+"GUI": {
+	"width": 1020,
+	"height": 640
+},
+
+
+"top_banner": {
+	"x": 0,
+	"y": 0,
+	"width": 50,
+	"height": 640,
+	"text": "<html><head/><body><p>B<br>U<br>N<br>D<br><br>W<br>I<br>P<br>E<br>R</p></body></html>"
+},
+"help_button": {
+	"x": 1355,
+	"y": 265,
+	"width": 30,
+	"height": 60
+},
+"peedor_bar_button": {
+	"x": 1355,
+	"y": 75,
+	"width": 0,
+	"height": 0
+},
+"music_button": {
+	"x": 1355,
+	"y": 235,
+	"width": 30,
+	"height": 30
+},
+"open_config_button": {
+	"x": 1185,
+	"y": 265,
+	"width": 170,
+	"height": 30,
+	"text": "Загрузить конфиг..."
+},
+"save_config_button": {
+	"x": 1185,
+	"y": 295,
+	"width": 170,
+	"height": 30,
+	"text": "Сохранить конфиг..."
+},
+"username_label": {
+	"x": 180,
+	"y": 0,
+	"width": 0,
+	"height": 0,
+	"text": "Логин:"
+},
+"username": {
+	"x": 180,
+	"y": 30,
+	"width": 0,
+	"height": 0
+},
+"password_label": {
+	"x": 180,
+	"y": 0,
+	"width": 0,
+	"height": 0,
+	"text": "Пароль:"
+},
+"password": {
+	"x": 180,
+	"y": 30,
+	"width": 0,
+	"height": 0
+},
+"roll_up_button": {
+	"x": 1139,
+	"y": 0,
+	"width": 0,
+	"height": 0,
+	"text": "-"
+},
+"close_button": {
+	"x": 1220,
+	"y": 0,
+	"width": 0,
+	"height": 0,
+	"text": "X"
+},
+
+
+"main_set": {
+	"x": 400,
+	"y": 20,
+	"width": 300,
+	"height": 300
+},
+"main_set_header": {
+	"x": 450,
+	"y": 10,
+	"width": 250,
+	"height": 25,
+	"text": "Основные настройки"
+},
+
+"mode_box": {
+	"x": 20,
+	"y": 50,
+	"width": 340,
+	"height": 40
+},
+"mode_label": {
+	"x": 0,
+	"y": 0,
+	"width": 0,
+	"height": 0
+},
+"main_mode": {
+	"x": 0,
+	"y": 10,
+	"width": 170,
+	"height": 20,
+	"text": "Базовый режим"
+},
+"shrapnel_mode": {
+	"x": 170,
+	"y": 10,
+	"width": 170,
+	"height": 20,
+	"text": "Режим шрапнели"
+},
+
+"main_box": {
+	"x": 40,
+	"y": 90,
+	"width": 300,
+	"height": 110,
+	"disable": true,
+	"disabled": true,
+	"hiding": true,
+	"hidden": false
+},
+"board_label": {
+	"x": 10,
+	"y": 10,
+	"width": 140,
+	"height": 25,
+	"text": "Доска:"
+},
+"board": {
+	"x": 150,
+	"y": 10,
+	"width": 140,
+	"height": 25,
+	"text": "b"
+},
+"thread_label": {
+	"x": 10,
+	"y": 40,
+	"width": 140,
+	"height": 25,
+	"text": "Тред №:"
+},
+"thread": {
+	"x": 150,
+	"y": 40,
+	"width": 140,
+	"height": 25,
+	"text": "0"
+},
+"fibers_label": {
+	"x": 10,
+	"y": 70,
+	"width": 140,
+	"height": 25,
+	"text": "Потоки:"
+},
+"fibers": {
+	"x": 150,
+	"y": 70,
+	"width": 140,
+	"height": 25,
+	"text": "0"
+},
+
+"shrapnel_box": {
+	"x": 40,
+	"y": 90,
+	"width": 300,
+	"height": 140,
+	"disable": true,
+	"disabled": true,
+	"hiding": true,
+	"hidden": true
+},
+"shrapnel_board_label": {
+	"x": 10,
+	"y": 10,
+	"width": 140,
+	"height": 25,
+	"text": "Доска:"
+},
+"shrapnel_board": {
+	"x": 150,
+	"y": 10,
+	"width": 140,
+	"height": 25,
+	"text": "b"
+},
+"threads_label": {
+	"x": 10,
+	"y": 40,
+	"width": 140,
+	"height": 25,
+	"text": "Число тредов:"
+},
+"threads": {
+	"x": 150,
+	"y": 40,
+	"width": 140,
+	"height": 25
+},
+"min_posts_label": {
+	"x": 10,
+	"y": 70,
+	"width": 140,
+	"height": 25,
+	"text": "Порог постов >"
+},
+"min_posts": {
+	"x": 150,
+	"y": 70,
+	"width": 140,
+	"height": 25,
+	"text": "0"
+},
+"shrapnel_fibers_label": {
+	"x": 10,
+	"y": 100,
+	"width": 140,
+	"height": 25,
+	"text": "Fibers:"
+},
+"shrapnel_fibers": {
+	"x": 150,
+	"y": 100,
+	"width": 140,
+	"height": 25,
+	"text": "0"
+},
+
+
+"solver_set": {
+	"x": 700,
+	"y": 20,
+	"width": 300,
+	"height": 300
+},
+"solver_set_header": {
+	"x": 700,
+	"y": 10,
+	"width": 250,
+	"height": 25,
+	"text": "Настройки решателя"
+},
+
+"solver_box": {
+	"x": 20,
+	"y": 60,
+	"width": 340,
+	"height": 70
+},
+"solver_label": {
+	"x": 0,
+	"y": 0,
+	"width": 0,
+	"height": 0,
+	"text": "Решатель:"
+},
+"anticaptcha": {
+	"x": 0,
+	"y": 10,
+	"width": 180,
+	"height": 20,
+	"text": "Антикапча"
+},
+"guro-captcha": {
+	"x": 0,
+	"y": 40,
+	"width": 180,
+	"height": 20,
+	"text": "Гуро-капча"
+},
+"x-captcha": {
+	"x": 180,
+	"y": 10,
+	"width": 180,
+	"height": 20,
+	"text": "X-капча"
+},
+"reserved": {
+	"x": 180,
+	"y": 40,
+	"width": 180,
+	"height": 20,
+	"text": "(зарезервировано)",
+	"disable": true
+},
+
+"key_box": {
+	"x": 26,
+	"y": 150,
+	"width": 328,
+	"height": 70
+},
+"key_label": {
+	"x": 20,
+	"y": 130,
+	"width": 340,
+	"height": 25,
+	"text": "Ключ:"
+},
+"key": {
+	"x": 0,
+	"y": 10,
+	"width": 328,
+	"height": 25,
+	"disable": true,
+	"disabled": true,
+	"hiding": false,
+	"hidden": false
+},
+"server_key": {
+	"x": 0,
+	"y": 40,
+	"width": 328,
+	"height": 25,
+	"text": "Взять ключ с сервера Бунда",
+	"checked": true
+},
+
+
+"post_set": {
+	"x": 400,
+	"y": 320,
+	"width": 300,
+	"height": 300
+},
+"post_set_header": {
+	"x": 450,
+	"y": 605,
+	"width": 250,
+	"height": 25,
+	"text": "Настройки постинга"
+},
+
+"repeats_label": {
+	"x": 20,
+	"y": 50,
+	"width": 160,
+	"height": 25,
+	"text": "Повторы прокси:"
+},
+"repeats": {
+	"x": 170,
+	"y": 50,
+	"width": 50,
+	"height": 25,
+	"value": 100
+},
+
+"text_box": {
+	"x": 20,
+	"y": 100,
+	"width": 170,
+	"height": 170
+},
+"text_label": {
+	"x": 20,
+	"y": 80,
+	"width": 170,
+	"height": 25,
+	"text": "Текст:"
+},
+"no_text": {
+	"x": 0,
+	"y": 10,
+	"width": 170,
+	"height": 25,
+	"text": "Без текста"
+},
+"quoting": {
+	"x": 0,
+	"y": 40,
+	"width": 170,
+	"height": 25,
+	"text": "Цитирование"
+},
+"copying": {
+	"x": 0,
+	"y": 70,
+	"width": 170,
+	"height": 25,
+	"text": "Копирование"
+},
+"overload": {
+	"x": 0,
+	"y": 0,
+	"width": 0,
+	"height": 0,
+	"text": "Гуглобомба"
+},
+"pastes": {
+	"x": 0,
+	"y": 100,
+	"width": 170,
+	"height": 25,
+	"text": "Из файла"
+},
+"complain": {
+	"x": 0,
+	"y": 0,
+	"width": 0,
+	"height": 0,
+	"text": "Жалобы на вайп"
+},
+"random": {
+	"x": 0,
+	"y": 130,
+	"width": 170,
+	"height": 25,
+	"text": "Рандом"
+},
+
+"trigger_box": {
+	"x": 190,
+	"y": 110,
+	"width": 170,
+	"height": 160,
+	"disable": false,
+	"disabled": false,
+	"hiding": false,
+	"hidden": false
+},
+"trigger_label": {
+	"x": 190,
+	"y": 80,
+	"width": 170,
+	"height": 25,
+	"text": "Режим триггера:",
+	"hiding": false,
+	"hidden": false
+},
+"chaining": {
+	"x": 0,
+	"y": 0,
+	"width": 170,
+	"height": 25,
+	"text": "Цепочка"
+},
+"random_trigger": {
+	"x": 0,
+	"y": 30,
+	"width": 170,
+	"height": 25,
+	"text": "Случайные посты"
+},
+"shashlik": {
+	"x": 0,
+	"y": 60,
+	"width": 170,
+	"height": 25,
+	"text": "30 постов за раз"
+},
+"op-post_trigger": {
+	"x": 0,
+	"y": 90,
+	"width": 170,
+	"height": 25,
+	"text": "ОП-пост"
+},
+"no_trigger": {
+	"x": 0,
+	"y": 120,
+	"width": 170,
+	"height": 25,
+	"text": "Без триггера"
+},
+
+"complain_box": {
+	"x": 170,
+	"y": 110,
+	"width": 160,
+	"height": 110,
+	"disable": true,
+	"disabled": true,
+	"hiding": true,
+	"hidden": true
+},
+"complain_label": {
+	"x": 180,
+	"y": 80,
+	"width": 140,
+	"height": 25,
+	"text": "Настройки жалоб:",
+	"hiding": true,
+	"hidden": true
+},
+"complain_board_label": {
+	"x": 10,
+	"y": 0,
+	"width": 140,
+	"height": 25,
+	"text": "Доска:"
+},
+"complain_board": {
+	"x": 10,
+	"y": 20,
+	"width": 140,
+	"height": 25,
+	"text": "b"
+},
+"links_count_label": {
+	"x": 10,
+	"y": 50,
+	"width": 100,
+	"height": 25,
+	"text": "Число ссылок в жалобе:"
+},
+"links_count": {
+	"x": 110,
+	"y": 50,
+	"width": 40,
+	"height": 25,
+	"text": "10"
+},
+"with_posts": {
+	"x": 10,
+	"y": 80,
+	"width": 140,
+	"height": 20,
+	"text": "Ссылки на посты"
+},
+
+"chaos_box": {
+	"x": 20,
+	"y": 270,
+	"width": 340,
+	"height": 80
+},
+"chaos_label": {
+	"x": 0,
+	"y": 0,
+	"width": 0,
+	"height": 0
+},
+"chaos": {
+	"x": 6,
+	"y": 10,
+	"width": 170,
+	"height": 25,
+	"text": "Режим хаоса"
+},
+"random_chaos": {
+	"x": 176,
+	"y": 10,
+	"width": 170,
+	"height": 25,
+	"text": "Хаос по всей доске",
+	"disable": true,
+	"disabled": true
+},
+"target_label": {
+	"x": 0,
+	"y": 40,
+	"width": 176,
+	"height": 25,
+	"text": "Целевой тред №:",
+	"disable": true,
+	"disabled": true
+},
+"target": {
+	"x": 176,
+	"y": 40,
+	"width": 145,
+	"height": 25,
+	"disable": true,
+	"disabled": true
+},
+
+"sage": {
+	"x": 26,
+	"y": 360,
+	"width": 300,
+	"height": 20,
+	"text": "Приклеивать САЖУ"
+},
+"sage_box": {
+	"x": 20,
+	"y": 380,
+	"width": 340,
+	"height": 40,
+	"disable": true,
+	"disabled": true,
+	"hiding": false,
+	"hidden": false
+},
+"sage_always": {
+	"x": 20,
+	"y": 10,
+	"width": 150,
+	"height": 25,
+	"text": "Всегда"
+},
+"sage_from_posts": {
+	"x": 170,
+	"y": 10,
+	"width": 150,
+	"height": 25,
+	"text": "Из постов"
+},
+
+
+"media_set": {
+	"x": 700,
+	"y": 320,
+	"width": 300,
+	"height": 300
+},
+"media_set_header": {
+	"x": 700,
+	"y": 605,
+	"width": 250,
+	"height": 25,
+	"text": "Настройки прикреплений"
+},
+
+"media_box": {
+	"x": 20,
+	"y": 50,
+	"width": 340,
+	"height": 370
+},
+"media_label": {
+	"x": 0,
+	"y": 0,
+	"width": 0,
+	"height": 0
+},
+"images": {
+	"x": 0,
+	"y": 0,
+	"width": 170,
+	"height": 25,
+	"text": "Пикчи"
+},
+"images_count_label": {
+	"x": 170,
+	"y": 0,
+	"width": 130,
+	"height": 25,
+	"text": "На пост:",
+	"disable": true,
+	"disabled": true
+},
+"images_count": {
+	"x": 300,
+	"y": 0,
+	"width": 40,
+	"height": 25,
+	"text": "1",
+	"disable": true,
+	"disabled": true
+},
+"images_folder_label": {
+	"x": 30,
+	"y": 30,
+	"width": 140,
+	"height": 25,
+	"text": "Из папки:",
+	"disable": true,
+	"disabled": true
+},
+"images_folder": {
+	"x": 170,
+	"y": 30,
+	"width": 170,
+	"height": 25,
+	"disable": true,
+	"disabled": true
+},
+"videos": {
+	"x": 0,
+	"y": 60,
+	"width": 120,
+	"height": 25,
+	"text": "Видео"
+},
+"videos_count_label": {
+	"x": 170,
+	"y": 60,
+	"width": 130,
+	"height": 25,
+	"text": "На пост:",
+	"disable": true,
+	"disabled": true
+},
+"videos_count": {
+	"x": 300,
+	"y": 60,
+	"width": 40,
+	"height": 25,
+	"text": "1",
+	"disable": true,
+	"disabled": true
+},
+"videos_folder_label": {
+	"x": 30,
+	"y": 90,
+	"width": 140,
+	"height": 25,
+	"text": "Из папки:",
+	"disable": true,
+	"disabled": true
+},
+"videos_folder": {
+	"x": 170,
+	"y": 90,
+	"width": 170,
+	"height": 25,
+	"disable": true,
+	"disabled": true
+},
+"medias_from_posts": {
+	"x": 0,
+	"y": 120,
+	"width": 240,
+	"height": 25,
+	"text": "Из постов"
+},
+"no_media": {
+	"x": 0,
+	"y": 340,
+	"width": 240,
+	"height": 25,
+	"text": "Ничего"
+},
+
+"shackal_box": {
+	"x": 20,
+	"y": 220,
+	"width": 340,
+	"height": 150,
+	"disable": true,
+	"disabled": true,
+	"hiding": false,
+	"hidden": false
+},
+"shackal_degree_label": {
+	"x": 30,
+	"y": 20,
+	"width": 280,
+	"height": 25,
+	"text": "Уровень шума:"
+},
+"shackal_degree": {
+	"x": 30,
+	"y": 45,
+	"width": 280,
+	"height": 20
+},
+"colorization": {
+	"x": 30,
+	"y": 70,
+	"width": 110,
+	"height": 20,
+	"text": "Оцветнение"
+},
+"affine": {
+	"x": 30,
+	"y": 90,
+	"width": 110,
+	"height": 20,
+	"text": "Афинное преобразование"
+},
+"to_PNG": {
+	"x": 30,
+	"y": 110,
+	"width": 90,
+	"height": 20,
+	"text": "Конвертировать в PNG"
+},
+
+
+"stats": {
+	"x": 795,
+	"y": 15,
+	"width": 0,
+	"height": 0
+},
+"stats_header": {
+	"x": 815,
+	"y": 35,
+	"width": 0,
+	"height": 0,
+	"text": "Статистика"
+},
+"total_posts_label": {
+	"x": 20,
+	"y": 50,
+	"width": 140,
+	"height": 30,
+	"text": "Всего постов:"
+},
+"total_posts": {
+	"x": 160,
+	"y": 50,
+	"width": 100,
+	"height": 30,
+	"digits_count": 6
+},
+"total_bans_label": {
+	"x": 20,
+	"y": 80,
+	"width": 140,
+	"height": 30,
+	"text": "Всего банов:"
+},
+"total_bans": {
+	"x": 160,
+	"y": 80,
+	"width": 100,
+	"height": 30,
+	"digits_count": 6
+},
+"posts_label": {
+	"x": 20,
+	"y": 110,
+	"width": 140,
+	"height": 30,
+	"text": "Постов за вайп:"
+},
+"posts": {
+	"x": 160,
+	"y": 110,
+	"width": 100,
+	"height": 30,
+	"digits_count": 6
+},
+"proxies_label": {
+	"x": 20,
+	"y": 140,
+	"width": 140,
+	"height": 30,
+	"text": "Число прокси:"
+},
+"proxies": {
+	"x": 160,
+	"y": 140,
+	"width": 100,
+	"height": 30,
+	"digits_count": 6
+},
+
+
+"back_banner": {
+	"x": 1045,
+	"y": 585,
+	"width": 340,
+	"height": 150
+},
+"anima": {
+	"x": 795,
+	"y": 335,
+	"width": 470,
+	"height": 240
+},
+"Wipe-chan": {
+	"x": 0,
+	"y": 310,
+	"width": 640,
+	"height": 390
+},
+"blockquote": {
+	"x": 330,
+	"y": 10,
+	"width": 300,
+	"height": 30
+},
+"start_button": {
+	"x": 795,
+	"y": 275,
+	"width": 380,
+	"height": 50,
+	"text": "ПУСК"
+}
+
+}
