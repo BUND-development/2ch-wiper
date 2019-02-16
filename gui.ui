@@ -387,7 +387,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Число потоков</string>
+       <string/>
       </property>
       <property name="placeholderText">
        <string>0</string>
@@ -408,7 +408,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Тред</string>
+       <string/>
       </property>
       <property name="inputMask">
        <string/>
@@ -474,7 +474,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Доска</string>
+       <string/>
       </property>
       <property name="editable">
        <bool>true</bool>
@@ -943,7 +943,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Число потоков</string>
+       <string/>
       </property>
       <property name="placeholderText">
        <string>0</string>
@@ -964,7 +964,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Доска</string>
+       <string/>
       </property>
       <property name="editable">
        <bool>true</bool>
@@ -1435,7 +1435,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Число тредов</string>
+       <string/>
       </property>
      </widget>
      <widget class="QLineEdit" name="minPosts">
@@ -1453,7 +1453,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Нижний порог числа постов в отбираемых тредах</string>
+       <string/>
       </property>
       <property name="placeholderText">
        <string>0</string>
@@ -1870,7 +1870,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Доска, на которую жаловаться</string>
+       <string/>
       </property>
       <property name="editable">
        <bool>true</bool>
@@ -2294,7 +2294,7 @@
        </rect>
       </property>
       <property name="toolTip">
-       <string>Максимальное число ссылок в жалобе</string>
+       <string/>
       </property>
       <property name="suffix">
        <string/>
@@ -2327,7 +2327,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Приписывать к ссылкам номера постов из тредов</string>
+       <string/>
       </property>
       <property name="text">
        <string>With posts</string>
@@ -2436,7 +2436,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Слить все посты в один тред</string>
+       <string/>
       </property>
      </widget>
      <widget class="QLabel" name="targetLabel">
@@ -2475,7 +2475,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Перемешать треды</string>
+       <string/>
       </property>
       <property name="text">
        <string>Random chaos</string>
@@ -2518,7 +2518,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Рандомный текст</string>
+       <string/>
       </property>
       <property name="text">
        <string>Random text</string>
@@ -2542,7 +2542,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Дублирование</string>
+       <string/>
       </property>
       <property name="text">
        <string>Copying posts</string>
@@ -2566,7 +2566,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Фейковые жалобы на вайп</string>
+       <string/>
       </property>
       <property name="text">
        <string>Complain o' wipe</string>
@@ -2590,7 +2590,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Гринтекст</string>
+       <string/>
       </property>
       <property name="text">
        <string>Quoting posts</string>
@@ -2614,7 +2614,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Копипасты</string>
+       <string/>
       </property>
       <property name="text">
        <string>Post text from file</string>
@@ -2638,7 +2638,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Без текста</string>
+       <string/>
       </property>
       <property name="text">
        <string>No text</string>
@@ -2662,7 +2662,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Гуглобомба</string>
+       <string/>
       </property>
       <property name="text">
        <string>Browser overload</string>
@@ -2742,7 +2742,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Цепочка</string>
+       <string/>
       </property>
       <property name="text">
        <string>Chaining posts</string>
@@ -2766,7 +2766,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Ответы на рандомные посты</string>
+       <string/>
       </property>
       <property name="text">
        <string>Random</string>
@@ -2790,7 +2790,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Батон</string>
+       <string/>
       </property>
       <property name="text">
        <string>Shashlik</string>
@@ -2814,7 +2814,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Ответ ОП-у</string>
+       <string/>
       </property>
       <property name="text">
        <string>OP-post answer</string>
@@ -2838,7 +2838,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Без триггера</string>
+       <string/>
       </property>
       <property name="text">
        <string>No trigger</string>
@@ -3029,7 +3029,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Аффинное преобразование пикч</string>
+       <string/>
       </property>
       <property name="text">
        <string>Affine t-on</string>
@@ -3071,7 +3071,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Наложение яркого цвета на пикчи</string>
+       <string/>
       </property>
       <property name="text">
        <string>Colorization</string>
@@ -3125,7 +3125,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Преобразование пикч в PNG с альфа-каналом</string>
+       <string/>
       </property>
       <property name="statusTip">
        <string/>
@@ -3187,7 +3187,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Прикрепления из постов</string>
+       <string/>
       </property>
       <property name="text">
        <string>Media from posts</string>
@@ -3211,7 +3211,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Подпапка с видео</string>
+       <string/>
       </property>
      </widget>
      <widget class="QRadioButton" name="images">
@@ -3229,7 +3229,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Пикчи</string>
+       <string/>
       </property>
       <property name="text">
        <string>Images</string>
@@ -3271,7 +3271,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Ничего</string>
+       <string/>
       </property>
       <property name="text">
        <string>Nothing</string>
@@ -3316,7 +3316,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Подпапка с пикчами</string>
+       <string/>
       </property>
      </widget>
      <widget class="QRadioButton" name="videos">
@@ -3334,7 +3334,7 @@
        </font>
       </property>
       <property name="toolTip">
-       <string>Видео</string>
+       <string/>
       </property>
       <property name="text">
        <string>Videos</string>
@@ -3425,9 +3425,23 @@
       <string/>
      </property>
     </widget>
+    <widget class="QCheckBox" name="randMediaName">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>280</y>
+       <width>260</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Random name</string>
+     </property>
+    </widget>
     <zorder>mediaBox</zorder>
     <zorder>shackalLabel</zorder>
     <zorder>shackalBox</zorder>
+    <zorder>randMediaName</zorder>
    </widget>
    <widget class="QFrame" name="stats">
     <property name="geometry">
@@ -3966,11 +3980,11 @@
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup_5"/>
-  <buttongroup name="buttonGroup"/>
+  <buttongroup name="buttonGroup_3"/>
   <buttongroup name="buttonGroup_4"/>
   <buttongroup name="buttonGroup_9"/>
-  <buttongroup name="buttonGroup_3"/>
+  <buttongroup name="buttonGroup"/>
   <buttongroup name="buttonGroup_2"/>
+  <buttongroup name="buttonGroup_5"/>
  </buttongroups>
 </ui>

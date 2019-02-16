@@ -118,14 +118,16 @@
 	"y": 10,
 	"width": 140,
 	"height": 20,
-	"text": "Main mode"
+	"text": "Main mode",
+	"tip": "Базовый режим"
 },
 "shrapnel_mode": {
 	"x": 140,
 	"y": 10,
 	"width": 140,
 	"height": 20,
-	"text": "Shrapnel mode"
+	"text": "Shrapnel mode",
+	"tip": "Режим шрапнели"
 },
 
 "main_box": {
@@ -150,7 +152,8 @@
 	"y": 10,
 	"width": 120,
 	"height": 25,
-	"text": "b"
+	"text": "b",
+	"tip": "Доска"
 },
 "thread_label": {
 	"x": 20,
@@ -164,7 +167,8 @@
 	"y": 40,
 	"width": 120,
 	"height": 25,
-	"text": "0"
+	"text": "0",
+	"tip": "Тред"
 },
 "fibers_label": {
 	"x": 20,
@@ -178,7 +182,8 @@
 	"y": 70,
 	"width": 120,
 	"height": 25,
-	"text": "0"
+	"text": "0",
+	"tip": "Число потоков"
 },
 
 "shrapnel_box": {
@@ -203,7 +208,8 @@
 	"y": 10,
 	"width": 120,
 	"height": 25,
-	"text": "b"
+	"text": "b",
+	"tip": "Доска"
 },
 "threads_label": {
 	"x": 20,
@@ -216,7 +222,8 @@
 	"x": 140,
 	"y": 40,
 	"width": 120,
-	"height": 25
+	"height": 25,
+	"tip": "Число тредов"
 },
 "min_posts_label": {
 	"x": 20,
@@ -230,7 +237,8 @@
 	"y": 70,
 	"width": 120,
 	"height": 25,
-	"text": "0"
+	"text": "0",
+	"tip": "Нижний порог числа постов в отбираемых тредах"
 },
 "shrapnel_fibers_label": {
 	"x": 20,
@@ -244,7 +252,8 @@
 	"y": 100,
 	"width": 120,
 	"height": 25,
-	"text": "0"
+	"text": "0",
+	"tip": "Число потоков"
 },
 
 
@@ -384,49 +393,56 @@
 	"y": 10,
 	"width": 160,
 	"height": 25,
-	"text": "No text"
+	"text": "No text",
+	"tip": "Без текста"
 },
 "quoting": {
 	"x": 0,
 	"y": 40,
 	"width": 160,
 	"height": 25,
-	"text": "Quoting posts"
+	"text": "Quoting posts",
+	"tip": "Гринтекст"
 },
 "copying": {
 	"x": 0,
 	"y": 70,
 	"width": 160,
 	"height": 25,
-	"text": "Copyint posts"
+	"text": "Copyint posts",
+	"tip": "Дублирование"
 },
 "overload": {
 	"x": 0,
 	"y": 100,
 	"width": 160,
 	"height": 25,
-	"text": "Browser overload"
+	"text": "Browser overload",
+	"tip": "Гуглобомба"
 },
 "pastes": {
 	"x": 0,
 	"y": 130,
 	"width": 160,
 	"height": 25,
-	"text": "Text from file"
+	"text": "Text from file",
+	"tip": "Копипасты"
 },
 "complain": {
 	"x": 0,
 	"y": 160,
 	"width": 160,
 	"height": 25,
-	"text": "Complain o' wipe"
+	"text": "Complain o' wipe",
+	"tip": "Фейковые жалобы на вайп"
 },
 "random": {
 	"x": 0,
 	"y": 190,
 	"width": 160,
 	"height": 25,
-	"text": "Random text"
+	"text": "Random text",
+	"tip": "Рандомный ASCII-текст"
 },
 
 "trigger_box": {
@@ -453,35 +469,40 @@
 	"y": 5,
 	"width": 140,
 	"height": 25,
-	"text": "Chaining posts"
+	"text": "Chaining posts",
+	"tip": "Цепочка"
 },
 "random_trigger": {
 	"x": 10,
 	"y": 35,
 	"width": 140,
 	"height": 25,
-	"text": "Random"
+	"text": "Random",
+	"tip": "Ответы на случайные посты"
 },
 "shashlik": {
 	"x": 10,
 	"y": 65,
 	"width": 140,
 	"height": 25,
-	"text": "Shashlik"
+	"text": "Shashlik",
+	"tip": "\"Шашлык\""
 },
 "op-post_trigger": {
 	"x": 10,
 	"y": 95,
 	"width": 140,
 	"height": 25,
-	"text": "OP-post answer"
+	"text": "OP-post answer",
+	"tip": "Ответ ОП-у"
 },
 "no_trigger": {
 	"x": 10,
 	"y": 125,
 	"width": 140,
 	"height": 25,
-	"text": "No trigger"
+	"text": "No trigger",
+	"tip": "Без триггера"
 },
 
 "complain_box": {
@@ -515,7 +536,8 @@
 	"y": 30,
 	"width": 140,
 	"height": 25,
-	"text": "b"
+	"text": "b",
+	"tip": "Доска, на которую жаловаться"
 },
 "links_count_label": {
 	"x": 10,
@@ -529,14 +551,16 @@
 	"y": 60,
 	"width": 40,
 	"height": 25,
-	"text": "10"
+	"text": "10",
+	"tip": "Максимальное число ссылок в жалобе"
 },
 "with_posts": {
 	"x": 10,
 	"y": 90,
 	"width": 140,
 	"height": 20,
-	"text": "With posts"
+	"text": "With posts",
+	"tip": "Приписывать к ссылкам номера постов из тредов"
 },
 
 "chaos_box": {
@@ -556,7 +580,8 @@
 	"y": 10,
 	"width": 150,
 	"height": 20,
-	"text": "Chaos mode"
+	"text": "Chaos mode",
+	"tip": "Брать контент из одних тредов, постить в другие"
 },
 "random_chaos": {
 	"x": 150,
@@ -565,7 +590,8 @@
 	"height": 20,
 	"text": "Random chaos",
 	"disable": true,
-	"disabled": true
+	"disabled": true,
+	"tip": "Перемешать треды"
 },
 "target_label": {
 	"x": 20,
@@ -582,7 +608,8 @@
 	"width": 130,
 	"height": 25,
 	"disable": true,
-	"disabled": true
+	"disabled": true,
+	"tip": "Слить все треды в один"
 },
 
 "sage": {
@@ -649,7 +676,8 @@
 	"y": 10,
 	"width": 120,
 	"height": 25,
-	"text": "Images"
+	"text": "Images",
+	"tip": "Пикчи"
 },
 "images_count_label": {
 	"x": 130,
@@ -684,18 +712,20 @@
 	"width": 120,
 	"height": 25,
 	"disable": true,
-	"disabled": true
+	"disabled": true,
+	"tip": "Подпапка с пикчами"
 },
 "videos": {
 	"x": 10,
-	"y": 80,
+	"y": 70,
 	"width": 120,
 	"height": 25,
-	"text": "Videos"
+	"text": "Videos",
+	"tip": "Видео"
 },
 "videos_count_label": {
 	"x": 130,
-	"y": 80,
+	"y": 70,
 	"width": 80,
 	"height": 25,
 	"text": "Per post:",
@@ -704,7 +734,7 @@
 },
 "videos_count": {
 	"x": 210,
-	"y": 80,
+	"y": 70,
 	"width": 40,
 	"height": 25,
 	"value": 1,
@@ -713,7 +743,7 @@
 },
 "videos_folder_label": {
 	"x": 30,
-	"y": 110,
+	"y": 100,
 	"width": 100,
 	"height": 25,
 	"text": "From folder:",
@@ -722,25 +752,41 @@
 },
 "videos_folder": {
 	"x": 130,
-	"y": 110,
+	"y": 100,
 	"width": 120,
 	"height": 25,
 	"disable": true,
-	"disabled": true
+	"disabled": true,
+	"tip": "Подпапка с видео"
 },
 "medias_from_posts": {
 	"x": 10,
-	"y": 150,
+	"y": 140,
 	"width": 240,
 	"height": 25,
-	"text": "Media from posts"
+	"text": "Media from posts",
+	"tip": "Дублировать прикрепления из постов"
 },
 "no_media": {
 	"x": 10,
-	"y": 180,
+	"y": 170,
 	"width": 240,
 	"height": 25,
-	"text": "Nothing"
+	"text": "Nothing",
+	"tip": "Без прикреплений"
+},
+
+"random_media_name": {
+	"x": 22,
+	"y": 240,
+	"width": 216,
+	"height": 20,
+	"text": "Randomize name",
+	"disable": true,
+	"disabled": true,
+	"hiding": false,
+	"hidden": false,
+	"tip": "Заменить имя прикрепления строкой случайных цифр"
 },
 
 "shackal_box": {
@@ -771,28 +817,32 @@
 	"y": 30,
 	"width": 220,
 	"height": 15,
-	"vertical": false
+	"vertical": false,
+	"tip": "Уровень шума"
 },
 "colorization": {
 	"x": 10,
 	"y": 60,
 	"width": 220,
 	"height": 20,
-	"text": "Colorization"
+	"text": "Colorization",
+	"tip": "Наложение на пикчи яркого неонового цвета"
 },
 "affine": {
 	"x": 10,
 	"y": 80,
 	"width": 220,
 	"height": 20,
-	"text": "Affine transformation"
+	"text": "Affine transformation",
+	"tip": "Аффинное преобразование - проекционное искажение"
 },
 "to_PNG": {
 	"x": 10,
 	"y": 100,
 	"width": 220,
 	"height": 20,
-	"text": "Convert to PNG"
+	"text": "Convert to PNG",
+	"tip": "Конвертировать пикчу в PNG с альфа-каналом при постинге"
 },
 
 

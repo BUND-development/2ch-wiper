@@ -29,15 +29,18 @@ SOURCES += \
         main.cpp \
         gui.cpp \
     setup.cpp \
-    wipechan.cpp
+    wipechan.cpp \
+    banner.cpp
 
 HEADERS += \
         gui.h \
     setup.h \
-    wipechan.h
+    wipechan.h \
+    banner.h
 
 FORMS += \
-        gui.ui
+        gui.ui \
+    banner.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

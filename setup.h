@@ -27,6 +27,7 @@ private:
     char mediaKind;  // тип прикреплений
     string mediaGroup, mediasCount;  // подкаталог прикреплений и их число на пост
     char sageMode;  // режим сажи
+    bool randMediaName;  // случайно сгенерированные имена прикреплений
     unsigned char shackalPower; // уровень шакала
     bool shackalColor, shackalAffine;  // опции шакала
     bool toPNG;  // преобразование пикч в PNG
@@ -69,6 +70,7 @@ public:
     void set_mediaGroup(const string &mediaGroup="");
     void set_mediasCount(const string &mediasCount="1");
     void set_sageMode(const char &sageMode='0');
+    void set_rand_media_name(const bool &status);
     void set_shackal_power(const unsigned char &value);
     void set_shackal_color(const bool &status);
     void set_shackal_affine(const bool &status);

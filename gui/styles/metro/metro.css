@@ -28,7 +28,7 @@ QLabel {
 }
 
 .tool-button {
-	font-size: 16px !important;
+	font-size: 14px !important;
 	color: #C3C7C8;
 	background-repeat: no-repeat;
 }
@@ -54,6 +54,9 @@ QLabel {
 	background-color: #C3C7C8;
 	border-radius: 12px;
 }
+#helpButton:pressed, #musicButton:pressed {
+	background-color: white;
+}
 #helpButton {
 	background-image: url(gui/images/chan_button.png);
 }
@@ -73,7 +76,6 @@ QLabel {
 #chan {
 	background: url(gui/Wipe-chan/image.png);
 	background-repeat: no-repeat;
-	margin: -0px -120px;
 }
 #blockquote {
 	color: #C3C7C8;

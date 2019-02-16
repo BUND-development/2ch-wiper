@@ -18,6 +18,7 @@ QLabel {
 	qproperty-alignment: AlignCenter;
 	background: #17191B;
 	border-top: 3px outset #1A1D21;
+	padding-top: -5px;
 }
 
 .tool-button {
@@ -70,8 +71,6 @@ QLabel {
 #chan {
 	background: url(gui/Wipe-chan/image.png);
 	background-repeat: no-repeat;
-	margin-left: -100px;
-	margin-top: -50px;
 }
 #blockquote {
 	color: red;
@@ -86,6 +85,7 @@ QLabel {
 
 /* Кнопка старта */
 #startButton {
+	font-family: monospace;
 	font-size: 35px !important;
 	font-weight: bold;
 	background: qlineargradient(spread:pad, x1:0, y1:0.3, x2:0, y2:1, stop:0 #FFFF00, stop:1 #F5CB3F);
