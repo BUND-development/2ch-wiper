@@ -3,90 +3,91 @@
 import tools
 import json
 import os
+
 try:
 	import requests
 except:
-	print("\nНе установлен модуль \"requests\". Попытаемся установить!\n")
+	print("\nModule \"requests\" not found, performing installation...\n")
 	os.system('pip install --user requests pysocks' if os.name == 'nt' else 'pip3 install --user requests pysocks')
 	try:
 		import requests
-		print("\nОтлично, модуль установлен! Нажми любую клавишу для продолжения...")
-		input()
+		print("\nSuccess!")
 	except:
-		tools.crash_quit("Не удалось поставить модуль \"requests\". Аварийное завершение...")
+		tools.crash_quit("Failed to install \"requests\" module. Emergency exit...")
+import urllib3
 try:
 	from bs4 import BeautifulSoup
 except:
-	print("\nНе установлен модуль \"bs4\". Попытаемся установить!\n")
+	print("\nModule \"bs4\" not found, performing installation...\n")
 	os.system('pip install --user bs4' if os.name == 'nt' else 'pip3 install --user bs4')
 	try:
-		import bs4
-		print("\nОтлично, модуль установлен! Нажми любую клавишу для продолжения...")
+		from bs4 import BeautifulSoup
+		print("\nSuccess! Press any key to continue...")
 		input()
 	except:
-		tools.crash_quit("Не удалось поставить модуль \"bs4\". Аварийное завершение...")
-import urllib3
+		tools.crash_quit("Failed to install \"bs4\" module. Emergency exit...")
+
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-# ====== Модель доски ======
+# ====== board scheme ======
 class Catalog:
 
 	def __init__(self, board):
-		self.board = board  # доска
-		print("Скачиваю доску", self.board)
-		self.schema = json.loads(requests.get(''.join(["https://2ch.hk/", board, "/catalog.json"])).text)  # DOM доски
-		self.threadsCount = len(self.schema["threads"])  # число активных тредов на доске
+		self.board = board  # board index
+		print("\nDownloading board /" + self.board + "/")
+		self.schema = json.loads(requests.get(''.join(["https://5.61.239.35/", board, "/catalog.json"]), verify = False).text)  # board DOM
+		self.threadsCount = len(self.schema["threads"])  # active threads count
 
 
-# ====== Прикрепление к посту ======
+# ====== attachments to post ======
 class Media:
 
 	def __init__(self, name, path):
-		self.name = name  # имя прикрепления
-		self.path = path  # путь на сервере к прикреплению
-		self.cached = False  # флаг загрузки прикрепления на комп с вайпалкой
+		self.name = name  # attach name
+		self.path = path  # attach path on server
+		self.cached = False  # caching attachments locally on PC
 
-	# === загрузка прикрепления с сосача ===
+	# === downloading attach from server ===
 	def download(self):
 		if self.cached == False:
-			self.file = requests.get("https://2ch.hk"+self.path).content  # сам файл прикрепления
+			self.file = requests.get("https://5.61.239.35" + self.path, verify = False).content  # attachment itself
 			self.cached = True
 
 
-# ====== Существующий пост ======
+# ====== existing post ======
 class Post:
 
 	def __init__(self, schema, mode, triggerForm):
-		self.ID = str(schema["num"])  # номер поста на доске
-		self.comment = self.set_comment(schema["comment"], mode, triggerForm)  # текст поста
-		self.sage = self.set_sage(schema)  # флаг сажи
-		self.num = schema["number"]  # номер поста в треде (с 1)
-		self.medias = []  # прикрепления
+		self.ID = str(schema["num"])  # post number on board
+		self.comment = self.set_comment(schema["comment"], mode, triggerForm)  # post text
+		self.sage = self.set_sage(schema)  # sage mode
+		self.num = schema["number"]  # post number in thread (starting from 1)
+		self.medias = []  # attachments
 		for media in schema["files"]:
 			self.medias.append(Media(media["name"], media["path"]))
-		print("Триггернулась на", ">>"+self.ID)
+		print("Triggered to >>" + self.ID)
 
-	# === форматирование текста поста ===
+	# === formatting post text ===
 	def set_comment(self, text, mode, triggerForm):
-		# === замена <br> на \n ===
+		# === replace <br> to \n ===
 		text = text.replace("<br>", "\n")
-		# === разметка жирного ===
+		# === bold ===
 		text = text.replace("<strong>", "[b]")
 		text = text.replace("</strong>", "[/b]")
-		# === разметка курсива ===
+		# === italic ===
 		text = text.replace("<em>", "[i]")
 		text = text.replace("</em>", "[/i]")
-		# === разметка надстрочного ===
+		# === supscript ===
 		text = text.replace("<sup>", "[sup]")
 		text = text.replace("</sup>", "[/sup]")
-		# === разметка подстрочного ===
+		# === subscript ===
 		text = text.replace("<sub>", "[sub]")
 		text = text.replace("</sub>", "[/sub]")
-		# === разметка моноширинного ===
+		# === code ===
 		text = text.replace("<code>", "[code]")
 		text = text.replace("</code>", "[/code]")
 
-		# === удаление ссылок на посты, либо метки (OP) ===
+		# === removing answers to other posts and/or (OP) mark ===
 		if mode == 7 and triggerForm == 0:
 			text = text.replace(" (OP)", "")
 			soup = BeautifulSoup(text, features="html.parser")
@@ -95,48 +96,46 @@ class Post:
 			for a in soup.find_all("a", {"class": "post-reply-link"}):
 				a.decompose()
 
-		# === разметка подчёркиваний ===
+		# === underline ===
 		for u in soup.find_all("span", {"class": "u"}):
-			u.replace_with("[u]"+u.get_text()+"[/u]")
-		# === разметка надчёркиваний ===
+			u.replace_with("[u]" + u.get_text() + "[/u]")
+		# === overline ===
 		for o in soup.find_all("span", {"class": "o"}):
-			o.replace_with("[o]"+o.get_text()+"[/o]")
-		# === разметка спойлеров ===
+			o.replace_with("[o]" + o.get_text() + "[/o]")
+		# === spoilers ===
 		for spoiler in soup.find_all("span", {"class": "spoiler"}):
-			spoiler.replace_with("[spoiler]"+spoiler.get_text()+"[/spoiler]")
-		# === разметка зачёркнутого ===
+			spoiler.replace_with("[spoiler]" + spoiler.get_text() + "[/spoiler]")
+		# === crossed text ===
 		for s in soup.find_all("span", {"class": "s"}):
-			s.replace_with("[s]"+s.get_text()+"[/s]")
+			s.replace_with("[s]" + s.get_text() + "[/s]")
 
-		# === сохранение ===
+		# === saving ===
 		return str(soup.get_text()).lstrip('\n').rstrip('\n')
 
-	# === определение флага сажи ===
+	# === get SAGE ===
 	def set_sage(self, schema):
 		return False if schema["email"].find("mailto:sage") == -1 else True
 
 
-# ====== Модель треда ======
+# ====== thread scheme ======
 class Thread:
 
 	def __init__(self, board, ID, mode, triggerForm):
-		self.board = board  # доска
-		self.ID = ID  # номер треда на доске
+		self.board = board
+		self.ID = ID  # thread number on board
 		if (int(ID) != 0):
-			print("Скачиваю тред", self.ID)
-			self.schema = json.loads(requests.get(''.join(["https://2ch.hk/", board, "/res/", ID, ".json"])).text)  # DOM треда
-			self.postsCount = self.schema["posts_count"] + 1  # число постов в треде
-			self.lastID = str(self.schema["max_num"])  # номер последнего поста треда
-			self.posts = self.download_posts(mode, triggerForm)  # посты
-			self.loaf = ""  # "батон"
+			print("\nDownloading thread", self.ID)
+			self.schema = json.loads(requests.get(''.join(["https://5.61.239.35/", board, "/res/", ID, ".json"]), verify = False).text)  # DOM
+			self.postsCount = self.schema["posts_count"] + 1  # posts count in thread
+			self.lastID = str(self.schema["max_num"])  # last post number
+			self.posts = self.download_posts(mode, triggerForm)  # posts
+			self.loaf = ""  # "multipost"
 			for postNum in range(min(len(self.posts), 30)):
-				self.loaf += (">>"+self.posts[postNum].ID+" ")
+				self.loaf += (">>" + self.posts[postNum].ID + " ")
 
-	# === загрузка DOM постов ===
+	# === downloading DOM ===
 	def download_posts(self, mode, triggerForm):
 		posts = []
 		for post in self.schema["threads"][0]["posts"]:
 			posts.append(Post(post, mode, triggerForm))
 		return posts
-
-

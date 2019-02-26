@@ -1,27 +1,29 @@
 ## -*- coding: utf-8 -*-
 
 import tools
+import argparse
 import os
+
 try:
 	import requests
 except:
-	print("\nНе установлен модуль \"requests\". Попытаемся установить!\n")
+	print("\nModule \"requests\" not found, performing installation...\n")
 	os.system('pip install --user requests pysocks' if os.name == 'nt' else 'pip3 install --user requests pysocks')
 	try:
 		import requests
-		print("\nОтлично, модуль установлен! Нажми любую клавишу для продолжения...")
-		input()
+		print("\nSuccess!")
 	except:
-		tools.crash_quit("Не удалось поставить модуль \"requests\". Аварийное завершение...")
-import argparse
+		tools.crash_quit("Failed to install \"requests\" module. Emergency exit...")
 import urllib3
 from requests.auth import HTTPBasicAuth
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 from scheme import *
 from tools import *
 
-# ====== Запись логов ======
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+
+# ====== logging ======
 def activate_debug(logMode):
 	import logging
 	print("\n*** DEBUG MODE ACTIVATED ***")
@@ -31,60 +33,60 @@ def activate_debug(logMode):
 		logging.basicConfig(level=logging.DEBUG)
 
 
-# ====== Конфигурация ======
+# ====== config ======
 class Setup:
 
 	def __init__(self, args):
 		parser = argparse.ArgumentParser()
-		parser.add_argument("-u", "--username", dest="username")  # логин
-		parser.add_argument("--password", dest="password")  # пароль
-		parser.add_argument("-b", "--board", dest="board")  # доска
-		parser.add_argument("-t", "--thread", dest="thread") # тред (или "0", если доску)
-		parser.add_argument("-c", "--chaos", dest="chaos")  # флаг хаоса и тред для постинга (-1, если без хаоса, 0, если шрапнельный хаос)
-		parser.add_argument("-p", "--potocks", dest="potocksCount")  # число потоков (или 0, если 1 пост в 5 минут)
-		parser.add_argument("-d", "--debug", dest="debug")  # номер вывода логов (или 0, если без них)
-		parser.add_argument("-s", "--solver", dest="solver")  # номер решателя
-		parser.add_argument("-k", "--key", dest="key")  # ключ (или "0" для казенного)
-		parser.add_argument("-r", "--repeats", dest="proxyRepeatsCount")  # число повторов прокси
-		parser.add_argument("-m", "--mode", dest="mode")  # режим вайпалки
-		parser.add_argument("--minBan", dest="minBan")  # минимальный номер разбана (или -1, если не 8 режим)
-		parser.add_argument("--maxBan", dest="maxBan")  # максимальный номер разбана (или -1, если не 8 режим)
-		parser.add_argument("-cb", "--complainBoard", dest="complainBoard")  # доска для жалоб (или -1, если не 1 режим)
-		parser.add_argument("-l", "--links", dest="linksCount")  # максимальное число ссылок в жалобах (или -1, если не 1 режим)
-		parser.add_argument("-w", "--withPosts", dest="withPosts")  # флаг приписки постов к ссылкам в жалобах
-		parser.add_argument("-T", "--trigger", dest="triggerForm")  # номер режима триггера (или 0, если доску или просто без него)
-		parser.add_argument("-sh", "--shrapnel", dest="shrapnelCharge")  # число тредов для шрапнели (или 0, если без неё)
-		parser.add_argument("-mp", "--min", dest="minPostsCount")  # минимальное число постов в тредах для шрапнели (или -1, если без неё или с указанием тредов)
-		parser.add_argument("-M", "--media", dest="mediaKind")  # номер вида прикреплений (или 0, если дэ или просто без них)
-		parser.add_argument("-g", "--group", dest="mediaGroup")  # подкаталог прикреплений (или ".", если из корня)
-		parser.add_argument("-mc", "--medias", dest="mediasCount")  # число прикреплений (или -1, если из постов)
-		parser.add_argument("-S", "--sage", dest="sageMode")  # номер режима сажи
-		parser.add_argument("-rn", dest="randMediaName")  # флаг рандомизации имён прикреплений
-		parser.add_argument("-SH", "--shakal", dest="shakalPower")  # уровень шакала от 0 до 100
-		parser.add_argument("-C", "--color", dest="shakalColor")  # флаг цветного шакала
-		parser.add_argument("-a", "--affine", dest="shakalAffine")  # флаг аффинного шакала
-		parser.add_argument("-P", "--png", dest="toPNG")  # флаг конвертации в PNG с альфа-каналом
+		parser.add_argument("-u", "--username", dest="username")  # login for getting key from server
+		parser.add_argument("--password", dest="password")  # pass for auth on server
+		parser.add_argument("-b", "--board", dest="board")  # board index
+		parser.add_argument("-t", "--thread", dest="thread") # thread number or "0" if need to create threads
+		parser.add_argument("-c", "--chaos", dest="chaos")  # chaos flag and thread for posting (-1 if without chaos, 0 if shrapnel active)
+		parser.add_argument("-p", "--potocks", dest="potocksCount")  # computing thread count (or 0 for 1 post in 5 minutes)
+		parser.add_argument("-d", "--debug", dest="debug")  # logging (0 if without logging)
+		parser.add_argument("-s", "--solver", dest="solver")  # anticaptcha solver
+		parser.add_argument("-k", "--key", dest="key")  # key (0 if using server key)
+		parser.add_argument("-r", "--repeats", dest="proxyRepeatsCount")  # proxy loops
+		parser.add_argument("-m", "--mode", dest="mode")  # wiper mode
+		parser.add_argument("--minBan", dest="minBan")  # [deprecated] min ban number (-1 if not 8 mode)
+		parser.add_argument("--maxBan", dest="maxBan")  # [deprecated] max ban number (-1 if not 8 mode)
+		parser.add_argument("-cb", "--complainBoard", dest="complainBoard")  # [deprecated] board for reporting (-1 if not 1 mode)
+		parser.add_argument("-l", "--links", dest="linksCount")  # [deprecated] max links count in reports (-1 if not 1 mode)
+		parser.add_argument("-w", "--withPosts", dest="withPosts")  # [deprecated] write post links in report messages
+		parser.add_argument("-T", "--trigger", dest="triggerForm")  # trigger mode (0 if without trigger and/or creating threads)
+		parser.add_argument("-sh", "--shrapnel", dest="shrapnelCharge")  # shrapnel threads count (0 if not needed)
+		parser.add_argument("-mp", "--min", dest="minPostsCount")  # min posts count in threads for shrapnel mode (-1 if shrapnel not needed)
+		parser.add_argument("-M", "--media", dest="mediaKind")  # attachmets type (0 if not needed or wiping /d/)
+		parser.add_argument("-g", "--group", dest="mediaGroup")  # subfolder (or just "." if attachments in root directory)
+		parser.add_argument("-mc", "--medias", dest="mediasCount")  # attachments count, up to 4 (-1 for take attachments from posts)
+		parser.add_argument("-S", "--sage", dest="sageMode")  # SAGE mode
+		parser.add_argument("-rn", dest="randMediaName")  # randomize file name or not
+		parser.add_argument("-SH", "--shakal", dest="shakalPower")  # distort level for images (from 0 to 100)
+		parser.add_argument("-C", "--color", dest="shakalColor")  # colorize attached images
+		parser.add_argument("-a", "--affine", dest="shakalAffine")  # affine transformation for images
+		parser.add_argument("-P", "--png", dest="toPNG")  # convert to PNG before posting
 		args = parser.parse_args(args)
 
 		self.username = args.username
 		self.password = args.password
 		if int(args.debug) != 0:
 			activate_debug(int(args.debug))
-		self.cpFile, self.bansFile, self.fullFile = self.set_encoding()  # файлы с пастами
+		self.cpFile, self.bansFile, self.fullFile = self.set_encoding()  # file with copypastes
 
-		self.board = args.board  # доска
-		self.thread = args.thread  # тред
-		self.chaos = args.chaos  # хаос / тред для постинга
-		self.potocksCount = int(args.potocksCount)  # число потоков
-		self.TIMEOUT, self.PAUSE = self.set_consts(self.potocksCount)  # таймаут, пауза
+		self.board = args.board  # board index
+		self.thread = args.thread  # thread
+		self.chaos = args.chaos  # chaos / thread for posting
+		self.potocksCount = int(args.potocksCount)  # computing threads count
+		self.TIMEOUT, self.PAUSE = self.set_consts(self.potocksCount)  # timeout and pause
 
-		self.solver, self.key, self.keyreq = self.set_key(int(args.solver), args.key, args.username, args.password)  # солвер, ключ, статус ключа
-		self.proxyRepeatsCount = int(args.proxyRepeatsCount)  # число повторов прокси
-		self.mode, self.pastes, self.bigPaste = self.set_mode(int(args.mode))  # режим вайпалки, пасты
+		self.solver, self.key, self.keyreq = self.set_key(int(args.solver), args.key, args.username, args.password)  # anticaptcha solver, API key and status
+		self.proxyRepeatsCount = int(args.proxyRepeatsCount)  # proxy loops
+		self.mode, self.pastes, self.bigPaste = self.set_mode(int(args.mode))  # wiper mode, copypastes
 
 		if self.mode == 8:
-			self.minBan = int(args.minBan) # минимальный ID бана
-			self.maxBan = int(args.maxBan)  # максимальный ID бана
+			self.minBan = int(args.minBan) # min ban ID
+			self.maxBan = int(args.maxBan)  # max ban ID
 		elif self.mode == 1:
 			self.complainBoard = args.complainBoard
 			self.linksCount = int(args.linksCount)
@@ -94,27 +96,27 @@ class Setup:
 		self.threads = []
 
 		if self.thread != "0":
-			self.triggerForm, self.shrapnelCharge, self.targetThread = self.set_trigger(int(args.triggerForm), int(args.shrapnelCharge), int(args.minPostsCount), args)  # режим триггера, число тредов шрапнели
+			self.triggerForm, self.shrapnelCharge, self.targetThread = self.set_trigger(int(args.triggerForm), int(args.shrapnelCharge), int(args.minPostsCount), args)  # trigger mode, shrapnel threads count
 		else:
 			self.triggerForm = 0
 			self.shrapnelCharge = 0
 
-		self.mediaKind, self.mediaPaths, self.mediasCount = self.set_media(int(args.mediaKind), args.mediaGroup, int(args.mediasCount))  # тип прикреплений, подкаталог, число прикреплений к треду
+		self.mediaKind, self.mediaPaths, self.mediasCount = self.set_media(int(args.mediaKind), args.mediaGroup, int(args.mediasCount))  # attachments type, subfolder, attachments count
 		
-		self.sageMode = int(args.sageMode) # режим сажи
+		self.sageMode = int(args.sageMode) # SAGE mode
 
-		if args.randMediaName == "1": self.randMediaName = True  # флаг рандомизации имён прикреплений
+		if args.randMediaName == "1": self.randMediaName = True  # randomize attachments name
 		else: self.randMediaName = False
 		
-		self.shakalPower = int(args.shakalPower)  # уровень шакала
-		if args.shakalColor == "1": self.shakalColor = True  # флаг цветного шакала
+		self.shakalPower = int(args.shakalPower)  # distortion level
+		if args.shakalColor == "1": self.shakalColor = True  # colorization
 		else: self.shakalColor = False
-		if args.shakalAffine == "1": self.shakalAffine = True  # флаг аффинного шакала
+		if args.shakalAffine == "1": self.shakalAffine = True  # affine transform
 		else: self.shakalAffine = False
-		if args.toPNG == "1": self.toPNG = True  # флаг конвертации в PNG
+		if args.toPNG == "1": self.toPNG = True  # convert to PNG
 		else: self.toPNG = False
 
-	# === определение ОС и кодировки ===
+	# === earlier here was OS detection and codepage setting, now there just filenames ===
 	def set_encoding(self):
 		self.complainFile = "complaints.txt"
 		self.cpFile = "texts.txt"
@@ -122,88 +124,90 @@ class Setup:
 		self.fullFile = "parasha.txt"
 		return self.cpFile, self.bansFile, self.fullFile
 
-	# === установка паузы между постами и таймаута ===
+	# === setting pause between posts and timeout ===
 	def set_consts(self, potocksCount):
 		if potocksCount == 0:
 			TIMEOUT = 60
-			PAUSE = 60
+			PAUSE = 20
 			self.potocksCount = 4
 		else:
-			TIMEOUT = 30
+			TIMEOUT = 60
 			PAUSE = 20
 		return TIMEOUT, PAUSE
 
-	# === получение казённого ключа ===
+	# === getting key from server ===
 	def get_key(self, solver, username, password):
 		if solver == 0:
 			solverStr = "xcaptcha"
-			print("Пытаюсь получить казеный ключ для икскаптчи...")
+			print("Trying to get key for x-captcha.ru service...")
 		elif solver == 1:
 			solverStr = "gurocaptcha"
-			print("Пытаюсь получить казеный ключ для гурокаптчи...")
+			print("Trying to get key for captcha.guru service...")
 		elif solver == 2:
 			solverStr = "anticaptcha"
-			print("Пытаюсь получить казеный ключ для антикапчи...")
+			print("Trying to get key for anti-captcha.com service...")
 
-		keyreq = requests.get('https://2ch-ri.ga/captcha/'+solverStr, auth=(username, password))
+		keyreq = requests.get('https://2ch-ri.ga/captcha/' + solverStr, auth=(username, password))
 		if keyreq.status_code == 200 and len(keyreq.text) == 32:
-			print("Ключ загружен!")
+			print("Key loaded!")
 			key = keyreq.text
 		elif keyreq.status_code == 404 or len(keyreq.text) == 0:
-			print("Ключ недоступен!")
-			crash_quit("Ключ недоступен!")
+			print("Authorization was successful, but key not found!")
+			print("Please contact @tsunamaru for more details.")
+			crash_quit("Authorization was successful, but key not found! Please contact @tsunamaru for more details.")
 		elif keyreq.status_code == 401:
-			print("Неверный логин/пароль!")
-			crash_quit("Неверный логин/пароль!")
+			print("Incorrect login or password!")
+			crash_quit("Incorrect login or password!")
 		else:
-			print("Получен неожиданный ответ от сервера:", keyreq, keyreq.text)
-			crash_quit("Получен неожиданный ответ от сервера с ключом!")
+			print("Unexpected server response:", keyreq, keyreq.text)
+			print("Please contact @tsunamaru for more details.")
+			crash_quit("Unexpected server response. Please contact @tsunamaru for more details.")
 		self.set_key(solver, key, username, password)
 		return key, keyreq
 
-	# === валидация ключа ===
+	# === key validation ===
 	def set_key(self, solver, key, username, password):
 		if key == "0":
 			key, keyreq = self.get_key(solver, username, password)
 		elif len(key) == 32:
-			print("Верифицируем ключ...")
+			print("Waiting for key verify...")
 			if solver == 0:
 				keyStatus = requests.get("http://x-captcha2.ru/res.php?key=" + key + "&action=getbalance")
 				if keyStatus.status_code == 200:
 					if keyStatus.text == "ERROR_KEY_USER":
-						print("Ключ не существует!")
-						crash_quit("Ключ не существует!")
+						print("Incorrect key!")
+						crash_quit("Incorrect key!")
 					elif keyStatus.text == "ERROR_PAUSE_SERVICE":
-						print("Сервер на профилактике, используй другой солвер.")
-						crash_quit("Сервер на профилактике, используй другой решатель!")
+						print("Server on maintenance, please switch to another solver or wait few minutes and retry.")
+						crash_quit("Server on maintenance, please switch to another solver or wait few minutes and retry.")
 					keyxc = keyStatus.text
 					keyxc = keyxc.split("|")
-					print("Ключ подтверждён, ваш баланс:", keyxc[1])
+					print("Key confirmed, your balance:", keyxc[1])
 				elif keyStatus.status_code == 500:
-					print("Икскапча заблокировала твой IP, перезагрузи роутер!")
-					crash_quit("Икскапча заблокировала твой IP, перезагрузи роутер!")
+					print("X-captcha blocked your IP, restart router or change VPN!")
+					crash_quit("X-captcha blocked your IP, restart router or change VPN!")
 
 			elif solver == 1 or solver == 2:
 				if solver == 1:
-					keyStatus = requests.post("https://api.captcha.guru/getBalance", json={"clientKey": key}, verify=False).json()
+					keyStatus = requests.post("http://api.captcha.guru/getBalance", json={"clientKey": key}, verify = False).json()
 				else:
-					keyStatus = requests.post("https://api.anti-captcha.com/getBalance", json={"clientKey": key}, verify=False).json()
+					keyStatus = requests.post("http://api.anti-captcha.com/getBalance", json={"clientKey": key}, verify = False).json()
 				if (keyStatus["errorId"] == 0):
-					print("Ключ подтверждён, ваш баланс:", (keyStatus["balance"]))
+					print("Key confirmed, your balance:", (keyStatus["balance"]))
 				elif (keyStatus["errorId"] == 1):
 					if (keyStatus["errorDescription"] == "ERROR_KEY_DOES_NOT_EXIST"):
-						print("Ключ не существует!")
-						crash_quit("Ключ не существует!")
+						print("Incorrect key!")
+						crash_quit("Incorrect key!")
 					else:
 						print(keyStatus["errorDescription"])
 						crash_quit(keyStatus["errorDescription"])
 			keyreq = 0
 		else:
-			print("Неправильно введен ключ!")
-			crash_quit("Неправильно введен ключ!")
+			print("Entered incorrect key!")
+			crash_quit("Entered incorrect key!")
 		return solver, key, keyreq
 
-	# === установка режима вайпалки ===
+	# === set wiper mode ===
 	def set_mode(self, mode):
 		if mode == 1:
 			with open(self.complainFile, 'r', encoding='utf-8') as file:
@@ -232,13 +236,13 @@ class Setup:
 			bigPaste = 0
 		return mode, pastes, bigPaste
 
-	# === установка триггера ===
+	# === set trigger mode ===
 	def set_trigger(self, form, shrapnelCharge, minPostsCount, args):
 		if shrapnelCharge == 0: # and self.thread > 1
 			try:
 				self.threads.append(Thread(self.board, self.thread, self.mode, form))
 			except Exception:
-				crash_quit("Тред не существует!")
+				crash_quit("Thread not exist!")
 		elif shrapnelCharge > 0: # and self.thread > 0
 			self.catalog = Catalog(self.board)
 			if minPostsCount == -1:
@@ -254,7 +258,7 @@ class Setup:
 							break
 				shrapnelCharge = i
 				if (shrapnelCharge == 0):
-					crash_quit("Нет ни одного треда с указанными параметрами!")
+					crash_quit("There is no threads with the specified parameters!")
 
 		if self.chaos != "-1" and self.chaos != "0":
 			targetThread = Thread(self.board, self.chaos, self.mode, form)
@@ -263,7 +267,7 @@ class Setup:
 
 		return form, shrapnelCharge, targetThread
 
-	# === установка прикреплений ===
+	# === set attachments ===
 	def set_media(self, mediaKind, mediaGroup, mediasCount):
 		mediaPaths = []
 		if mediaKind != 0:
@@ -278,17 +282,17 @@ class Setup:
 					mediaDir += "/"
 					mediaDir += mediaGroup
 					if os.path.exists(mediaDir) == False:
-						crash_quit("Каталога "+mediaDir+" не существует!")
-				for media in os.listdir("./"+mediaDir):
+						crash_quit("Directory " + mediaDir + " not exist!")
+				for media in os.listdir("./" + mediaDir):
 					if media.endswith(".jpg") or media.endswith(".png") or media.endswith(".gif") or media.endswith(".bmp") or media.endswith(".mp4") or media.endswith(".webm"):
-						mediaPaths.append("./"+mediaDir+"/"+media)
+						mediaPaths.append("./" + mediaDir + "/" + media)
 				if len(mediaPaths) == 0:
-					crash_quit("Нет контента в каталоге "+mediaDir+"!")
+					crash_quit("Not found any files in " + mediaDir + "!")
 
 			elif self.shrapnelCharge == 0:
 				for post in self.threads[0].posts:
 					for media in post.medias:
-						print("Скачиваю ", media.name, "("+str(post.num)+"/"+str(self.threads[0].postsCount)+" пост)")
+						print("Downloading ", media.name, "(" + str(post.num) + "/" + str(self.threads[0].postsCount) + " post)")
 						media.download()
 			else:
 				self.TIMEOUT += 60

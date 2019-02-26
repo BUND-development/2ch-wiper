@@ -1,25 +1,27 @@
 ## -*- coding: utf-8 -*-
 
 import tools
-import time
 import os
+import time
+
 try:
-    import requests
+	import requests
 except:
-	print("\nНе установлен модуль \"requests\". Попытаемся установить!\n")
+	print("\nModule \"requests\" not found, performing installation...\n")
 	os.system('pip install --user requests pysocks' if os.name == 'nt' else 'pip3 install --user requests pysocks')
 	try:
 		import requests
-		print("\nОтлично, модуль установлен! Нажми любую клавишу для продолжения...")
-		input()
+		print("\nSuccess!")
 	except:
-		tools.crash_quit("Не удалось поставить модуль \"requests\". Аварийное завершение...")
+		tools.crash_quit("Failed to install \"requests\" module. Emergency exit...")
 import urllib3
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 from tools import *
 
-# ====== X-капча ======
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+
+# ====== x-captcha.ru ======
 class CaptchaSolver_XCaptcha:
 
     def __init__(self, key, keyreq):
@@ -27,7 +29,7 @@ class CaptchaSolver_XCaptcha:
         self.key = key
         try:
             if keyreq.status_code == 200:
-                print("Solver 'X-Captcha' initialized with key: [ДАННЫЕ УДАЛЕНЫ]")
+                print("Solver 'X-Captcha' initialized!")
         except Exception:
             print("Solver 'X-Captcha' initialized with key: " + self.key)
 
@@ -35,7 +37,7 @@ class CaptchaSolver_XCaptcha:
 
         while True:
             task = (('key', self.key), ('method', 'userrecaptcha'), ('googlekey', '6LeQYz4UAAAAAL8JCk35wHSv6cuEV5PyLhI6IxsM'), ('pageurl', 'https://2ch.hk/b/'))
-            data = requests.post(self.api, data=task, verify=False)
+            data = requests.post(self.api, data = task, verify = False)
 
             response = data.text
             response = response.split("|")
@@ -53,20 +55,20 @@ class CaptchaSolver_XCaptcha:
                     
                     time.sleep(3)
             elif data.text == "ERROR_KEY_USER":
-                print("\nОшибка ключа, не могу продолжать работу...")
-                crash_quit("Ошибка ключа!", badproxies, forbiddenproxy, postsCounter)
+                print("\nKey error, exiting...")
+                crash_quit("Key error!", badproxies, forbiddenproxy, postsCounter)
             time.sleep(3)
 
 
-# ====== Гуру-капча ======
+# ====== captcha.guru ======
 class CaptchaSolver_captchaguru:
 
     def __init__(self, key, keyreq):
-        self.api = "https://api.captcha.guru/"
+        self.api = "http://api.captcha.guru/"
         self.key = key
         try:
             if keyreq.status_code == 200:
-                print("Solver 'captcha.guru' initialized with key: [ДАННЫЕ УДАЛЕНЫ]")
+                print("Solver 'captcha.guru' initialized!")
         except Exception:
             print("Solver 'captcha.guru' initialized with key: " + self.key)
 
@@ -75,30 +77,31 @@ class CaptchaSolver_captchaguru:
         task["type"] = "NoCaptchaTask"
         task["websiteURL"] = "https://2ch.hk/b/"
         task["websiteKey"] = "6LeQYz4UAAAAAL8JCk35wHSv6cuEV5PyLhI6IxsM"
-        data = requests.post(self.api + "createTask", json={"clientKey": self.key, "task": task}, verify=False).json()
+        data = requests.post(self.api + "createTask", json = {"clientKey": self.key, "task": task}, verify = False).json()
         if (data["errorId"] == 0):
             while True:
-                response = requests.post(self.api + "getTaskResult", json={"clientKey" : self.key, "taskId" : str(data["taskId"])}, verify=False).json()
+                response = requests.post(self.api + "getTaskResult", json = {"clientKey" : self.key, "taskId" : str(data["taskId"])}, verify = False).json()
                 if (response["status"] == "ready"):
                     return response["solution"]["gRecaptchaResponse"]
+                    Stats.incCaptchas()
                 time.sleep(3)
         elif (data["errorId"] == 1):
             if (data["errorDescription"] == "ERROR_KEY_DOES_NOT_EXIST"):
-                print("\nКлюч отозван, не могу продолжать работу...")
-                crash_quit("Ключ отозван!", badproxies, forbiddenproxy, postsCounter)
+                print("\nKey revoked, exiting...")
+                crash_quit("Key revoked!", badproxies, forbiddenproxy, postsCounter)
             elif (data["errorDescription"] == "ERROR_ZERO_BALANCE"):
-                print("\nЗакончились деньги на капче, не могу продолжать работу...")
-                crash_quit("Закончились деньги!", badproxies, forbiddenproxy, postsCounter)
+                print("\nNot enough money to continue...")
+                crash_quit("Not enough money to continue...", badproxies, forbiddenproxy, postsCounter)
             elif (data["errorDescription"] == "ERROR_NO_SLOT_AVAILABLE"):
-                print("\nНет свободных индуссов на сервере, таймаут 10 секунд...")
+                print("\nNot have any available workers, 10 sec timeout...")
                 time.sleep(7)
             else:
-                print("\nПроизошла неведомая ебаная хуйня, сорян. Вот ответ от сервера:", (data["errorDescription"]))
+                print("\nSomething fucked up, sorry. Server responce:", (data["errorDescription"]))
                 crash_quit(data["errorDescription"], badproxies, forbiddenproxy, postsCounter)
         time.sleep(3)
 
 
-# ====== Антикапча ======
+# ====== anti-captcha.com ======
 class CaptchaSolver_anticaptcha:
 
     def __init__(self, key, keyreq):
@@ -106,7 +109,7 @@ class CaptchaSolver_anticaptcha:
         self.key = key
         try:
             if keyreq.status_code == 200:
-                print("Solver 'anti-captcha' initialized with key: [ДАННЫЕ УДАЛЕНЫ]")
+                print("Solver 'anti-captcha' initialized!")
         except Exception:
             print("Solver 'anti-captcha' initialized with key: " + self.key)
 
@@ -116,21 +119,22 @@ class CaptchaSolver_anticaptcha:
         # пока так, позже прикручу передачу наших проксичек
         task["websiteURL"] = "https://2ch.hk/b/"
         task["websiteKey"] = "6LeQYz4UAAAAAL8JCk35wHSv6cuEV5PyLhI6IxsM"
-        data = requests.post(self.api + "createTask", json={"clientKey": self.key, "task": task}, verify=False).json()
+        data = requests.post(self.api + "createTask", json = {"clientKey": self.key, "task": task}, verify = False).json()
         if (data["errorId"] == 0):
             while True:
-                response = requests.post(self.api + "getTaskResult", json={"clientKey" : self.key, "taskId" : str(data["taskId"])}, verify=False).json()
+                response = requests.post(self.api + "getTaskResult", json = {"clientKey" : self.key, "taskId" : str(data["taskId"])}, verify = False).json()
                 if (response["status"] == "ready"):
                     return response["solution"]["gRecaptchaResponse"]
+                    Stats.incCaptchas()
                 time.sleep(3)
         elif (data["errorId"] == 1):
             if (data["errorDescription"] == "ERROR_KEY_DOES_NOT_EXIST"):
-                print("\nКлюч отозван, не могу продолжать работу...")
-                crash_quit("Ключ отозван!", badproxies, forbiddenproxy, postsCounter)
+                print("\nKey revoked, exiting...")
+                crash_quit("Key revoked!", badproxies, forbiddenproxy, postsCounter)
             elif (data["errorDescription"] == "ERROR_ZERO_BALANCE"):
-                print("\nЗакончились деньги на капче, не могу продолжать работу...")
-                crash_quit("Закончились деньги!", badproxies, forbiddenproxy, postsCounter)
+                print("\nNot enough money to continue...")
+                crash_quit("Not enough money to continue...", badproxies, forbiddenproxy, postsCounter)
             else:
-                print("\nПроизошла неведомая ебаная хуйня, сорян. Вот ответ от сервера:", (data["errorDescription"]))
+                print("\nSomething fucked up, sorry. Server responce:", (data["errorDescription"]))
                 crash_quit(data["errorDescription"], badproxies, forbiddenproxy, postsCounter)
         time.sleep(3)

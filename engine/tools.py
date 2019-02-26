@@ -1,13 +1,26 @@
 ## -*- coding: utf-8 -*-
 
-import threading
 import os
-import urllib3
+import threading
+
+try:
+	import urllib3
+except:
+	print("\nModule \"requests\" not found, performing installation...\n")
+	os.system('pip install --user requests pysocks' if os.name == 'nt' else 'pip3 install --user requests pysocks')
+	try:
+		import urllib3
+		print("\nSuccess!")
+	except:
+		print("Failed to install \"requests\" module. Emergency exit...")
+		input()
+		os._exit()
+
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-# ====== Отключение ======
-def safe_quit(badproxies, forbiddenproxy, postsCounter, sig=0, frame=0):
-	print("\n\nЖду, пока обновится лист с проксичками...")
+# ====== shutting down ======
+def safe_quit(badproxies, forbiddenproxy, postsCounter, sig = 0, frame = 0):
+	print("\n\nWaiting for proxy list update...")
 
 	f = open("proxies.cfg", "r+")
 	d = f.readlines()
@@ -25,40 +38,45 @@ def safe_quit(badproxies, forbiddenproxy, postsCounter, sig=0, frame=0):
 		d.write(proxy + '\n')
 	d.close()
 
-	print(str((len(badproxies) - len(forbiddenproxy))), "забаненых проксичек почищено!")
-	print(str(len(forbiddenproxy)), "запрещенных проксичек почищено!")
+	print(str((len(badproxies) - len(forbiddenproxy))), "banned proxies cleaned!")
+	print(str(len(forbiddenproxy)), "'access denied' proxies cleaned!")
 
 	data = {}
 	data["posts"] = str(postsCounter)
 	data["bans"] = str(len(badproxies) - len(forbiddenproxy))
 	with open(".response", "a", encoding="utf-8") as file:
 		for key in data:
-			file.write(key+" "+data[key]+"\n")
+			file.write(key + " " + data[key] + "\n")
 	
 	goodProxies = Stats.goodProxies
-	with open("good", "r") as file:
-		proxies = file.readlines();
-	for proxy in proxies:
-		goodProxies.append(proxy[:-1])
-	goodProxies = list(set(goodProxies))
-	with open("good", "w") as file:
-		for proxy in goodProxies:
-			file.write(proxy + "\n")
+	try:
+		with open("goodproxies.txt", "r") as file:
+			proxies = file.readlines()
+		for proxy in proxies:
+			goodProxies.append(proxy[:-1])
+		goodProxies = list(set(goodProxies))
+		with open("goodproxies.txt", "w") as file:
+			for proxy in goodProxies:
+				file.write(proxy + "\n")
+	except:
+		with open("goodproxies.txt", "w") as file:
+			for proxy in goodProxies:
+				file.write(proxy + "\n")
 
 
-	print("Выключаюсь...")
+	print("Exiting...")
 	os._exit(0)
 
-def crash_quit (reason, badproxies=[], forbiddenproxy=[], postsCounter=0):
+def crash_quit (reason, badproxies = [], forbiddenproxy = [], postsCounter = 0):
 	with open(".response", "w", encoding="utf-8") as file:
-		file.write("crash "+reason+"\n")
+		file.write("crash " + reason + "\n")
 	safe_quit(badproxies, forbiddenproxy, postsCounter)
 
-# ====== Обработка клавиш ======
+# ====== input processing ======
 def eternal_input(badproxies, forbiddenproxy, postsCounter):
 	while True:
 		print("Choose your option")
-		choice = input("[S]tatistics, [Q]uit, [C]lear parasha\n")
+		choice = input("[S]tatistics, [Q]uit\n")
 		choice = choice.rstrip()
 		try:
 			if choice.lower() == "s" or choice.lower() == "ы":
@@ -67,19 +85,16 @@ def eternal_input(badproxies, forbiddenproxy, postsCounter):
 				safe_quit(badproxies, forbiddenproxy, postsCounter)
 				badproxies.clear()
 				forbiddenproxy.clear()
-			elif choice.lower() == "c" or choice.lower() == "с":
-				badproxies.clear()
-				print("Параша почищена")
 			else:
-				print("Ты пишешь хуйню")
+				print("Undefined option!")
 		except Exception as e:
 			print(e)
 
 
-# ====== Стата ======
+# ====== statistics ======
 class Stats:
 
-	# почините уже хоть кто-нибудь эту стату, ну пожалуйста 
+	# should be fixed now?
 	# //tsunamaru
 
 	numOfProxies = 0
@@ -105,13 +120,10 @@ class Stats:
 
 	def printStats(badproxies, forbiddenproxy):
 		print("=====================================")
-		print("Проксичек осталось:\t", str(Stats.numOfProxies - len(badproxies)))
-		print("Начальные потоки:\t", str(Stats.numOfThreads))
-		print("Каптч решено:\t\t", str(Stats.captchasSolved))
-		print("Забаненые проксички:\t", str((len(badproxies) - len(forbiddenproxy))))
-		print("Доступ запрещен:\t", str(len(forbiddenproxy)))
-		print("Текущие потоки:\t\t", str(threading.active_count()))
-		if threading.active_count() <= 2:
-			print("ALL THREADS FINISHED, PRESS \"Q\"")
+		print("Current threads:\t", str(threading.active_count()))
+		print("Proxies left:\t\t", str(Stats.numOfProxies - len(badproxies)))
+		print("Captchas solved:\t", str(Stats.captchasSolved))
+		print("Posts sent:\t\t", str(Stats.postsSent))
+		print("Banned proxies:\t\t", str((len(badproxies) - len(forbiddenproxy))))
+		print("Access denied:\t\t", str(len(forbiddenproxy)))
 		print("=====================================\n")
-
