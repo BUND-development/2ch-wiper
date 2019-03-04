@@ -13,7 +13,8 @@ except:
 		import requests
 		print("\nSuccess!")
 	except:
-		tools.crash_quit("Failed to install \"requests\" module. Emergency exit...")
+		print("Failed to install \"requests\" module.")
+		tools.crash_quit("Failed to install \"requests\" module!")
 import urllib3
 try:
 	from bs4 import BeautifulSoup
@@ -25,7 +26,8 @@ except:
 		print("\nSuccess! Press any key to continue...")
 		input()
 	except:
-		tools.crash_quit("Failed to install \"bs4\" module. Emergency exit...")
+		print("Failed to install \"bs4\" module. Emergency exit...")
+		tools.crash_quit("Failed to install \"bs4\" module!")
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 

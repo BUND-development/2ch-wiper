@@ -14,7 +14,8 @@ except:
 		import requests
 		print("\nSuccess!")
 	except:
-		tools.crash_quit("Failed to install \"requests\" module. Emergency exit...")
+		print("Failed to install \"requests\" module. Emergency exit...")
+		tools.crash_quit("Failed to install \"requests\" module!")
 import urllib3
 
 from tools import *
@@ -33,7 +34,7 @@ class CaptchaSolver_captchaguru:
         except Exception:
             print("Solver 'captcha.guru' initialized with key: " + self.key)
 
-    def solve(self, image, badproxies, forbiddenproxy, postsCounter):
+    def solve(self, image, badproxies, forbiddenproxy, deadproxy, postsCounter):
         task = {}
         task["type"] = "ImageToTextTask"
         task["body"] = base64.b64encode(image).decode("utf-8")
@@ -54,16 +55,16 @@ class CaptchaSolver_captchaguru:
         elif (data["errorId"] == 1):
             if (data["errorDescription"] == "ERROR_KEY_DOES_NOT_EXIST"):
                 print("\nKey revoked, exiting...")
-                crash_quit("Key revoked!", badproxies, forbiddenproxy, postsCounter)
+                crash_quit("Key revoked!", badproxies, forbiddenproxy, deadproxy, postsCounter)
             elif (data["errorDescription"] == "ERROR_ZERO_BALANCE"):
                 print("\nNot enough money to continue...")
-                crash_quit("Not enough money to continue...", badproxies, forbiddenproxy, postsCounter)
+                crash_quit("Not enough money to continue...", badproxies, forbiddenproxy, deadproxy, postsCounter)
             elif (data["errorDescription"] == "ERROR_NO_SLOT_AVAILABLE"):
                 print("\nNot have any available workers, 10 sec timeout...")
                 time.sleep(7)
             else:
                 print("\nSomething fucked up, sorry. Server responce:", (data["errorDescription"]))
-                crash_quit(data["errorDescription"], badproxies, forbiddenproxy, postsCounter)
+                crash_quit(data["errorDescription"], badproxies, forbiddenproxy, deadproxy, postsCounter)
         time.sleep(3)
 
 
@@ -79,7 +80,7 @@ class CaptchaSolver_anticaptcha:
         except Exception:
             print("Solver 'anti-captcha' initialized with key: " + self.key)
 
-    def solve(self, image, badproxies, forbiddenproxy, postsCounter):
+    def solve(self, image, badproxies, forbiddenproxy, deadproxy, postsCounter):
         task = {}
         task["type"] = "ImageToTextTask"
         task["body"] = base64.b64encode(image).decode("utf-8")
@@ -100,11 +101,11 @@ class CaptchaSolver_anticaptcha:
         elif (data["errorId"] == 1):
             if (data["errorDescription"] == "ERROR_KEY_DOES_NOT_EXIST"):
                 print("\nKey revoked, exiting...")
-                crash_quit("Key revoked!", badproxies, forbiddenproxy, postsCounter)
+                crash_quit("Key revoked!", badproxies, forbiddenproxy, deadproxy, postsCounter)
             elif (data["errorDescription"] == "ERROR_ZERO_BALANCE"):
                 print("\nNot enough money to continue...")
-                crash_quit("Not enough money to continue...", badproxies, forbiddenproxy, postsCounter)
+                crash_quit("Not enough money to continue...", badproxies, forbiddenproxy, deadproxy, postsCounter)
             else:
                 print("\nSomething fucked up, sorry. Server responce:", (data["errorDescription"]))
-                crash_quit(data["errorDescription"], badproxies, forbiddenproxy, postsCounter)
+                crash_quit(data["errorDescription"], badproxies, forbiddenproxy, deadproxy, postsCounter)
         time.sleep(3)

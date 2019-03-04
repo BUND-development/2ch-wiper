@@ -13,7 +13,8 @@ except:
 		import requests
 		print("\nSuccess!")
 	except:
-		tools.crash_quit("Failed to install \"requests\" module. Emergency exit...")
+		print("Failed to install \"requests\" module. Emergency exit...")
+		tools.crash_quit("Failed to install \"requests\" module!")
 import urllib3
 from requests.auth import HTTPBasicAuth
 
@@ -118,10 +119,10 @@ class Setup:
 
 	# === earlier here was OS detection and codepage setting, now there just filenames ===
 	def set_encoding(self):
-		self.complainFile = "complaints.txt"
+		self.complainFile = "complaints.txt" # deprecated
 		self.cpFile = "texts.txt"
-		self.bansFile = "bans.txt"
-		self.fullFile = "parasha.txt"
+		self.bansFile = "bans.txt" # deprecated
+		self.fullFile = "parasha.txt" # deprecated
 		return self.cpFile, self.bansFile, self.fullFile
 
 	# === setting pause between posts and timeout ===
@@ -215,10 +216,16 @@ class Setup:
 				pastes = pastes.split("\n\n")
 				bigPaste = 0
 		elif mode == 4:
-			with open(self.cpFile, 'r', encoding='utf-8') as file:
-				pastes = file.read()
-				pastes = pastes.split("\n\n")
-				bigPaste = 0
+			try:
+				with open(self.cpFile, 'r') as file:
+					pastes = file.read()
+					pastes = pastes.split("\n\n")
+					bigPaste = 0
+			except:
+				with open(self.cpFile, 'r', encoding='utf-8') as file:
+					pastes = file.read()
+					pastes = pastes.split("\n\n")
+					bigPaste = 0
 		elif mode == 8:
 			with open(self.bansFile, 'r', encoding='utf-8') as file:
 				pastes = file.read()
@@ -242,7 +249,8 @@ class Setup:
 			try:
 				self.threads.append(Thread(self.board, self.thread, self.mode, form))
 			except Exception:
-				crash_quit("Thread not exist!")
+				print("Thread doesn't exist!")
+				crash_quit("Thread doesn't exist!")
 		elif shrapnelCharge > 0: # and self.thread > 0
 			self.catalog = Catalog(self.board)
 			if minPostsCount == -1:
@@ -258,6 +266,7 @@ class Setup:
 							break
 				shrapnelCharge = i
 				if (shrapnelCharge == 0):
+					print("There is no threads with the specified parameters!")
 					crash_quit("There is no threads with the specified parameters!")
 
 		if self.chaos != "-1" and self.chaos != "0":
@@ -282,11 +291,13 @@ class Setup:
 					mediaDir += "/"
 					mediaDir += mediaGroup
 					if os.path.exists(mediaDir) == False:
+						print("Directory " + mediaDir + " doesn't exist!")
 						crash_quit("Directory " + mediaDir + " not exist!")
 				for media in os.listdir("./" + mediaDir):
 					if media.endswith(".jpg") or media.endswith(".png") or media.endswith(".gif") or media.endswith(".bmp") or media.endswith(".mp4") or media.endswith(".webm"):
 						mediaPaths.append("./" + mediaDir + "/" + media)
 				if len(mediaPaths) == 0:
+					print("Not found any files in " + mediaDir + "!")
 					crash_quit("Not found any files in " + mediaDir + "!")
 
 			elif self.shrapnelCharge == 0:

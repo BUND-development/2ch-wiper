@@ -19,7 +19,8 @@ except:
 		import PIL.Image
 		print("\nSuccess!")
 	except:
-		tools.crash_quit("Failed to install \"pillow\" module. Emergency exit...")
+		print("Failed to install \"pillow\" module. Emergency exit...")
+		tools.crash_quit("Failed to install \"pillow\" module!")
 try:
 	import requests
 except:
@@ -29,7 +30,8 @@ except:
 		import requests
 		print("\nSuccess!")
 	except:
-		tools.crash_quit("Failed to install \"requests\" module. Emergency exit...")
+		print("Failed to install \"requests\" module. Emergency exit...")
+		tools.crash_quit("Failed to install \"requests\" module!")
 import urllib3
 
 import solvers_2ch
@@ -47,13 +49,14 @@ TEXT_CHARS = string.ascii_uppercase + string.digits + string.ascii_lowercase + (
 NAME_SIZE = 14
 badproxies = []
 forbiddenproxy = []
+deadproxy = []
 postsCounter = 0
 
 
 # ====== banner ======
 def show_logo():
 	os.system('cls' if os.name == 'nt' else 'clear')
-	print("\n*********************************** v2.6.2-dev **")
+	print("\n*********************************** v2.6.3-dev **")
 	print("*    2CH.HK WIPE MACHINE - ReCaptcha edition    *")
 	print("*   Based on original project from glow_stick   *")
 	print("*     Written by owodelta, kobato, arelive      *")
@@ -67,8 +70,8 @@ class Captcha:
 	def __init__(self, proxy, agent, board, thread, solver, TIMEOUT, captchaType):
 		if (captchaType) == "2ch":
 			self.api = "https://5.61.239.35/api/captcha/2chaptcha/"
-		else:
-			self.api = "https://5.61.239.35/api/captcha/recaptcha/id"
+		elif (captchaType) == "re":
+			self.api = "https://5.61.239.35/api/captcha/recaptcha/"
 		self.proxy = proxy
 		self.board = board
 		self.thread = thread
@@ -96,8 +99,8 @@ class Captcha:
 
 	def solve(self):
 		global postsCounter
-		print(self.proxy["http"], "solving captcha")
-		self.value = self.solver.solve(self.image, badproxies, forbiddenproxy, postsCounter)
+		print(self.proxy["http"], "preparing")
+		self.value = self.solver.solve(self.image, badproxies, forbiddenproxy, deadproxy, postsCounter)
 		return (None, self.id), (None, self.value)
 
 	def verify(self):
@@ -148,9 +151,12 @@ class Post:
 		self.headers["UPGRADE-INSECURE-REQUESTS"] = "1"
 		self.headers["DNT"] = "1"
 
-	def prepare(self, TIMEOUT):
+	def prepare(self, TIMEOUT, PAUSE):
 		try:
 			self.buffer["chaptcha_id"], self.buffer["chaptcha_value"] = Captcha(self.proxy, self.agent, self.board, self.thread, self.solver, TIMEOUT, self.captchaType).solve()
+			#print(self.proxy["http"], "waiting")
+			time.sleep(PAUSE)
+			print(self.proxy["http"], "solving captcha")
 			if self.captchaType == "2ch":
 				self.params.append(("2chaptcha_id", self.buffer["chaptcha_id"]))
 				self.params.append(("2chaptcha_value", self.buffer["chaptcha_value"]))
@@ -160,10 +166,10 @@ class Post:
 			print(self.proxy["http"], "solved")
 			return True
 		except requests.exceptions.ReadTimeout:
-			print(self.proxy["http"] + " -- timeout")
+			print(self.proxy["http"] + " - timeout (captcha)")
 			return False
 		except requests.exceptions.ConnectionError:
-			print(self.proxy["http"] + " -- connection refused")
+			print(self.proxy["http"] + " - connection refused (captcha)")
 			return False
 
 	def set_subject(self, text):
@@ -176,7 +182,7 @@ class Post:
 		self.params.append(("email", (None, "sage")))
 		self.params.append(("sage", (None, "on")))
 
-	def set_image(self, file_name, randName, shakalPower=0, shakalColor=False, shakalAffine=False, toPNG=False):
+	def set_image(self, file_name, randName, shakalPower = 0, shakalColor = False, shakalAffine = False, toPNG = False):
 		image = self.shakal(file_name, shakalPower, shakalColor, shakalAffine, toPNG)
 		if randName:
 			file_name_displayed = str(''.join(str(random.randint(0, 9)) for _ in range(NAME_SIZE-1)) + "0")
@@ -260,17 +266,22 @@ class Post:
 		image.close()
 		return image_bytes.getvalue()
 
-	def send(self, TIMEOUT, PAUSE):
+	def send(self, TIMEOUT):
 		response = {}
 		try:
+			#print(self.proxy["http"], "ready")
+			#time.sleep(PAUSE)
 			print(self.proxy["http"], "posting")
-			wait_time = random.randint(6, 15)
-			time.sleep(PAUSE)
 			response = requests.post("https://5.61.239.35/makaba/posting.fcgi?json=1", files = self.params, proxies = self.proxy, headers = self.headers, timeout = TIMEOUT, verify = False).json()
-			Stats.printStats(badproxies, forbiddenproxy)
-			return response['Status'] == 'OK', response
-		except Exception as e:
-			#print(e)
+			Stats.printStats(badproxies, forbiddenproxy, deadproxy)
+			return response['Status'] == 'OK' or 'Redirect', response
+		except requests.exceptions.ReadTimeout:
+			print(self.proxy["http"] + " - timeout (posting)")
+			return False, response
+		except requests.exceptions.ConnectionError:
+			print(self.proxy["http"] + " - connection refused (posting)")
+			return False, response
+		except Exception:
 			return False, response
 
 
@@ -281,6 +292,7 @@ class Wiper:
 		print("\nFOR BUMP AND SAGE, FOR HONOR AND COURAGE!")
 		self.proxies = [proxy[:-1] for proxy in open("proxies.cfg", "r").readlines()]
 		if len(self.proxies) == 0:
+			print("No proxies in proxies.cfg!")
 			crash_quit("No proxies in proxies.cfg!")
 		random.shuffle(self.proxies)
 		Stats.setProxies(len(self.proxies))
@@ -296,7 +308,7 @@ class Wiper:
 			self.threads = threads
 
 		# self.set_solver(setup.solver)
-		# disabled until 2chaptcha will work
+		# disabled until 2chaptcha will work again
 
 		self.captchaType = "re"
 		if setup.solver == 0:
@@ -386,15 +398,16 @@ class Wiper:
 
 				post = Post(proxy, agent, self.board, thread.ID, self.solver, self.captchaType)
 
-				if (post.prepare(self.setup.TIMEOUT)):
+				if (post.prepare(self.setup.TIMEOUT, self.setup.PAUSE)):
 					charnum = random.randint(1, 100)
 					if self.thread != "0":
-						black_anus = random.randint(1, len(thread.posts)-1)  # post ID for trigger
+						black_anus = random.randint(1, len(thread.posts)-1) # post ID for trigger
 						white_anus = random.randint(0, len(self.threads[threadNum].posts)-1)  # post ID for copypasting
+
 						if self.setup.mode == 7 and self.setup.mediaKind == 0 and len(self.threads[threadNum].posts[white_anus].comment) == 0:
 							for i in range(10):
 								white_anus = random.randint(0, len(self.threads[threadNum].posts)-1)
-								if len(self.threads[threadNum].posts[white_anus].comment) != 0: break  # this is workaround //arelive
+								if len(self.threads[threadNum].posts[white_anus].comment) != 0: break # this is workaround //arelive
 
 					# === take trigger ===
 					if self.setup.triggerForm == 1:
@@ -469,7 +482,7 @@ class Wiper:
 					elif self.setup.sageMode == 0:
 						post.params.append(("email", (None, "")))
 
-					success, response = post.send(self.setup.TIMEOUT, self.setup.PAUSE)
+					success, response = post.send(self.setup.TIMEOUT)
 					if success:
 						Stats.incPosts()
 						Stats.addGoodProxy(proxy)
@@ -480,7 +493,10 @@ class Wiper:
 						except Exception:
 							post_id = response["Num"]
 						if self.setup.shrapnelCharge == 0:
-							print(proxy + " - success. Post id: " + str(post_id))
+							if response["Status"] == 'OK':
+								print(proxy + " - success. Post id: " + str(post_id))
+							elif response["Status"] == 'Redirect':
+								print(proxy + " - success. Thread id: " + str(post_id))
 						else:
 							print(proxy + " - success. Post id: " + str(post_id) + " (" + thread.ID + " thread)")
 						if self.setup.thread != "0":
@@ -489,7 +505,10 @@ class Wiper:
 						print(str(self.setup.proxyRepeatsCount-counter) + " LOOPS LEFT")
 						counter += 1
 					else:
-						print(proxy, "posting failed -", response)
+						try:
+							print(proxy + " - failed. Reason: \"" + response["Reason"] + "\"")
+						except:
+							print(proxy + " - failed (bad response)")
 
 						try:
 							# === regular bans ===
@@ -516,36 +535,37 @@ class Wiper:
 							elif response["Error"] == -7:
 								if self.setup.shrapnelCharge == 0:
 									print("Thread closed, good job!")
-									safe_quit(badproxies, forbiddenproxy, postsCounter)
+									safe_quit(badproxies, forbiddenproxy, deadproxy, postsCounter)
 								else:
 									print("Thread " + self.threads[threadNum].ID + " just closed!")
 									del self.threads[threadNum]
 									if len(self.threads) == 0:
 										print("All threads closed. VICTORY!")
-										safe_quit(badproxies, forbiddenproxy, postsCounter)
+										safe_quit(badproxies, forbiddenproxy, deadproxy, postsCounter)
 							elif not response:
 								print("Network error, trying again...")
 
 						except Exception as e:
-							if type(e) == KeyError: # workaround for makaba empty response //tsunamaru
-								print("Makaba just fucked up again, thx Abu!")
+							if type(e) == KeyError: # workaround for makaba (or proxy) empty response // tsunamaru
+													# disabled until i down't get why this crap doesn't want to work properly
+													# see engine/tools.py 
+								pass
+								#print("Removing dead proxy...")
+								#badproxies.append(proxy)
+								#deadproxy.append(proxy)
+								#if len(self.proxies) == 0:
+								#	print("No more proxies to switch!")
+								#	counter = self.setup.proxyRepeatsCount
+								#else:
+								#	proxy = self.proxies.pop(0)
+								#	counter = 0
 							else:
 								print("Sorry, an error has occurred while trying to process response:", e)
-								
-							if len(response) > 0:
-								print("Timeout... " + proxy + " to bad list")
-								badproxies.append(proxy)
-								if len(self.proxies) == 0:
-									print("No more proxies to switch!")
-									counter = self.setup.proxyRepeatsCount
-								else:
-									proxy = self.proxies.pop(0)
-									counter = 0
 			if not proxy in badproxies:
 				self.proxies.append(proxy)
 
 		except Exception as e:
-			print("Sorry, an error has occurred while trying to send post:", e)
+			print("\nSorry, an error has occurred while trying to send post:", e)
 			# sometimes it's catch empty range exception, i dunno why
 			# probably bug somewhere in rand module? //tsunamaru
 
@@ -572,8 +592,8 @@ class Wiper:
 				threading.Thread.__init__(self)
 
 			def run(self):
-				Stats.printStats(badproxies, forbiddenproxy)
-				eternal_input(badproxies, forbiddenproxy, postsCounter)
+				Stats.printStats(badproxies, forbiddenproxy, deadproxy)
+				eternal_input(self, badproxies, forbiddenproxy, deadproxy, postsCounter)
 
 		threads = []
 		inthr = InputThread()
@@ -593,11 +613,11 @@ try:
 	signal.signal(signal.SIGINT, safe_quit)
 	WiperObj.wipe(setup.potocksCount)
 
-	safe_quit(badproxies, forbiddenproxy, postsCounter)
+	safe_quit(badproxies, forbiddenproxy, deadproxy, postsCounter)
 
 except Exception as e:
-	print("Sorry, a fatal error has been occurred:", e)
-	print("Wiper will be closed. Please double check your settings and internet connection.")
+	print("\nSorry, a fatal error has been occurred:", e)
+	print("\nWiper will be closed. Please double check your settings and internet connection.")
 	print("If you pretty sure that it's not your fault, report this bug directly to @tsunamaru.")
 	print("Don't forget to include your config and system settings (OS version, Python version, etc).")
 	crash_quit("Network error, check your connection! Or, maybe, this piece of crapcode just fucked up again.")

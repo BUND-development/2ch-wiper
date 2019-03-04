@@ -19,8 +19,8 @@ except:
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # ====== shutting down ======
-def safe_quit(badproxies, forbiddenproxy, postsCounter, sig = 0, frame = 0):
-	print("\n\nWaiting for proxy list update...")
+def safe_quit(badproxies, forbiddenproxy, deadproxy, postsCounter, sig = 0, frame = 0):
+	print("\n\nWaiting for proxy list update...\n")
 
 	f = open("proxies.cfg", "r+")
 	d = f.readlines()
@@ -38,12 +38,13 @@ def safe_quit(badproxies, forbiddenproxy, postsCounter, sig = 0, frame = 0):
 		d.write(proxy + '\n')
 	d.close()
 
-	print(str((len(badproxies) - len(forbiddenproxy))), "banned proxies cleaned!")
+	print(str((len(badproxies) - len(forbiddenproxy) - len(deadproxy))), "banned proxies cleaned!")
 	print(str(len(forbiddenproxy)), "'access denied' proxies cleaned!")
+	print(str(len(deadproxy)), "dead proxies cleaned!")
 
 	data = {}
 	data["posts"] = str(postsCounter)
-	data["bans"] = str(len(badproxies) - len(forbiddenproxy))
+	data["bans"] = str(len(badproxies) - len(forbiddenproxy) - len(deadproxy))
 	with open(".response", "a", encoding="utf-8") as file:
 		for key in data:
 			file.write(key + " " + data[key] + "\n")
@@ -64,27 +65,37 @@ def safe_quit(badproxies, forbiddenproxy, postsCounter, sig = 0, frame = 0):
 				file.write(proxy + "\n")
 
 
-	print("Exiting...")
+	print("\nSee You Space Cowboy...")
 	os._exit(0)
 
-def crash_quit (reason, badproxies = [], forbiddenproxy = [], postsCounter = 0):
+def crash_quit (reason, badproxies = [], forbiddenproxy = [], deadproxy = [], postsCounter = 0):
 	with open(".response", "w", encoding="utf-8") as file:
 		file.write("crash " + reason + "\n")
-	safe_quit(badproxies, forbiddenproxy, postsCounter)
+	safe_quit(badproxies, forbiddenproxy, deadproxy, postsCounter)
 
 # ====== input processing ======
-def eternal_input(badproxies, forbiddenproxy, postsCounter):
+def eternal_input(self, badproxies, forbiddenproxy, deadproxy, postsCounter):
 	while True:
 		print("Choose your option")
-		choice = input("[S]tatistics, [Q]uit\n")
+		choice = input("[S]tatistics, [Q]uit, [R]eload dead proxies\n")
 		choice = choice.rstrip()
 		try:
 			if choice.lower() == "s" or choice.lower() == "ы":
-				Stats.printStats(badproxies, forbiddenproxy)
+				Stats.printStats(badproxies, forbiddenproxy, deadproxy)
 			elif choice.lower() == "q" or choice.lower() == "й":
-				safe_quit(badproxies, forbiddenproxy, postsCounter)
+				safe_quit(badproxies, forbiddenproxy, deadproxy, postsCounter)
 				badproxies.clear()
 				forbiddenproxy.clear()
+				deadproxy.clear()
+			elif choice.lower() == "r" or choice.lower() == "к":
+				print("Not implemented right now, sorry...")
+				#badproxies = list(set(badproxies).difference(deadproxy))
+				
+				#self.proxies.extend(deadproxy)
+				# this return exception ('InputThread' object has no attribute 'proxies')
+
+				#deadproxy.clear()
+				#print("Proxies reloaded!")
 			else:
 				print("Undefined option!")
 		except Exception as e:
@@ -118,12 +129,13 @@ class Stats:
 	def addGoodProxy(proxy):
 		Stats.goodProxies.append(proxy)
 
-	def printStats(badproxies, forbiddenproxy):
+	def printStats(badproxies, forbiddenproxy, deadproxy):
 		print("=====================================")
 		print("Current threads:\t", str(threading.active_count()))
 		print("Proxies left:\t\t", str(Stats.numOfProxies - len(badproxies)))
 		print("Captchas solved:\t", str(Stats.captchasSolved))
 		print("Posts sent:\t\t", str(Stats.postsSent))
-		print("Banned proxies:\t\t", str((len(badproxies) - len(forbiddenproxy))))
-		print("Access denied:\t\t", str(len(forbiddenproxy)))
+		print("Banned proxies:\t\t", str((len(badproxies) - len(forbiddenproxy) - len(deadproxy))))
+		print("Denied proxies:\t\t", str(len(forbiddenproxy)))
+		print("Dead proxies:\t\t", str(len(deadproxy)))
 		print("=====================================\n")
