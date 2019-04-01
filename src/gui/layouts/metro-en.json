@@ -36,14 +36,14 @@
 	"y": 275,
 	"width": 170,
 	"height": 25,
-	"text": "Открыть конфиг"
+	"text": "Open config"
 },
 "save_config_button": {
 	"x": 1185,
 	"y": 300,
 	"width": 170,
 	"height": 25,
-	"text": "Сохранить конфиг"
+	"text": "Save config"
 },
 "username_label": {
 	"x": 1205,
@@ -98,7 +98,7 @@
 	"y": 35,
 	"width": 340,
 	"height": 20,
-	"text": "Основные настройки"
+	"text": "Main settings"
 },
 
 "mode_box": {
@@ -118,7 +118,7 @@
 	"y": 10,
 	"width": 170,
 	"height": 20,
-	"text": "Один тред",
+	"text": "One thread",
 	"checked": true
 },
 "shrapnel_mode": {
@@ -126,7 +126,7 @@
 	"y": 10,
 	"width": 170,
 	"height": 20,
-	"text": "Шрапнель"
+	"text": "Shrapnell"
 },
 
 "main_box": {
@@ -144,7 +144,7 @@
 	"y": 10,
 	"width": 140,
 	"height": 25,
-	"text": "Доска:"
+	"text": "Board:"
 },
 "board": {
 	"x": 150,
@@ -158,7 +158,7 @@
 	"y": 40,
 	"width": 140,
 	"height": 25,
-	"text": "Тред:"
+	"text": "Topic:"
 },
 "thread": {
 	"x": 150,
@@ -172,7 +172,7 @@
 	"y": 70,
 	"width": 140,
 	"height": 25,
-	"text": "Потоки:"
+	"text": "Threads:"
 },
 "fibers": {
 	"x": 150,
@@ -197,7 +197,7 @@
 	"y": 10,
 	"width": 140,
 	"height": 25,
-	"text": "Доска:"
+	"text": "Board:"
 },
 "shrapnel_board": {
 	"x": 150,
@@ -211,7 +211,7 @@
 	"y": 40,
 	"width": 140,
 	"height": 25,
-	"text": "Сколько тредов:"
+	"text": "Topics number:"
 },
 "threads": {
 	"x": 150,
@@ -224,7 +224,7 @@
 	"y": 70,
 	"width": 140,
 	"height": 25,
-	"text": "Нижний порог:"
+	"text": "Lower threshold:"
 },
 "min_posts": {
 	"x": 150,
@@ -238,7 +238,7 @@
 	"y": 100,
 	"width": 140,
 	"height": 25,
-	"text": "Потоки:"
+	"text": "Threads:"
 },
 "shrapnel_fibers": {
 	"x": 150,
@@ -260,7 +260,7 @@
 	"y": 35,
 	"width": 340,
 	"height": 20,
-	"text": "Антикапча"
+	"text": "Anticaptcha"
 },
 
 "solver_box": {
@@ -274,7 +274,7 @@
 	"y": 0,
 	"width": 0,
 	"height": 0,
-	"text": "Сервис:"
+	"text": "Captcha solver:"
 },
 "anticaptcha": {
 	"x": 0,
@@ -303,7 +303,7 @@
 	"y": 40,
 	"width": 180,
 	"height": 20,
-	"text": "[резерв]",
+	"text": "[reserved]",
 	"disable": true
 },
 
@@ -318,7 +318,7 @@
 	"y": 130,
 	"width": 340,
 	"height": 25,
-	"text": " Ключ:"
+	"text": " Key:"
 },
 "key": {
 	"x": 0,
@@ -335,7 +335,7 @@
 	"y": 40,
 	"width": 328,
 	"height": 25,
-	"text": "Взять ключ с БУНД-сервера"
+	"text": "Get key from BUND-server"
 },
 
 
@@ -350,7 +350,7 @@
 	"y": 295,
 	"width": 340,
 	"height": 20,
-	"text": "Настройки постов"
+	"text": "Post settings"
 },
 
 "repeats_label": {
@@ -358,7 +358,7 @@
 	"y": 50,
 	"width": 160,
 	"height": 25,
-	"text": "Постов с прокси"
+	"text": "Loops"
 },
 "repeats": {
 	"x": 170,
@@ -379,56 +379,56 @@
 	"y": 80,
 	"width": 170,
 	"height": 25,
-	"text": "Контент:"
+	"text": "Content:"
 },
 "no_text": {
 	"x": 0,
 	"y": 10,
 	"width": 170,
 	"height": 25,
-	"text": "Без текста"
+	"text": "No text"
 },
 "quoting": {
 	"x": 0,
 	"y": 40,
 	"width": 170,
 	"height": 25,
-	"text": "Гринтекст"
+	"text": "Quoting"
 },
 "copying": {
 	"x": 0,
 	"y": 70,
 	"width": 170,
 	"height": 25,
-	"text": "Дублирование"
+	"text": "Cloning"
 },
 "overload": {
 	"x": 0,
 	"y": 0,
 	"width": 0,
 	"height": 0,
-	"text": "Пизда браузеру"
+	"text": "Browser overload"
 },
 "pastes": {
 	"x": 0,
 	"y": 100,
 	"width": 170,
 	"height": 25,
-	"text": "Копипасты"
+	"text": "Text from file"
 },
 "complain": {
 	"x": 0,
 	"y": 0,
 	"width": 0,
 	"height": 0,
-	"text": "Фейковые жалобы"
+	"text": "Fake complaints"
 },
 "random": {
 	"x": 0,
 	"y": 130,
 	"width": 170,
 	"height": 25,
-	"text": "Рандом"
+	"text": "Random text"
 },
 
 "trigger_box": {
@@ -446,7 +446,7 @@
 	"y": 80,
 	"width": 170,
 	"height": 25,
-	"text": "Триггер:",
+	"text": "Trigger:",
 	"hiding": false,
 	"hidden": false
 },
@@ -455,35 +455,35 @@
 	"y": 0,
 	"width": 170,
 	"height": 25,
-	"text": "Цепочка"
+	"text": "Chaining"
 },
 "random_trigger": {
 	"x": 0,
 	"y": 30,
 	"width": 170,
 	"height": 25,
-	"text": "Рандом"
+	"text": "Random"
 },
 "shashlik": {
 	"x": 0,
 	"y": 60,
 	"width": 170,
 	"height": 25,
-	"text": "Батон"
+	"text": "BLAZE THEM ALL!"
 },
 "op-post_trigger": {
 	"x": 0,
 	"y": 90,
 	"width": 170,
 	"height": 25,
-	"text": "Только ОП"
+	"text": "Only OP"
 },
 "no_trigger": {
 	"x": 0,
 	"y": 120,
 	"width": 170,
 	"height": 25,
-	"text": "Без триггера"
+	"text": "No trigger"
 },
 
 "complain_box": {
@@ -501,7 +501,7 @@
 	"y": 80,
 	"width": 140,
 	"height": 25,
-	"text": "Настройки жалоб:",
+	"text": "Complaint settings:",
 	"hiding": true,
 	"hidden": true
 },
@@ -510,7 +510,7 @@
 	"y": 0,
 	"width": 140,
 	"height": 25,
-	"text": "Доска:"
+	"text": "Board:"
 },
 "complain_board": {
 	"x": 10,
@@ -524,7 +524,7 @@
 	"y": 50,
 	"width": 100,
 	"height": 25,
-	"text": "Кол-ва ссылок:"
+	"text": "Links count:"
 },
 "links_count": {
 	"x": 110,
@@ -538,7 +538,7 @@
 	"y": 80,
 	"width": 140,
 	"height": 20,
-	"text": "С постами"
+	"text": "With posts"
 },
 
 "chaos_box": {
@@ -558,14 +558,14 @@
 	"y": 10,
 	"width": 170,
 	"height": 25,
-	"text": " Хаос"
+	"text": " Chaos"
 },
 "random_chaos": {
 	"x": 176,
 	"y": 10,
 	"width": 170,
 	"height": 25,
-	"text": " Случайный хаос",
+	"text": " Random chaos",
 	"disable": true,
 	"disabled": true
 },
@@ -574,7 +574,7 @@
 	"y": 40,
 	"width": 176,
 	"height": 25,
-	"text": "Целевой тред:",
+	"text": "Dest. thread:",
 	"disable": true,
 	"disabled": true
 },
@@ -592,7 +592,7 @@
 	"y": 360,
 	"width": 300,
 	"height": 20,
-	"text": "Сажа?"
+	"text": "Sage?"
 },
 "sage_box": {
 	"x": 20,
@@ -609,14 +609,14 @@
 	"y": 10,
 	"width": 150,
 	"height": 25,
-	"text": "Всегда"
+	"text": "Always"
 },
 "sage_from_posts": {
 	"x": 170,
 	"y": 10,
 	"width": 150,
 	"height": 25,
-	"text": "Из постов"
+	"text": "From posts"
 },
 
 
@@ -631,7 +631,7 @@
 	"y": 295,
 	"width": 340,
 	"height": 20,
-	"text": "Прикрепления"
+	"text": "Attachments"
 },
 
 "media_box": {
@@ -651,14 +651,14 @@
 	"y": 0,
 	"width": 170,
 	"height": 25,
-	"text": "Пикчи"
+	"text": "Images"
 },
 "images_count_label": {
 	"x": 170,
 	"y": 0,
 	"width": 130,
 	"height": 25,
-	"text": "На пост:",
+	"text": "Per post:",
 	"disable": true,
 	"disabled": true
 },
@@ -676,7 +676,7 @@
 	"y": 30,
 	"width": 140,
 	"height": 25,
-	"text": "Из подпапки:",
+	"text": "Subfolder:",
 	"disable": true,
 	"disabled": true
 },
@@ -693,14 +693,14 @@
 	"y": 60,
 	"width": 120,
 	"height": 25,
-	"text": "Шебмки"
+	"text": "Video"
 },
 "videos_count_label": {
 	"x": 170,
 	"y": 60,
 	"width": 130,
 	"height": 25,
-	"text": "На пост:",
+	"text": "Per post:",
 	"disable": true,
 	"disabled": true
 },
@@ -718,7 +718,7 @@
 	"y": 90,
 	"width": 140,
 	"height": 25,
-	"text": "Из подпапки:",
+	"text": "Subfolder:",
 	"disable": true,
 	"disabled": true
 },
@@ -735,14 +735,14 @@
 	"y": 120,
 	"width": 240,
 	"height": 25,
-	"text": "Брать из постов"
+	"text": "Take from posts"
 },
 "no_media": {
 	"x": 0,
 	"y": 340,
 	"width": 240,
 	"height": 25,
-	"text": "Ничего"
+	"text": "Nothing"
 },
 
 "random_media_name": {
@@ -750,7 +750,7 @@
 	"y": 360,
 	"width": 300,
 	"height": 20,
-	"text": "Случайное имя файла",
+	"text": "Random filename",
 	"disable": true,
 	"disabled": true,
 	"hiding": false,
@@ -772,7 +772,7 @@
 	"y": 10,
 	"width": 280,
 	"height": 25,
-	"text": "Уровень шакальности:"
+	"text": "Distortion level:"
 },
 "shackal_degree": {
 	"x": 30,
@@ -785,21 +785,21 @@
 	"y": 60,
 	"width": 280,
 	"height": 20,
-	"text": "Покрасить"
+	"text": "To paint"
 },
 "affine": {
 	"x": 30,
 	"y": 80,
 	"width": 280,
 	"height": 20,
-	"text": "Афинное преобразование"
+	"text": "Affine transformation"
 },
 "to_PNG": {
 	"x": 30,
 	"y": 100,
 	"width": 280,
 	"height": 20,
-	"text": "Конвертнуть в PNG"
+	"text": "Convert to PNG"
 },
 
 
@@ -814,14 +814,14 @@
 	"y": 35,
 	"width": 340,
 	"height": 20,
-	"text": "Статистика"
+	"text": "Statistics"
 },
 "total_posts_label": {
 	"x": 25,
 	"y": 50,
 	"width": 140,
 	"height": 30,
-	"text": "Всего постов:"
+	"text": "Total posts:"
 },
 "total_posts": {
 	"x": 170,
@@ -836,7 +836,7 @@
 	"y": 80,
 	"width": 140,
 	"height": 30,
-	"text": "Всего банов:"
+	"text": "Bans total:"
 },
 "total_bans": {
 	"x": 170,
@@ -851,7 +851,7 @@
 	"y": 110,
 	"width": 140,
 	"height": 30,
-	"text": "Последние посты:"
+	"text": "The latest posts:"
 },
 "posts": {
 	"x": 170,
@@ -866,7 +866,7 @@
 	"y": 140,
 	"width": 140,
 	"height": 30,
-	"text": "Проксички:"
+	"text": "Proxies:"
 },
 "proxies": {
 	"x": 170,
