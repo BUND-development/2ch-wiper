@@ -54,6 +54,21 @@ def show_logo():
 	print("*            cryptostimor, tsunamaru            *")
 	print("*************************************************")
 
+# ===== logging =====
+def writelog():
+	log = open("launch.log", "w")
+	log.write("Start time: ")
+	log.write(str(time.asctime()))
+	log.write("\nPython version: ")
+	log.write(str(str(sys.version_info.major) + "." + str(sys.version_info.minor) + "." + str(sys.version_info.micro)))
+	log.write("\nOS: ")
+	log.write(str(os.name))
+	log.write(", type: ")
+	log.write(str(sys.platform))
+	log.write("\nStart args: ")
+	log.write(str(sys.argv))
+	log.close()
+
 
 # ====== 2ch.hk captcha API ======
 class Captcha:
@@ -593,6 +608,7 @@ class Wiper:
 			threads[i].join()
 
 show_logo()
+writelog()
 
 try:
 	setup = Setup(sys.argv[1:])

@@ -47,6 +47,12 @@ class CaptchaSolver_XCaptcha:
             elif data.text == "ERROR_KEY_USER":
                 print("\nKey error, exiting...")
                 crash_quit("Key error!", badproxies, forbiddenproxy, deadproxy, postsCounter)
+            elif data.text == "ERROR_NOT_SLOT_ZERO":
+                print("\nВсе ушли бухать, ждём 30 сек...")
+                time.sleep(27)
+            elif data.text == "ERROR_NOT_SLOT_BUSY":
+                print("\nИндуссы просят пощады, ждём 30 сек...")
+                time.sleep(27)
             time.sleep(3)
 
 
