@@ -1,23 +1,9 @@
-## -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 import os
 import threading
 import time
-
-try:
-	import urllib3
-except:
-	print("\nModule \"requests\" not found, performing installation...\n")
-	os.system('pip install --user requests pysocks' if os.name == 'nt' else 'pip3 install --user requests pysocks')
-	time.sleep(5)
-	try:
-		import urllib3
-		print("\nSuccess!")
-	except:
-		print("Failed to install \"requests\" module. Emergency exit...")
-		input()
-		os._exit()
-
+import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # ====== shutting down ======

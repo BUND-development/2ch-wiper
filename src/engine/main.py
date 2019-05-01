@@ -1,7 +1,11 @@
-## -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
+
+import os
+
+# ====== force update / install requirements =====
+os.system('pip install requests pysocks bs4 pillow sty backoff' if os.name == 'nt' else 'pip3 install requests pysocks bs4 pillow sty backoff')
 
 import io
-import os
 import random
 import signal
 import string
@@ -9,30 +13,22 @@ import sys
 import threading
 import time
 import tools
-
-try:
-	import PIL.Image
-except:
-	print("\nModule \"pillow\" not found, performing installation...\n")
-	os.system('pip install --user pillow' if os.name == 'nt' else 'pip3 install --user pillow')
-	time.sleep(5)
-	try:
-		import PIL.Image
-		print("\nSuccess!")
-	except:
-		print("Failed to install \"pillow\" module. Emergency exit...")
-		tools.crash_quit("Failed to install \"pillow\" module!")
+import PIL.Image
+import backoff
 import requests
 import urllib3
-
 import solvers_2ch
 import solvers_re
 from scheme import Catalog, Thread
 from setting import Setup
 from tools import *
-
+from requests import get as _get
+from requests import post as _post
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+# ===== backoff for requests =====
+getreq = backoff.on_exception(backoff.expo, Exception, max_tries = 10, jitter = None, max_time = 60)(_get)
+postreq = backoff.on_exception(backoff.expo, Exception, max_tries = 10, jitter = None, max_time = 60)(_post)
 
 # ====== just some shit ======
 CHARS = string.ascii_uppercase + string.digits
@@ -47,7 +43,7 @@ postsCounter = 0
 # ====== banner ======
 def show_logo():
 	os.system('cls' if os.name == 'nt' else 'clear')
-	print("\n*********************************** v2.6.4-dev **")
+	print("\n*********************************** v2.6.5-dev **")
 	print("*    2CH.HK WIPE MACHINE - ReCaptcha edition    *")
 	print("*   Based on original project from glow_stick   *")
 	print("*     Written by owodelta, kobato, arelive      *")
@@ -276,7 +272,7 @@ class Post:
 			#print(self.proxy["http"], "ready")
 			#time.sleep(PAUSE)
 			print(self.proxy["http"], "posting")
-			response = requests.post("https://5.61.239.35/makaba/posting.fcgi?json=1", files = self.params, proxies = self.proxy, headers = self.headers, timeout = TIMEOUT, verify = False).json()
+			response = postreq("https://5.61.239.35/makaba/posting.fcgi?json=1", files = self.params, proxies = self.proxy, headers = self.headers, timeout = TIMEOUT, verify = False).json()
 			Stats.printStats(badproxies, forbiddenproxy, deadproxy)
 			return response['Status'] == 'OK' or 'Redirect', response
 		except requests.exceptions.ReadTimeout:
@@ -314,7 +310,6 @@ class Wiper:
 			self.threads = threads
 
 		# self.set_solver(setup.solver)
-		# disabled until 2chaptcha will work again
 
 		self.captchaType = "re"
 		if setup.solver == 0:
@@ -325,6 +320,7 @@ class Wiper:
 			self.solver = solvers_re.CaptchaSolver_anticaptcha(self.setup.key, self.setup.keyreq)
 
 	def set_solver(self, solver):
+		# disabled until 2chaptcha will work again
 		captcha = requests.get("https://5.61.239.35/api/captcha/2chaptcha/id?board=b&thread=0", headers = {"User-Agent": self.agents[0]}, timeout = self.setup.TIMEOUT, verify = False).json()
 		captchaID = captcha["id"]
 		image = requests.get("https://5.61.239.35/api/captcha/2chaptcha/image/" + captchaID, headers = {"User-Agent": self.agents[0]}, timeout = self.setup.TIMEOUT, verify = False).content

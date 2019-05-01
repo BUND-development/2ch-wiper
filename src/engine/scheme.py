@@ -1,22 +1,11 @@
-## -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 import tools
 import json
 import os
 import requests
 import urllib3
-try:
-	from bs4 import BeautifulSoup
-except:
-	print("\nModule \"bs4\" not found, performing installation...\n")
-	os.system('pip install --user bs4' if os.name == 'nt' else 'pip3 install --user bs4')
-	try:
-		from bs4 import BeautifulSoup
-		print("\nSuccess!")
-	except:
-		print("Failed to install \"bs4\" module. Emergency exit...")
-		tools.crash_quit("Failed to install \"bs4\" module!")
-
+from bs4 import BeautifulSoup
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # ====== board scheme ======
