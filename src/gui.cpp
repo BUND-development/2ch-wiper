@@ -445,7 +445,7 @@ void GUI::loadData () {
     config.open("proxies.cfg");
     unsigned long i;
     for (i = 0; !config.eof(); i++) getline(config, datum);
-    proxiesCount = to_string(i-1);
+    proxiesCount = to_string(i);
     ui->proxies->setText(proxiesCount.c_str());
     ui->proxiesLCD->display(proxiesCount.c_str());
 }
@@ -487,7 +487,7 @@ void GUI::updateData (const bool &chanIsCalled) {
             } else {
                 result = (posts - bans * 50);
                 relation += result;
-                if (relation <= 0) delAll(response);
+                // if (relation <= 0) delAll(response);
 
                 ui->chan->call(Wipechan::FINISH, {postsCount, to_string(bans)}, username, 5000 + result * 10);
             }
@@ -500,7 +500,7 @@ void GUI::updateData (const bool &chanIsCalled) {
     response.open("proxies.cfg");
     unsigned long i;
     for (i = 0; !response.eof(); i++) { getline(response, datum); if (datum.empty()) i--; }
-    proxiesCount = to_string(i-1);
+    proxiesCount = to_string(i);
     ui->proxies->setText(proxiesCount.c_str());
     ui->proxiesLCD->display(proxiesCount.c_str());
 }
@@ -512,7 +512,7 @@ void GUI::updateConfig () {
     config << "total_posts " << totalPosts << std::endl;
     config << "total_bans " << totalBans << std::endl;
     config << "met " << (met == 0 ? "0" : "1") << std::endl;
-    config << "relation " << relation << std::endl;
+    // config << "relation " << relation << std::endl;
 }
 
 void GUI::delAll (std::ifstream &response) {
@@ -560,10 +560,6 @@ void GUI::on_startButton_clicked () {
 }
 
 bool GUI::start () {
-    if (proxiesCount == "0") {
-        ui->chan->call(Wipechan::ERROR, {"Нет ни одной прокси!"}, username, relation);
-        return false;
-    }
 
     setup.clear();
     setup.set_username(username);

@@ -3,8 +3,9 @@
 import os
 
 # ====== force update / install requirements =====
-os.system('pip install requests pysocks bs4 pillow sty backoff' if os.name == 'nt' else 'pip3 install requests pysocks bs4 pillow sty backoff')
+os.system('pip install --user requests pysocks bs4 pillow sty backoff' if os.name == 'nt' else 'pip3 install --user requests pysocks bs4 pillow sty backoff')
 
+import platform
 import io
 import random
 import signal
@@ -58,7 +59,7 @@ def writelog():
 	log.write("\nPython version: ")
 	log.write(str(str(sys.version_info.major) + "." + str(sys.version_info.minor) + "." + str(sys.version_info.micro)))
 	log.write("\nOS: ")
-	log.write(str(os.name))
+	log.write(str(platform.system(), platform.release()))
 	log.write(", type: ")
 	log.write(str(sys.platform))
 	log.write("\nStart args: ")
@@ -290,13 +291,6 @@ class Wiper:
 
 	def __init__(self, setup, catalog, threads):
 		print("\nFOR BUMP AND SAGE, FOR HONOR AND COURAGE!")
-		self.proxies = open("proxies.cfg", "r").readlines()
-		self.proxies = [proxy.replace("\n", "") for proxy in self.proxies]
-		if len(self.proxies) == 0:
-			print("No proxies in proxies.cfg!")
-			crash_quit("No proxies in proxies.cfg!")
-		random.shuffle(self.proxies)
-		Stats.setProxies(len(self.proxies))
 		self.agents = open("engine/useragents.cfg").readlines()
 		self.agents = [agent.replace("\n", "") for agent in self.agents]
 		self.board = setup.board
@@ -304,10 +298,22 @@ class Wiper:
 		self.setup = setup
 		self.catalog = catalog
 		self.threads = []
+
 		if (self.thread == "0"):
 			self.threads.append(Thread(self.setup.board, "0", self.setup.mode, 0))
 		else:
 			self.threads = threads
+
+		if (os.path.exists('proxies.cfg')):
+			self.proxies = open("proxies.cfg", "r").readlines()
+			self.proxies = [proxy.replace("\n", "") for proxy in self.proxies]
+			random.shuffle(self.proxies)
+			Stats.setProxies(len(self.proxies))
+			if len(self.proxies) == 0:
+				print("No proxies loaded, 'potocks' value will be ignored...")
+		else:
+			print("No proxies loaded, 'potocks' value will be ignored...")
+			self.proxies = [""]
 
 		# self.set_solver(setup.solver)
 
@@ -548,19 +554,16 @@ class Wiper:
 								print("Network error, trying again...")
 
 						except Exception as e:
-							if type(e) == KeyError:	# workaround for makaba (or proxy) empty response // tsunamaru
-													# disabled until i down't get why this crap doesn't want to work properly
-													# see engine/tools.py 
-								pass
-								#print("Removing dead proxy...")
-								#badproxies.append(proxy)
-								#deadproxy.append(proxy)
-								#if len(self.proxies) == 0:
-								#	print("No more proxies to switch!")
-								#	counter = self.setup.proxyRepeatsCount
-								#else:
-								#	proxy = self.proxies.pop(0)
-								#	counter = 0
+							if type(e) == KeyError:
+								print("Removing dead proxy...")
+								badproxies.append(proxy)
+								deadproxy.append(proxy)
+								if len(self.proxies) == 0:
+									print("No more proxies to switch!")
+									counter = self.setup.proxyRepeatsCount
+								else:
+									proxy = self.proxies.pop(0)
+									counter = 0
 							else:
 								print("Sorry, an error has occurred while trying to process response:", e)
 			if not proxy in badproxies:
@@ -618,5 +621,5 @@ except Exception as e:
 	print("\nSorry, a fatal error has been occurred:", e)
 	print("\nWiper will be closed. Please double check your settings and internet connection.")
 	print("If you pretty sure that it's not your fault, report this bug directly to @tsunamaru.")
-	print("Don't forget to include your config and system settings (OS version, Python version, etc).")
+	print("Don't forget to include your launch.log.")
 	crash_quit("Network error, check your connection! Or, maybe, this piece of crapcode just fucked up again.")

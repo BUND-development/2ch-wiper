@@ -10,16 +10,19 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 def safe_quit(badproxies, forbiddenproxy, deadproxy, postsCounter, sig = 0, frame = 0):
 	print("\n\nWaiting for proxy list update...\n")
 
-	f = open("proxies.cfg", "r+")
-	d = f.readlines()
-	f.seek(0)
+	try:
+		f = open("proxies.cfg", "r+")
+		d = f.readlines()
+		f.seek(0)
 
-	for i in d:
-		if i.rstrip() not in badproxies:
-			f.write(i)
+		for i in d:
+			if i.rstrip() not in badproxies:
+				f.write(i)
 
-	f.truncate()
-	f.close()
+		f.truncate()
+		f.close()
+	except:
+		pass
 
 	d = open("forbidden.txt", "a")
 	for proxy in forbiddenproxy:
