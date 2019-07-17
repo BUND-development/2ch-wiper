@@ -59,7 +59,7 @@ def writelog():
 	log.write("\nPython version: ")
 	log.write(str(str(sys.version_info.major) + "." + str(sys.version_info.minor) + "." + str(sys.version_info.micro)))
 	log.write("\nOS: ")
-	log.write(str(platform.system(), platform.release()))
+	log.write(''.join([platform.system(), " ", platform.release()]))
 	log.write(", type: ")
 	log.write(str(sys.platform))
 	log.write("\nStart args: ")
