@@ -12,15 +12,15 @@
 ```
 server {
 
-	listen				80;
-	listen				[::]:80;
-	listen				443 ssl;
-	listen				[::]:443 ssl;
-	ssl_certificate		<...>;
-	ssl_certificate_key	<...>;
-    root				<...>;
-    server_name			<...>;
-    autoindex			off;
+	listen 80;
+	listen [::]:80;
+	listen 443 ssl;
+	listen [::]:443 ssl;
+	ssl_certificate <...>;
+	ssl_certificate_key <...>;
+	root <...>;
+	server_name <...>;
+	autoindex off;
 
 
 	if ($request_method !~ ^(GET)$ ) {
@@ -32,13 +32,14 @@ server {
 	}
 
 	location /captcha/ {
-		access_log				<...>;
-		try_files				$uri $uri/ =404;
-		auth_basic				"Wanna key, senpai?~";
-		auth_basic_user_file	<...>;
-		
-        if ($http_user_agent !~* (python-requests) ) {
+		access_log <...>;
+		try_files $uri $uri/ =404;
+		auth_basic "Wanna key, senpai?~";
+		auth_basic_user_file <...>;
+
+		if ($http_user_agent !~* (python-requests) ) {
 			return	403;
 		}
 	}
+}
 ```
