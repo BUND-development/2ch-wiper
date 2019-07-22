@@ -1,0 +1,9 @@
+version: '3'
+services:
+  static:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: qtbuilder
+    stdin_open: true
+    tty: true

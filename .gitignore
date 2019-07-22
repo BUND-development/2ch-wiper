@@ -195,3 +195,8 @@ Thumbs.db
 # Чистим говно за вскодом
 .vs
 .vscode
+src/.qmake.stash
+src/wiper_plugin_import.cpp
+src/release/moc_predefs.h
+src/moc_predefs.h
+src/release
