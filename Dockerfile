@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:buster
 
 ### Prepare environment
 RUN apt update \
@@ -37,7 +37,6 @@ RUN apt update \
     wget \
     xz-utils \
     build-essential \
-    "^libxcb.*" \
     libx11-dev \
     libx11-xcb-dev \
     libxcursor-dev \
@@ -77,15 +76,14 @@ RUN apt update \
 RUN cd /opt \
   && git clone https://github.com/mxe/mxe.git \
   && cd mxe \
+  && git checkout tags/build-2019-06-02 \
   && make -j$(nproc --all) \
     qtbase \
     qtmultimedia
 
 ### Building static Qt toolchain
-### Note: if you getting error on this stage, it's probably like that the link is outdated
-### Just open http://download.qt.io/official_releases/qt/ and pick fresh release
 RUN cd /opt \
-  && wget http://download.qt.io/official_releases/qt/5.13/5.13.0/single/qt-everywhere-src-5.13.0.tar.xz \
+  && wget http://download.qt.io/archive/qt/5.13/5.13.0/single/qt-everywhere-src-5.13.0.tar.xz \
   && mv $(ls | grep qt-everywhere-src) qt.tar.xz \
   && tar xvf qt.tar.xz \
   && rm qt.tar.xz \
@@ -107,14 +105,15 @@ RUN cd /opt \
     -skip script \
     -skip scxml \
     -skip speech \
-    -system-xcb \
+    -skip qtconnectivity \
+    -qt-xcb \
     -qt-libpng \
     -no-libjpeg \
     -qt-zlib \
     -qt-pcre \
     -gtk \
-    -system-freetype \
-    -system-harfbuzz \
+    -qt-freetype \
+    -qt-harfbuzz \
     -pulseaudio \
     -alsa \
   && make -r -j$(nproc --all) \
