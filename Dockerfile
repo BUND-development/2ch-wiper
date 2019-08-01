@@ -84,7 +84,7 @@ RUN cd /opt \
 
 ### Building static Qt toolchain 
 ### x86_64-linux
-RUN cd qt-everywhere \
+RUN cd /opt/qt-everywhere \
   && ./configure \
     -static \
     -release \
@@ -118,7 +118,7 @@ RUN cd qt-everywhere \
   && make install
 
 ### i686-win
-RUN cd qt-everywhere \
+RUN cd /opt/qt-everywhere \
   && ./configure \
     -static \
     -release \
