@@ -1,15 +1,8 @@
-/*
-@font-face {
-	font-family: Anime;
-	src: url(gui/fonts/Anime Ace v05.ttf);
-}
-*/
-
 /* ГУИ */
 QWidget {
 	color: black;
-	font-family: sans-serif;
-	font-size: 14px !important; /* размер шрифта */
+	font-family: IBM Plex Sans;
+	font-size: 15px !important; /* размер шрифта */
 }
 GUI {
 	background: #363C42;
@@ -21,6 +14,7 @@ QLabel {
 
 /* Панель */
 #topBanner {
+	font-family: IBM Plex Sans;
 	font-size: 20px !important;
 	padding: 10px;
 	qproperty-alignment: AlignTop;
@@ -40,12 +34,6 @@ QLabel {
 }
 .tool-button:checked {
 	border-color: red;
-}
-.peedor-button {
-	font-size: 20px;
-	font-weight: bold;
-	background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #FD8585, stop:1 #FA5D5D);
-	border-radius: 3px;
 }
 .peedor-button:hover {
 	color: white;
@@ -79,11 +67,11 @@ QLabel {
 }
 #blockquote {
 	color: #C3C7C8;
-	font-family: "Anime Ace v05";
-	font-size: 12px !important;
+	font-family: IBM Plex Sans;
+	font-size: 14px !important;
 	padding: 3px 5px;
 	background: #363C42;
-	border: 5px solid #588E9B;
+	border: 2px solid #588E9B;
 	border-radius: 10px;
 }
 
@@ -110,6 +98,7 @@ QLabel {
 .gui-frame-header {
 	color: #C8C8C8;
 	font-size: 20px;
+	font-weight: bold;
 	text-transform: uppercase;
 }
 #mainBox, #shrapnelBox {
