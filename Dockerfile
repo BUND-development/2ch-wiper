@@ -37,6 +37,8 @@ RUN apt update \
     wget \
     xz-utils \
     build-essential \
+    "^libxcb.*" \
+    "*mingw*" \
     libx11-dev \
     libx11-xcb-dev \
     libxcursor-dev \
@@ -72,28 +74,23 @@ RUN apt update \
     libgtk-3-dev \
     libcups2-dev
 
-### Building MXE toolchain
-RUN cd /opt \
-  && git clone https://github.com/mxe/mxe.git \
-  && cd mxe \
-  && git checkout tags/build-2019-06-02 \
-  && make -j$(nproc --all) \
-    qtbase \
-    qtmultimedia
-
-### Building static Qt toolchain
+### Downloading static Qt toolchain
 RUN cd /opt \
   && wget http://download.qt.io/archive/qt/5.13/5.13.0/single/qt-everywhere-src-5.13.0.tar.xz \
   && mv $(ls | grep qt-everywhere-src) qt.tar.xz \
   && tar xvf qt.tar.xz \
   && rm qt.tar.xz \
-  && mv $(ls | grep qt-everywhere) qt-everywhere \
-  && cd qt-everywhere \
+  && mv $(ls | grep qt-everywhere) qt-everywhere
+
+### Building static Qt toolchain 
+### x86_64-linux
+RUN cd qt-everywhere \
   && ./configure \
     -static \
     -release \
     -silent \
-    -prefix /opt/qt-static \
+    -platform linux-g++ \
+    -prefix /opt/qt-linux-64 \
     -opensource \
     -confirm-license \
     -opengl \
@@ -118,17 +115,45 @@ RUN cd /opt \
     -alsa \
   && make -r -j$(nproc --all) \
   && cd /opt/qt-everywhere \
-  && make install \
-  && rm -rf /opt/qt-everywhere
+  && make install
 
+### i686-win
+RUN cd qt-everywhere \
+  && ./configure \
+    -static \
+    -release \
+    -silent \
+    -xplatform win32-g++ \
+    -prefix /opt/qt-win-32 \
+    -device-option CROSS_COMPILE=i686-w64-mingw32- \
+    -opensource \
+    -confirm-license \
+    -opengl \
+    -nomake examples \
+    -skip purchasing \
+    -skip serialbus \
+    -skip qtserialport \
+    -skip script \
+    -skip scxml \
+    -skip speech \
+    -skip qtconnectivity \
+    -qt-libpng \
+    -no-libjpeg \
+    -qt-zlib \
+    -qt-pcre \
+    -qt-freetype \
+    -qt-harfbuzz \
+  && make -r -j$(nproc --all) \
+  && cd /opt/qt-everywhere \
+  && make install
 
-### Build application for Windows x86 & Linux X86_64
+### TODO: Configure toolchain for i686-linux, x86_64-win
+
 COPY /src /tmp/build
-ENV PATH=/opt/mxe/usr/bin:$PATH
 RUN cd /tmp/build \
-  && /opt/mxe/usr/i686-w64-mingw32.static/qt5/bin/qmake \
+  && /opt/qt-linux-64/bin/qmake \
   && make \
-  && /opt/qt-static/bin/qmake \
+  && /opt/qt-win-32/bin/qmake \
   && make
 
 ### Finishing and cleanup
@@ -145,4 +170,4 @@ RUN cd /tmp/build \
   && echo "\n\n\033[1;33mBuilding complete. Don't forget to run \033[0;32m'docker cp qtbuilder:/tmp/release ./src'\033[1;33m in order to copy your files." \
   && echo "Have a very nice day~\033[0m\n"
 
-### Complete!
+# ### Complete!
