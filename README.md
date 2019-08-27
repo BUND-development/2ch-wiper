@@ -6,10 +6,10 @@
 ## Как поставить
 1. Скачайте установщик [питона](https://python.org) для вашей ОС. Установите, прожав **все галочки** в инсталлере!  
 1.1 Линуксоиды ставят python3 и python3-pip из своих реп.  
-2. Скачайте архив с вайпалкой со страницы [релизов](https://github.com/tsunamaru/2ch-wiper/releases), распакуйте.  
-3. Закиньте свои проксички в proxies.cfg  
-4. Опционально наполните папки images и videos контентом для вайпа, плюс копипасты (texts.txt).  
-5. Виндузятники жмякают wiper_win32.exe, линуксоиды запускают wiper_linux64 **из консоли**, это важно.  
+2. Скачайте архив с вайпалкой со страницы [релизов](https://github.com/tsunamaru/2ch-wiper/releases) и распакуйте куда-нибудь.  
+3. Опционально: закиньте свои проксички в proxies.cfg  
+4. Опционально: наполните папки images и videos контентом для вайпа, копипасты (texts.txt).  
+5. Виндузятники жмякают wiper_win(64|32).exe, линуксоиды запускают wiper_linux64 (<=2.7.1 запускаются из консоли, остальные можно из гуя).  
 6. ?????  
 7. Ну охуеть теперь.  
 
@@ -22,6 +22,8 @@
 ## Тупые вопросы, неочевидные моменты, возможные проблемы и способы их решения
 См. [docs/FAQ](https://github.com/tsunamaru/2ch-wiper/tree/master/docs/FAQ.md)
 
-## Вопросы?
-Telegram: [@tsunamaru](https://t.me/tsunamaru)  
-Почта: tsunamaru@airmail.cc  
+## License
+2ch-wiper: MIT  
+
+Rapidjson: MIT  
+rxvt-unicode: GNU GPLv3  

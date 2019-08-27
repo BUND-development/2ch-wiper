@@ -122,6 +122,11 @@ RUN cd /opt \
   && make install \
   && rm -rf /opt/qt-everywhere
 
+### Build rxvt-unicode
+COPY /src/rxvt-unicode /tmp/rxvt-unicode
+RUN cd /tmp/rxvt-unicode && \
+  ./configure --enable-everything && \
+  make
 
 ### Build application for Windows x86_64 / i686 & Linux x86_64
 COPY /src /tmp/build-common
@@ -148,6 +153,7 @@ RUN mkdir /tmp/release \
   && cp /tmp/build-linux64/wiper /tmp/release/wiper_linux64 \
   && cp -R /tmp/build-common/gui /tmp/release/gui \
   && cp -R /tmp/build-common/engine /tmp/release/engine \
+  && cp -R /tmp/rxvt-unicode /tmp/release/rxvt-unicode \
   && touch /tmp/release/.config \
   && touch /tmp/release/proxies.cfg \
   && touch /tmp/release/texts.txt \

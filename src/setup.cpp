@@ -302,7 +302,7 @@ vector<string> Setup::start () {
 
 string Setup::comline () {
 #ifdef __linux__
-    string command("python3 engine/main.py ");
+    string command("./rxvt-unicode/urxvt -bg black -fg white -fn "xft:DejaVu Sans Mono:pixelsize=14" -sr -e python3 engine/main.py ");
 #else
     string command("cmd /u /k python engine/main.py ");
 #endif
