@@ -302,13 +302,13 @@ vector<string> Setup::start () {
 
 string Setup::comline () {
 #ifdef __linux__
-    string command("./rxvt-unicode/urxvt -bg black -fg white -fn "xft:DejaVu Sans Mono:pixelsize=14" -sr -e python3 engine/main.py ");
+    string command("urxvt -bg black -fg white -fn 'xft:DejaVu Sans Mono:pixelsize=14' -sr -e sh -c \"python3 engine/main.py ");
 #else
     string command("cmd /u /k python engine/main.py ");
 #endif
 
-    command += ("-u \"" + username + "\" ");
-    command += ("--password \"" + password + "\" ");
+    command += ("-u '" + username + "' ");
+    command += ("--password '" + password + "' ");
 
     command += ("-b " + board + " -t " + thread + " -c " + chaos + " -p " + potocksCount + " -d " + logMode);
     command += logMode;
@@ -365,5 +365,10 @@ string Setup::comline () {
             command += (" " + shrapnelThreads[i]);
 
 ///    cout << command << endl << endl << endl << endl;
+#ifdef __linux__
+    command += (" && echo '' && echo '----- terminal now can be closed -----' && sleep infinity\"");
     return command;
+#else
+    return command;
+#endif
 }

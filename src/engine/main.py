@@ -153,8 +153,8 @@ class Post:
 
     def prepare(self, TIMEOUT, PAUSE):
         try:
-            self.buffer["chaptcha_id"], self.buffer["chaptcha_value"] = Captcha(self.proxy, self.agent, self.board, self.thread, self.solver, TIMEOUT, self.captchaType).solve()
             time.sleep(PAUSE)
+            self.buffer["chaptcha_id"], self.buffer["chaptcha_value"] = Captcha(self.proxy, self.agent, self.board, self.thread, self.solver, TIMEOUT, self.captchaType).solve()
             print(self.proxy["http"], "solving captcha")
             if self.captchaType == "2ch":
                 self.params.append(("2chaptcha_id", self.buffer["chaptcha_id"]))

@@ -29,6 +29,7 @@ RUN apt update \
     p7zip-full \
     patch \
     perl \
+    libperl-dev \
     pkg-config \
     python \
     ruby \
@@ -123,17 +124,19 @@ RUN cd /opt \
   && rm -rf /opt/qt-everywhere
 
 ### Build rxvt-unicode
-COPY /src/rxvt-unicode /tmp/rxvt-unicode
-RUN cd /tmp/rxvt-unicode && \
-  ./configure --enable-everything && \
-  make
+RUN cd /tmp \
+  && git clone https://github.com/exg/rxvt-unicode.git \
+  && cd rxvt-unicode \
+  && git clone https://github.com/yusiwen/libptytty.git \
+  && git clone https://github.com/yusiwen/libev.git \
+  && ./configure --enable-everything \
+  && make
 
 ### Build application for Windows x86_64 / i686 & Linux x86_64
 COPY /src /tmp/build-common
 COPY /src /tmp/build-win32
 COPY /src /tmp/build-win64
 COPY /src /tmp/build-linux64
-
 ENV PATH=/opt/mxe/usr/bin:$PATH
 
 RUN cd /tmp/build-win32 \
@@ -153,7 +156,6 @@ RUN mkdir /tmp/release \
   && cp /tmp/build-linux64/wiper /tmp/release/wiper_linux64 \
   && cp -R /tmp/build-common/gui /tmp/release/gui \
   && cp -R /tmp/build-common/engine /tmp/release/engine \
-  && cp -R /tmp/rxvt-unicode /tmp/release/rxvt-unicode \
   && touch /tmp/release/.config \
   && touch /tmp/release/proxies.cfg \
   && touch /tmp/release/texts.txt \
