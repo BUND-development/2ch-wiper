@@ -8,22 +8,27 @@ import urllib3
 from bs4 import BeautifulSoup
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+
+
+headers = {}
+headers["Host"] = "2ch.hk"
+headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0"
+headers["Accept"] = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+headers["Accept-Language"] = "ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3"
+headers["Accept-Encoding"] = "gzip, deflate, br"
+headers["Connection"] = "close"
+headers["UPGRADE-INSECURE-REQUESTS"] = "1"
+headers["DNT"] = "1"
+
+
+
 # ====== board scheme ======
 class Catalog:
 
     def __init__(self, board):
         self.board = board  # board index
         print("\nDownloading board /" + self.board + "/")
-        self.headers = {}
-        self.headers["Host"] = "2ch.hk"
-        self.headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0"
-        self.headers["Accept"] = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
-        self.headers["Accept-Language"] = "ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3"
-        self.headers["Accept-Encoding"] = "gzip, deflate, br"
-        self.headers["Connection"] = "close"
-        self.headers["UPGRADE-INSECURE-REQUESTS"] = "1"
-        self.headers["DNT"] = "1"
-        self.schema = json.loads(requests.get(''.join(["https://5.61.239.35/", board, "/catalog.json"]), headers=self.headers, verify = False).text)  # board DOM
+        self.schema = requests.get(''.join(["https://5.61.239.35/", board, "/catalog.json"]), headers=headers, verify = False).json() # board DOM
         self.threadsCount = len(self.schema["threads"])  # active threads count
 
 
@@ -38,7 +43,7 @@ class Media:
     # === downloading attach from server ===
     def download(self):
         if self.cached == False:
-            self.file = requests.get("https://5.61.239.35" + self.path, verify = False).content  # attachment itself
+            self.file = requests.get("https://5.61.239.35" + self.path, headers=headers, verify = False).content  # attachment itself
             self.cached = True
 
 
@@ -113,7 +118,7 @@ class Thread:
         self.ID = ID  # thread number on board
         if (int(ID) != 0):
             print("\nDownloading thread", self.ID)
-            self.schema = json.loads(requests.get(''.join(["https://5.61.239.35/", board, "/res/", ID, ".json"]), verify = False).text)  # DOM
+            self.schema = requests.get(''.join(["https://5.61.239.35/", board, "/res/", ID, ".json"]), headers=headers, verify = False).json()  # DOM
             self.postsCount = self.schema["posts_count"] + 1  # posts count in thread
             self.lastID = str(self.schema["max_num"])  # last post number
             self.posts = self.download_posts(mode, triggerForm)  # posts
