@@ -14,7 +14,16 @@ class Catalog:
     def __init__(self, board):
         self.board = board  # board index
         print("\nDownloading board /" + self.board + "/")
-        self.schema = json.loads(requests.get(''.join(["https://5.61.239.35/", board, "/catalog.json"]), verify = False).text)  # board DOM
+        self.headers = {}
+        self.headers["Host"] = "2ch.hk"
+        self.headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0"
+        self.headers["Accept"] = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+        self.headers["Accept-Language"] = "ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3"
+        self.headers["Accept-Encoding"] = "gzip, deflate, br"
+        self.headers["Connection"] = "close"
+        self.headers["UPGRADE-INSECURE-REQUESTS"] = "1"
+        self.headers["DNT"] = "1"
+        self.schema = json.loads(requests.get(''.join(["https://5.61.239.35/", board, "/catalog.json"]), headers=self.headers, verify = False).text)  # board DOM
         self.threadsCount = len(self.schema["threads"])  # active threads count
 
 
