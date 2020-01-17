@@ -28,7 +28,7 @@ class Catalog:
     def __init__(self, board):
         self.board = board  # board index
         print("\nDownloading board /" + self.board + "/")
-        self.schema = requests.get(''.join(["https://5.61.239.35/", board, "/catalog.json"]), headers=headers, verify = False).json() # board DOM
+        self.schema = requests.get(''.join(["https://5.61.239.36/", board, "/catalog.json"]), headers=headers, verify = False).json() # board DOM
         self.threadsCount = len(self.schema["threads"])  # active threads count
 
 
@@ -43,7 +43,7 @@ class Media:
     # === downloading attach from server ===
     def download(self):
         if self.cached == False:
-            self.file = requests.get("https://5.61.239.35" + self.path, headers=headers, verify = False).content  # attachment itself
+            self.file = requests.get("https://5.61.239.36" + self.path, headers=headers, verify = False).content  # attachment itself
             self.cached = True
 
 
@@ -118,7 +118,7 @@ class Thread:
         self.ID = ID  # thread number on board
         if (int(ID) != 0):
             print("\nDownloading thread", self.ID)
-            self.schema = requests.get(''.join(["https://5.61.239.35/", board, "/res/", ID, ".json"]), headers=headers, verify = False).json()  # DOM
+            self.schema = requests.get(''.join(["https://5.61.239.36/", board, "/res/", ID, ".json"]), headers=headers, verify = False).json()  # DOM
             self.postsCount = self.schema["posts_count"] + 1  # posts count in thread
             self.lastID = str(self.schema["max_num"])  # last post number
             self.posts = self.download_posts(mode, triggerForm)  # posts

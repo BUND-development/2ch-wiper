@@ -73,9 +73,9 @@ class Captcha:
 
     def __init__(self, proxy, agent, board, thread, solver, TIMEOUT, captchaType):
         if (captchaType) == "2ch":
-            self.api = "https://5.61.239.35/api/captcha/2chaptcha/"
+            self.api = "https://5.61.239.36/api/captcha/2chaptcha/"
         elif (captchaType) == "re":
-            self.api = "https://5.61.239.35/api/captcha/recaptcha/"
+            self.api = "https://5.61.239.36/api/captcha/recaptcha/"
         self.proxy = proxy
         self.board = board
         self.thread = thread
@@ -271,7 +271,7 @@ class Post:
             #print(self.proxy["http"], "ready")
             #time.sleep(PAUSE)
             print(self.proxy["http"], "posting")
-            response = postreq("https://5.61.239.35/makaba/posting.fcgi?json=1", files = self.params, proxies = self.proxy, headers = self.headers, timeout = TIMEOUT, verify = False).json()
+            response = postreq("https://5.61.239.36/makaba/posting.fcgi?json=1", files = self.params, proxies = self.proxy, headers = self.headers, timeout = TIMEOUT, verify = False).json()
             Stats.printStats(badproxies, forbiddenproxy, deadproxy)
             return response['Status'] == 'OK' or 'Redirect', response
         except requests.exceptions.ReadTimeout:
@@ -325,9 +325,9 @@ class Wiper:
 
     def set_solver(self, solver):
         # disabled until 2chaptcha will work again
-        captcha = requests.get("https://5.61.239.35/api/captcha/2chaptcha/id?board=b&thread=0", headers = {"User-Agent": self.agents[0]}, timeout = self.setup.TIMEOUT, verify = False).json()
+        captcha = requests.get("https://5.61.239.36/api/captcha/2chaptcha/id?board=b&thread=0", headers = {"User-Agent": self.agents[0]}, timeout = self.setup.TIMEOUT, verify = False).json()
         captchaID = captcha["id"]
-        image = requests.get("https://5.61.239.35/api/captcha/2chaptcha/image/" + captchaID, headers = {"User-Agent": self.agents[0]}, timeout = self.setup.TIMEOUT, verify = False).content
+        image = requests.get("https://5.61.239.36/api/captcha/2chaptcha/image/" + captchaID, headers = {"User-Agent": self.agents[0]}, timeout = self.setup.TIMEOUT, verify = False).content
         error = open("engine/error.gif","rb")
 
         if image == error.read():
